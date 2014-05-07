@@ -38,6 +38,9 @@ setup(name='cpskin.policy',
       install_requires=[
           'setuptools',
           'Plone',
+          'cpskin.menu',
+          'cpskin.theme',
+          'cpskin.workflow'
           # -*- Extra requirements: -*-
       ],
       entry_points={},

@@ -1,3 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+  <!-- Dependencies -->
+  <include package="cpskin.menu" />
+  <include package="cpskin.theme" />
+  <include package="cpskin.workflow" />
+
 </configure>
