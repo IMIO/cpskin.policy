@@ -5,4 +5,10 @@
   <include package="cpskin.theme" />
   <include package="cpskin.workflow" />
 
+  <utility factory=".config.HiddenProfiles"
+           name="cpskin.policy" />
+
+  <utility factory=".config.HiddenProducts"
+           name="cpskin.policy" />
+
 </configure>
