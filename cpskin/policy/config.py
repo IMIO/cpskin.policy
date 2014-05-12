@@ -12,6 +12,7 @@ class HiddenProfiles(object):
         return [u'cpskin.core:default',
                 u'cpskin.core:members-configuration',
                 u'cpskin.core:uninstall',
+                u'cpskin.slider:default',
                 u'cpskin.workflow:default',
                 u'cpskin.workflow:members-configuration',
                 u'cpskin.workflow:uninstall']
@@ -25,5 +26,6 @@ class HiddenProducts(object):
         return [u'cpskin.core',
                 u'cpskin.locales',
                 u'cpskin.menu',
+                u'cpskin.slider',
                 u'cpskin.theme',
                 u'cpskin.workflow']

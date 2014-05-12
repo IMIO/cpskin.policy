@@ -39,6 +39,7 @@ setup(name='cpskin.policy',
           'setuptools',
           'Plone',
           'cpskin.menu',
+          'cpskin.slider',
           'cpskin.theme',
           'cpskin.workflow'
           # -*- Extra requirements: -*-

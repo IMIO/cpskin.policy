@@ -3,6 +3,7 @@
   <!-- Dependencies -->
   <include package="cpskin.menu" />
   <include package="cpskin.theme" />
+  <include package="cpskin.slider" />
   <include package="cpskin.workflow" />
 
   <utility factory=".config.HiddenProfiles"
