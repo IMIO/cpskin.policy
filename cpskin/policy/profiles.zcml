@@ -16,7 +16,7 @@
         name="members-configuration"
         title="cpskin.policy: members configuration"
         directory="profiles/members-config"
-        description='Installs members configuration'
+        description='Installs CPSkin policy with members configuration'
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
