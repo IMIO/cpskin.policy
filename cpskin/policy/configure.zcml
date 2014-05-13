@@ -6,6 +6,8 @@
   <include package="cpskin.slider" />
   <include package="cpskin.workflow" />
 
+  <include file="profiles.zcml" />
+
   <utility factory=".config.HiddenProfiles"
            name="cpskin.policy" />
 
