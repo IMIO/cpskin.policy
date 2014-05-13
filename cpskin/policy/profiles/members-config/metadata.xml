@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <metadata>
   <dependencies>
+    <dependency>profile-cpskin.policy:default</dependency>
     <dependency>profile-cpskin.workflow:members-configuration</dependency>
   </dependencies>
 </metadata>
