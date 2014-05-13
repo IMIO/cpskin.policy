@@ -12,6 +12,7 @@ class HiddenProfiles(object):
         return [u'cpskin.core:default',
                 u'cpskin.core:members-configuration',
                 u'cpskin.core:uninstall',
+                u'cpskin.menu:default',
                 u'cpskin.policy:uninstall',
                 u'cpskin.slider:default',
                 u'cpskin.workflow:default',
