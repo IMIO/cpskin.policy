@@ -2,6 +2,7 @@
 <metadata>
   <dependencies>
     <dependency>profile-cpskin.policy:default</dependency>
+    <dependency>profile-cpskin.core:members-configuration</dependency>
     <dependency>profile-cpskin.workflow:members-configuration</dependency>
   </dependencies>
 </metadata>

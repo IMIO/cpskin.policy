@@ -7,7 +7,7 @@
         name="default"
         title="cpskin.policy"
         directory="profiles/default"
-        description='Installs CPSkin policy'
+        description="Installs CPSkin policy"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
@@ -16,7 +16,7 @@
         name="members-configuration"
         title="cpskin.policy: members configuration"
         directory="profiles/members-config"
-        description='Installs CPSkin policy with members configuration'
+        description="Installs CPSkin policy with members configuration"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
@@ -25,7 +25,7 @@
         name="uninstall"
         title="cpskin.policy: uninstall"
         directory="profiles/uninstall"
-        description='Uninstalls CPSkin policy'
+        description="Uninstalls CPSkin policy"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />

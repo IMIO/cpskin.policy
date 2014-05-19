@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <metadata>
   <dependencies>
+    <dependency>profile-cpskin.core:uninstall</dependency>
     <dependency>profile-cpskin.workflow:uninstall</dependency>
   </dependencies>
 </metadata>
