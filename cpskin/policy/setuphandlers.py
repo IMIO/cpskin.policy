@@ -1,4 +1,6 @@
 import logging
+from zope.component import getUtility
+from plone.contentrules.engine.interfaces import IRuleStorage
 
 logger = logging.getLogger('cpskin.workflow')
 
@@ -14,6 +16,17 @@ def installPolicy(context):
     setReviewStateCriterion(portal, 'events', states)
 
 
+def uninstallPolicy(context):
+    if context.readDataFile('cpskin.policy-uninstall.txt') is None:
+        return
+
+    logger.info('Uninstalling policy')
+    portal = context.getSite()
+    deleteContentRules(portal)
+    setReviewStateCriterion(portal, 'news', ['published'])
+    setReviewStateCriterion(portal, 'events', ['published'])
+
+
 def setReviewStateCriterion(portal, folderName, values):
     """
     Change criterion on review_state by selection_list
@@ -27,3 +40,11 @@ def setReviewStateCriterion(portal, folderName, values):
             if query['i'] == 'review_state':
                 query['v'] = values
         collection.setQuery(queries)
+
+
+def deleteContentRules(portal):
+    storage = getUtility(IRuleStorage)
+    if 'citizen-move-event' in storage:
+        del storage['citizen-move-event']
+    if 'citizen-reject-event' in storage:
+        del storage['citizen-reject-event']
