@@ -44,5 +44,8 @@ setup(name='cpskin.policy',
           'cpskin.workflow'
           # -*- Extra requirements: -*-
       ],
+      extras_require=dict(
+          test=['plone.app.testing'],
+      ),
       entry_points={},
 )
