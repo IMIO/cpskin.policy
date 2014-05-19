@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="cpskin.policy.default"
+               handler="cpskin.policy.setuphandlers.installPolicy"
+               title="cpskin.policy: install import step">
+  </import-step>
+</import-steps>
