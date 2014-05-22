@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 import logging
 from zope.component import getUtility
 from plone.contentrules.engine.interfaces import IRuleStorage
 
-logger = logging.getLogger('cpskin.workflow')
+logger = logging.getLogger('cpskin.policy')
 
 
 def installPolicy(context):
@@ -14,6 +15,8 @@ def installPolicy(context):
     states = ['published_and_hidden', 'published_and_shown']
     setReviewStateCriterion(portal, 'news', states)
     setReviewStateCriterion(portal, 'events', states)
+    setNotExpiredCriterion(portal, 'news')
+    setNotExpiredCriterion(portal, 'events')
 
 
 def uninstallPolicy(context):
@@ -36,9 +39,37 @@ def setReviewStateCriterion(portal, folderName, values):
     if folder and hasattr(folder, 'aggregator'):
         collection = folder.aggregator
         queries = collection.query
-        for query in queries:
+
+        # Remove existing review state query
+        for query in queries[:]:
             if query['i'] == 'review_state':
-                query['v'] = values
+                queries.remove(query)
+
+        # Create new review state query
+        review_state_query = {'i': 'review_state',
+                              'o': 'plone.app.querystring.operation.selection.is',
+                              'v': values}
+        queries.append(review_state_query)
+
+        collection.setQuery(queries)
+
+
+def setNotExpiredCriterion(portal, folderName):
+    """
+    Change criterion so expired items are not shown
+    """
+    folder = getattr(portal, folderName, None)
+    if folder and hasattr(folder, 'aggregator'):
+        collection = folder.aggregator
+        queries = collection.query
+
+        # If reinstall, remove it first
+        for query in queries[:]:
+            if query['i'] == 'expires':
+                queries.remove(query)
+
+        queries.append({'i': 'expires',
+                        'o': 'plone.app.querystring.operation.date.afterToday'})
         collection.setQuery(queries)
 
 
