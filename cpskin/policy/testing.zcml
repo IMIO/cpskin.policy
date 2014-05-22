@@ -2,6 +2,7 @@
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
 
   <include file="configure.zcml" />
+  <include package="cpskin.core" file="testing.zcml" />
   <include package="cpskin.workflow" file="testing.zcml" />
 
   <genericsetup:registerProfile
