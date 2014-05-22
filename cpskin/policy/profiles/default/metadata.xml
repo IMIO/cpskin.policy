@@ -2,7 +2,8 @@
 <metadata>
   <dependencies>
     <dependency>profile-cpskin.core:default</dependency>
-    <dependency>profile-cpskin.slider:default</dependency>
     <dependency>profile-cpskin.workflow:default</dependency>
+    <dependency>profile-cpskin.slider:default</dependency>
+    <dependency>profile-cpskin.theme:default</dependency>
   </dependencies>
 </metadata>

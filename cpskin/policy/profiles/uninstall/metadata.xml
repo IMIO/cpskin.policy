@@ -3,5 +3,6 @@
   <dependencies>
     <dependency>profile-cpskin.core:uninstall</dependency>
     <dependency>profile-cpskin.workflow:uninstall</dependency>
+    <dependency>profile-cpskin.theme:uninstall</dependency>
   </dependencies>
 </metadata>

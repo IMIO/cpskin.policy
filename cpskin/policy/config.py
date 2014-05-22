@@ -15,6 +15,7 @@ class HiddenProfiles(object):
                 u'cpskin.menu:default',
                 u'cpskin.policy:uninstall',
                 u'cpskin.slider:default',
+                u'cpskin.theme:default',
                 u'cpskin.theme:members-configuration',
                 u'cpskin.theme:uninstall',
                 u'cpskin.workflow:default',
