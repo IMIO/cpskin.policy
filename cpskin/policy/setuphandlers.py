@@ -12,11 +12,35 @@ def installPolicy(context):
 
     logger.info('Installing policy')
     portal = context.getSite()
-    states = ['published_and_hidden', 'published_and_shown']
-    setReviewStateCriterion(portal, 'news', states)
-    setReviewStateCriterion(portal, 'events', states)
-    setNotExpiredCriterion(portal, 'news')
-    setNotExpiredCriterion(portal, 'events')
+
+    # review_state
+    review_index = 'review_state'
+    review_operator = 'plone.app.querystring.operation.selection.is'
+    review_states = ['published_and_hidden', 'published_and_shown']
+
+    setCriterion(portal=portal,
+                 folder_name='news',
+                 index=review_index,
+                 operator=review_operator,
+                 value=review_states)
+    setCriterion(portal=portal,
+                 folder_name='events',
+                 index=review_index,
+                 operator=review_operator,
+                 value=review_states)
+
+    # expires
+    not_expired_index = 'expires'
+    not_expired_operator = 'plone.app.querystring.operation.date.afterToday'
+
+    setCriterion(portal=portal,
+                 folder_name='news',
+                 index=not_expired_index,
+                 operator=not_expired_operator)
+    setCriterion(portal=portal,
+                 folder_name='events',
+                 index=not_expired_index,
+                 operator=not_expired_operator)
 
 
 def uninstallPolicy(context):
@@ -26,50 +50,45 @@ def uninstallPolicy(context):
     logger.info('Uninstalling policy')
     portal = context.getSite()
     deleteContentRules(portal)
-    setReviewStateCriterion(portal, 'news', ['published'])
-    setReviewStateCriterion(portal, 'events', ['published'])
+
+    review_index = 'review_state'
+    review_operator = 'plone.app.querystring.operation.selection.is'
+    review_state = ['published']
+
+    setCriterion(portal=portal,
+                 folder_name='news',
+                 index=review_index,
+                 operator=review_operator,
+                 value=review_state)
+    setCriterion(portal=portal,
+                 folder_name='events',
+                 index=review_index,
+                 operator=review_operator,
+                 value=review_state)
 
 
-def setReviewStateCriterion(portal, folderName, values):
+def setCriterion(portal, folder_name, index, operator, value=None):
     """
-    Change criterion on review_state by selection_list
-    (published_and_hidden and published_and_shown if installed)
+    Change existing criterion to collection, or add a new one
     """
-    folder = getattr(portal, folderName, None)
+    folder = getattr(portal, folder_name, None)
     if folder and hasattr(folder, 'aggregator'):
         collection = folder.aggregator
         queries = collection.query
 
-        # Remove existing review state query
+        # Remove existing query, usefull for reinstalling too
         for query in queries[:]:
-            if query['i'] == 'review_state':
+            if query['i'] == index:
                 queries.remove(query)
 
-        # Create new review state query
-        review_state_query = {'i': 'review_state',
-                              'o': 'plone.app.querystring.operation.selection.is',
-                              'v': values}
-        queries.append(review_state_query)
+        # Create new query
+        new_query = {'i': index,
+                     'o': operator}
+        if value is not None:
+            new_query['v'] = value
 
-        collection.setQuery(queries)
+        queries.append(new_query)
 
-
-def setNotExpiredCriterion(portal, folderName):
-    """
-    Change criterion so expired items are not shown
-    """
-    folder = getattr(portal, folderName, None)
-    if folder and hasattr(folder, 'aggregator'):
-        collection = folder.aggregator
-        queries = collection.query
-
-        # If reinstall, remove it first
-        for query in queries[:]:
-            if query['i'] == 'expires':
-                queries.remove(query)
-
-        queries.append({'i': 'expires',
-                        'o': 'plone.app.querystring.operation.date.afterToday'})
         collection.setQuery(queries)
 
 
