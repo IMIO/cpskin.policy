@@ -3,6 +3,8 @@
   <dependencies>
     <dependency>profile-cpskin.core:uninstall</dependency>
     <dependency>profile-cpskin.workflow:uninstall</dependency>
+    <dependency>profile-cpskin.slider:uninstall</dependency>
+    <dependency>profile-cpskin.menu:uninstall</dependency>
     <dependency>profile-cpskin.theme:uninstall</dependency>
   </dependencies>
 </metadata>

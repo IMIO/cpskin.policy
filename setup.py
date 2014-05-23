@@ -38,6 +38,7 @@ setup(name='cpskin.policy',
       install_requires=[
           'setuptools',
           'Plone',
+          'cpskin.core',
           'cpskin.menu',
           'cpskin.slider',
           'cpskin.theme',
