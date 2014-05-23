@@ -22,7 +22,7 @@
   </conditions>
   <actions>
    <action type="plone.actions.Move">
-    <property name="target_folder">/events</property>
+    <property name="target_folder">/evenements</property>
    </action>
    <action type="plone.actions.Workflow">
     <property name="transition">publish_and_hide</property>

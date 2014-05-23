@@ -19,12 +19,12 @@ def installPolicy(context):
     review_states = ['published_and_hidden', 'published_and_shown']
 
     setCriterion(portal=portal,
-                 folder_name='news',
+                 folder_name='actualites',
                  index=review_index,
                  operator=review_operator,
                  value=review_states)
     setCriterion(portal=portal,
-                 folder_name='events',
+                 folder_name='evenements',
                  index=review_index,
                  operator=review_operator,
                  value=review_states)
@@ -34,11 +34,11 @@ def installPolicy(context):
     not_expired_operator = 'plone.app.querystring.operation.date.afterToday'
 
     setCriterion(portal=portal,
-                 folder_name='news',
+                 folder_name='actualites',
                  index=not_expired_index,
                  operator=not_expired_operator)
     setCriterion(portal=portal,
-                 folder_name='events',
+                 folder_name='evenements',
                  index=not_expired_index,
                  operator=not_expired_operator)
 
@@ -56,12 +56,12 @@ def uninstallPolicy(context):
     review_state = ['published']
 
     setCriterion(portal=portal,
-                 folder_name='news',
+                 folder_name='actualites',
                  index=review_index,
                  operator=review_operator,
                  value=review_state)
     setCriterion(portal=portal,
-                 folder_name='events',
+                 folder_name='evenements',
                  index=review_index,
                  operator=review_operator,
                  value=review_state)
@@ -72,8 +72,8 @@ def setCriterion(portal, folder_name, index, operator, value=None):
     Change existing criterion to collection, or add a new one
     """
     folder = getattr(portal, folder_name, None)
-    if folder and hasattr(folder, 'aggregator'):
-        collection = folder.aggregator
+    if folder and hasattr(folder, 'index'):
+        collection = folder.index
         queries = collection.query
 
         # Remove existing query, usefull for reinstalling too
