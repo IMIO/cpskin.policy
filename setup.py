@@ -40,6 +40,7 @@ setup(name='cpskin.policy',
           'Plone',
           'cpskin.core',
           'cpskin.menu',
+          'cpskin.minisite',
           'cpskin.slider',
           'cpskin.theme',
           'cpskin.workflow'

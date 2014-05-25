@@ -3,6 +3,7 @@
   <!-- Dependencies -->
   <include package="cpskin.core" />
   <include package="cpskin.menu" />
+  <include package="cpskin.minisite" />
   <include package="cpskin.theme" />
   <include package="cpskin.slider" />
   <include package="cpskin.workflow" />

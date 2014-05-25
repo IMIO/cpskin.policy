@@ -2,6 +2,6 @@ Changelog
 =========
 
 4.0 (unreleased)
-------------------
+----------------
 
 - Initial release

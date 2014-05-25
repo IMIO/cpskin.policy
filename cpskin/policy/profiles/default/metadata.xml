@@ -5,6 +5,7 @@
     <dependency>profile-cpskin.workflow:default</dependency>
     <dependency>profile-cpskin.slider:default</dependency>
     <dependency>profile-cpskin.menu:default</dependency>
+    <dependency>profile-cpskin.minisite:default</dependency>
     <dependency>profile-cpskin.theme:default</dependency>
   </dependencies>
 </metadata>
