@@ -43,7 +43,7 @@ setup(name='cpskin.policy',
           'cpskin.minisite',
           'cpskin.slider',
           'cpskin.theme',
-          'cpskin.workflow'
+          'cpskin.workflow',
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(
