@@ -8,7 +8,6 @@ from zope.component import getUtility
 import logging
 
 
-
 logger = logging.getLogger('cpskin.policy')
 
 
@@ -96,7 +95,6 @@ def createEventsAndNews(portal):
     """
     Inspired by Products.CMFPlone.setuphandlers
     """
-    existing = portal.keys()
     language = portal.Language()
     wftool = getToolByName(portal, "portal_workflow")
     actu_folder = getattr(portal, 'actualites')
