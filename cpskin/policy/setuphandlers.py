@@ -58,6 +58,8 @@ def installPolicy(context):
                  operator=not_expired_operator)
 
     renameIndexhtml(portal)
+    if portal.hasObject('Members'):
+        renameIndexhtml(portal['Members'])
     portal.setLayout('folderview')
 
 
