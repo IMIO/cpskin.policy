@@ -64,10 +64,8 @@ def installPolicy(context):
 
 def renameIndexhtml(portal):
     if portal.get('index_html'):
-        import pdb; pdb.set_trace()
         # Should be deteled
         api.content.rename(obj=portal['index_html'], new_id='index_html.old')
-
 
 
 def uninstallPolicy(context):
