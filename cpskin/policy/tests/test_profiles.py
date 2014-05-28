@@ -12,7 +12,13 @@ class TestProfiles(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
 
-    def test_profiles(self):
-        applyProfile(self.portal, 'cpskin.policy:members-configuration')
+    def test_uninstall(self):
+        applyProfile(self.portal, 'cpskin.policy:uninstall')
+
+    def test_reinstall(self):
         applyProfile(self.portal, 'cpskin.policy:uninstall')
         applyProfile(self.portal, 'cpskin.policy:default')
+
+    def test_uninstall_with_members(self):
+        applyProfile(self.portal, 'cpskin.policy:members-configuration')
+        applyProfile(self.portal, 'cpskin.policy:uninstall')
