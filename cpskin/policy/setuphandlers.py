@@ -2,9 +2,12 @@
 from Products.ATContentTypes.lib import constraintypes
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
+from cpskin.core.viewlets.interfaces import (IViewletMenuToolsFaceted,
+                                             IViewletMenuToolsBox)
 from plone import api
 from plone.contentrules.engine.interfaces import IRuleStorage
 from zope.component import getUtility
+from zope.interface import alsoProvides
 import logging
 
 
@@ -62,6 +65,7 @@ def installPolicy(context):
         renameIndexhtml(portal['Members'])
     portal.setLayout('folderview')
 
+    addMenuToolsViewlet(portal)
 
 def renameIndexhtml(portal):
     if portal.get('index_html'):
@@ -218,3 +222,29 @@ def deleteContentRules(portal):
         del storage['citizen-move-event']
     if 'citizen-reject-event' in storage:
         del storage['citizen-reject-event']
+
+def addMenuToolsViewlet(portal):
+    menu_tools_faceted = {'id':'naviguer-par-facettes', 'title':u'Naviguer par facettes'}
+    menu_tools_box = {'id':'boite-a-outils', 'title':u'Boite à outils '}
+
+    folder = portal.get(menu_tools_faceted['id'])
+    if not folder:
+        folder = api.content.create(container=portal, type='Folder',
+                                      id=menu_tools_faceted['id'],
+                                      title=menu_tools_faceted['title'])
+
+    alsoProvides(folder, IViewletMenuToolsFaceted)
+    if api.content.get_state(obj=folder) != 'published_and_hidden':
+        api.content.transition(obj=folder, transition='publish_and_hide')
+    folder.reindexObject()
+
+    folder = portal.get(menu_tools_box['id'])
+    if not folder:
+        folder = api.content.create(container=portal, type='Folder',
+                                      id=menu_tools_box['id'],
+                                      title=menu_tools_box['title'])
+
+    alsoProvides(folder, IViewletMenuToolsBox)
+    if api.content.get_state(obj=folder) != 'published_and_hidden':
+        api.content.transition(obj=folder, transition='publish_and_hide')
+    folder.reindexObject()

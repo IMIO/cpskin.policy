@@ -47,7 +47,7 @@ setup(name='cpskin.policy',
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(
-          test=['plone.app.testing'],
+          test=['plone.app.robotframework'],
       ),
       entry_points={},
 )
