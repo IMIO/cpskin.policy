@@ -1,6 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
   <!-- Dependencies -->
+  <include package="plone.app.caching" />
+
   <include package="cpskin.core" />
   <include package="cpskin.menu" />
   <include package="cpskin.minisite" />
