@@ -1,0 +1,22 @@
+<registry>
+
+  <record field="enabled" interface="plone.caching.interfaces.ICacheSettings" name="plone.caching.interfaces.ICacheSettings.enabled">
+    <field type="plone.registry.field.Bool">
+      <default>False</default>
+      <description>If not set, no caching operations will be attempted</description>
+      <title>Globally enabled</title>
+    </field>
+    <value>True</value>
+  </record>
+
+  <record name="plone.app.caching.interfaces.IPloneCacheSettings.purgedContentTypes">
+        <value purge="False">
+          <element>File</element>
+          <element>Image</element>
+          <element>News Item</element>
+          <element>Event</element>
+          <element>Document</element>
+        </value>
+  </record>
+
+</registry>

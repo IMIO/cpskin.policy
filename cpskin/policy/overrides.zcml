@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="cpskin">
+
+      <include package="cpskin.menu" file="overrides.zcml"/>
+
+</configure>
