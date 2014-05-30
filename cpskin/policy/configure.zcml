@@ -18,4 +18,6 @@
   <utility factory=".config.HiddenProducts"
            name="cpskin.policy" />
 
+  <includeOverrides file="overrides.zcml"/>
+
 </configure>
