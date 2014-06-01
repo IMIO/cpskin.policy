@@ -67,6 +67,7 @@ def installPolicy(context):
 
     addMenuToolsViewlet(portal)
 
+
 def renameIndexhtml(portal):
     if portal.get('index_html'):
         # Should be deteled
@@ -223,9 +224,12 @@ def deleteContentRules(portal):
     if 'citizen-reject-event' in storage:
         del storage['citizen-reject-event']
 
+
 def addMenuToolsViewlet(portal):
-    menu_tools_faceted = {'id':'naviguer-par-facettes', 'title':u'Naviguer par facettes'}
-    menu_tools_box = {'id':'boite-a-outils', 'title':u'Boite à outils '}
+    menu_tools_faceted = {'id': 'naviguer-par-facettes',
+                          'title': u'Naviguer par facettes'}
+    menu_tools_box = {'id': 'boite-a-outils',
+                      'title': u'Boite à outils'}
 
     folder = portal.get(menu_tools_faceted['id'])
     if not folder:
