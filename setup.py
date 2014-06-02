@@ -38,6 +38,7 @@ setup(name='cpskin.policy',
       install_requires=[
           'setuptools',
           'Plone',
+          'collective.contentrules.runscript',
           'cpskin.core',
           'cpskin.menu',
           'cpskin.minisite',

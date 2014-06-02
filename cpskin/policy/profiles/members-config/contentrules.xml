@@ -24,8 +24,11 @@
    <action type="plone.actions.Move">
     <property name="target_folder">/evenements</property>
    </action>
-   <action type="plone.actions.Workflow">
-    <property name="transition">publish_and_hide</property>
+   <action type="plone.actions.RunScript">
+    <property name="fail_on_script_not_found">True</property>
+    <property name="restricted_traverse">False</property>
+    <property name="parameters"/>
+    <property name="script">publish_submission</property>
    </action>
    <action type="plone.actions.Mail">
     <property name="source"/>

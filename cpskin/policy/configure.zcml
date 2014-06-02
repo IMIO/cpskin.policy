@@ -2,6 +2,7 @@
 
   <!-- Dependencies -->
   <include package="plone.app.caching" />
+  <include package="collective.contentrules.runscript" />
 
   <include package="cpskin.core" />
   <include package="cpskin.menu" />
@@ -9,6 +10,8 @@
   <include package="cpskin.theme" />
   <include package="cpskin.slider" />
   <include package="cpskin.workflow" />
+
+  <include package=".browser" />
 
   <include file="profiles.zcml" />
 

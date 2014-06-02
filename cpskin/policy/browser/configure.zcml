@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n_domain="cpskin">
+
+  <browser:page
+      for="*"
+      name="publish_submission"
+      class=".rules.RulesScriptView"
+      permission="cmf.ManagePortal"
+      attribute="run"
+      layer="..interfaces.ICPSkinPolicyLayer"
+      />
+
+</configure>
