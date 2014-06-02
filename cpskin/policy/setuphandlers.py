@@ -240,6 +240,7 @@ def addMenuToolsViewlet(portal):
     alsoProvides(folder, IViewletMenuToolsFaceted)
     if api.content.get_state(obj=folder) != 'published_and_hidden':
         api.content.transition(obj=folder, transition='publish_and_hide')
+    folder.setExcludeFromNav(True)
     folder.setTitle(menu_tools_faceted['title'])
     folder.reindexObject()
 
@@ -252,5 +253,6 @@ def addMenuToolsViewlet(portal):
     alsoProvides(folder, IViewletMenuToolsBox)
     if api.content.get_state(obj=folder) != 'published_and_hidden':
         api.content.transition(obj=folder, transition='publish_and_hide')
+    folder.setExcludeFromNav(True)
     folder.setTitle(menu_tools_box['title'])
     folder.reindexObject()
