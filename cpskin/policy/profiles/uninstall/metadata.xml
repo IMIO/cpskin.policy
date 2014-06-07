@@ -6,5 +6,6 @@
     <dependency>profile-cpskin.slider:uninstall</dependency>
     <dependency>profile-cpskin.menu:uninstall</dependency>
     <dependency>profile-cpskin.theme:uninstall</dependency>
+    <dependency>profile-cpskin.minisite:uninstall</dependency>
   </dependencies>
 </metadata>
