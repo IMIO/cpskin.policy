@@ -3,6 +3,7 @@
   <dependencies>
    <dependency>profile-Products.CMFPlone:plone</dependency>
    <dependency>profile-Products.CMFPlone:plone-content</dependency>
+   <dependency>profile-plonetheme.sunburst:default</dependency>
    <dependency>profile-cpskin.policy:default</dependency>
   </dependencies>
 </metadata>
