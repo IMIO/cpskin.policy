@@ -226,33 +226,38 @@ def deleteContentRules(portal):
 
 
 def addMenuToolsViewlet(portal):
+
     menu_tools_faceted = {'id': 'naviguer-par-facettes',
                           'title': u'Naviguer par facettes'}
     menu_tools_box = {'id': 'boite-a-outils',
                       'title': u'Boite à outils'}
 
     folder = portal.get(menu_tools_faceted['id'])
-    if not folder:
-        folder = api.content.create(container=portal, type='Folder',
-                                      id=menu_tools_faceted['id'],
-                                      title=menu_tools_faceted['title'])
 
-    alsoProvides(folder, IViewletMenuToolsFaceted)
-    if api.content.get_state(obj=folder) != 'published_and_hidden':
-        api.content.transition(obj=folder, transition='publish_and_hide')
-    folder.setExcludeFromNav(True)
-    folder.setTitle(menu_tools_faceted['title'])
-    folder.reindexObject()
+    pc = getToolByName(portal, 'portal_catalog')
+    brains = pc(object_provides="cpskin.core.viewlets.interfaces.IViewletMenuToolsFaceted")
+    if len(brains) == 0 and not folder:
+        folder = api.content.create(container=portal, type='Folder',
+                                    id=menu_tools_faceted['id'],
+                                    title=menu_tools_faceted['title'])
+
+        alsoProvides(folder, IViewletMenuToolsFaceted)
+        if api.content.get_state(obj=folder) != 'published_and_hidden':
+            api.content.transition(obj=folder, transition='publish_and_hide')
+        folder.setExcludeFromNav(True)
+        folder.setTitle(menu_tools_faceted['title'])
+        folder.reindexObject()
 
     folder = portal.get(menu_tools_box['id'])
-    if not folder:
+    brains = pc(object_provides="cpskin.core.viewlets.interfaces.IViewletMenuToolsBox")
+    if len(brains) == 0 and not folder:
         folder = api.content.create(container=portal, type='Folder',
-                                      id=menu_tools_box['id'],
-                                      title=menu_tools_box['title'])
+                                    id=menu_tools_box['id'],
+                                    title=menu_tools_box['title'])
 
-    alsoProvides(folder, IViewletMenuToolsBox)
-    if api.content.get_state(obj=folder) != 'published_and_hidden':
-        api.content.transition(obj=folder, transition='publish_and_hide')
-    folder.setExcludeFromNav(True)
-    folder.setTitle(menu_tools_box['title'])
-    folder.reindexObject()
+        alsoProvides(folder, IViewletMenuToolsBox)
+        if api.content.get_state(obj=folder) != 'published_and_hidden':
+            api.content.transition(obj=folder, transition='publish_and_hide')
+        folder.setExcludeFromNav(True)
+        folder.setTitle(menu_tools_box['title'])
+        folder.reindexObject()
