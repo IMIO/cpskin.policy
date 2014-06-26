@@ -3,6 +3,7 @@
   <!-- Dependencies -->
   <include package="plone.app.caching" />
   <include package="collective.contentrules.runscript" />
+  <include package="collective.geo.bundle" />
 
   <include package="cpskin.core" />
   <include package="cpskin.menu" />
