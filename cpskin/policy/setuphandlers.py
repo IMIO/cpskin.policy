@@ -226,38 +226,34 @@ def deleteContentRules(portal):
 
 
 def addMenuToolsViewlet(portal):
-
-    menu_tools_faceted = {'id': 'naviguer-par-facettes',
-                          'title': u'Naviguer par facettes'}
+    menu_tools_faceted_i_am = {'id': 'je-suis',
+                               'title': u'Je suis',
+                               'interface': IViewletMenuToolsFaceted}
+    menu_tools_faceted_i_search = {'id': 'je-trouve',
+                                   'title': u'Je trouve',
+                                   'interface': IViewletMenuToolsFaceted}
     menu_tools_box = {'id': 'boite-a-outils',
-                      'title': u'Boite à outils'}
-
-    folder = portal.get(menu_tools_faceted['id'])
+                      'title': u'Boite à outils',
+                      'interface': IViewletMenuToolsBox}
+    tools = [menu_tools_box,
+             menu_tools_faceted_i_search,
+             menu_tools_faceted_i_am]
 
     pc = getToolByName(portal, 'portal_catalog')
-    brains = pc(object_provides="cpskin.core.viewlets.interfaces.IViewletMenuToolsFaceted")
-    if len(brains) == 0 and not folder:
-        folder = api.content.create(container=portal, type='Folder',
-                                    id=menu_tools_faceted['id'],
-                                    title=menu_tools_faceted['title'])
 
-        alsoProvides(folder, IViewletMenuToolsFaceted)
-        if api.content.get_state(obj=folder) != 'published_and_hidden':
-            api.content.transition(obj=folder, transition='publish_and_hide')
-        folder.setExcludeFromNav(True)
-        folder.setTitle(menu_tools_faceted['title'])
-        folder.reindexObject()
+    for tool in tools:
+        folder = portal.get(tool['id'])
+        brains = pc(object_provides=tool['interface'].__identifier__)
+        nbObjects = len([obj for obj in tools
+                         if obj['interface'] == tool['interface']])
+        if len(brains) < nbObjects and not folder:
+            folder = api.content.create(container=portal, type='Folder',
+                                        id=tool['id'],
+                                        title=tool['title'])
 
-    folder = portal.get(menu_tools_box['id'])
-    brains = pc(object_provides="cpskin.core.viewlets.interfaces.IViewletMenuToolsBox")
-    if len(brains) == 0 and not folder:
-        folder = api.content.create(container=portal, type='Folder',
-                                    id=menu_tools_box['id'],
-                                    title=menu_tools_box['title'])
-
-        alsoProvides(folder, IViewletMenuToolsBox)
-        if api.content.get_state(obj=folder) != 'published_and_hidden':
-            api.content.transition(obj=folder, transition='publish_and_hide')
-        folder.setExcludeFromNav(True)
-        folder.setTitle(menu_tools_box['title'])
-        folder.reindexObject()
+            alsoProvides(folder, tool['interface'])
+            if api.content.get_state(obj=folder) != 'published_and_hidden':
+                api.content.transition(obj=folder, transition='publish_and_hide')
+            folder.setExcludeFromNav(True)
+            folder.setTitle(tool['title'])
+            folder.reindexObject()
