@@ -13,7 +13,7 @@ Suite Teardown  Close all browsers
 
 Box tools is in a overlay
     Go to  ${PLONE_URL}
-    Click link  id=menutoolsbox
+    Click link  css=#portal-globalnav #menutoolsbox
     Wait Until Element Is Visible  css=div.overlay-ajax
     Element Should Be Visible  css=div.overlay-ajax
 
