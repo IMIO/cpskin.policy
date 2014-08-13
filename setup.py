@@ -45,6 +45,7 @@ setup(name='cpskin.policy',
           'cpskin.slider',
           'cpskin.theme',
           'cpskin.workflow',
+          'collective.directory',
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(

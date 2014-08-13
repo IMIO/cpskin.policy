@@ -10,5 +10,6 @@
     <dependency>profile-cpskin.menu:default</dependency>
     <dependency>profile-cpskin.minisite:default</dependency>
     <dependency>profile-cpskin.theme:default</dependency>
+    <dependency>profile-collective.directory:default</dependency>
   </dependencies>
 </metadata>

@@ -24,7 +24,9 @@ class HiddenProfiles(object):
                 u'cpskin.theme:uninstall',
                 u'cpskin.workflow:default',
                 u'cpskin.workflow:members-configuration',
-                u'cpskin.workflow:uninstall']
+                u'cpskin.workflow:uninstall',
+                u'collective.directory:uninstall',
+                ]
 
 
 class HiddenProducts(object):
