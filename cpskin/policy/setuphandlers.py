@@ -57,8 +57,8 @@ def installPolicy(context):
                  operator=not_expired_operator)
     setCriterion(portal=portal,
                  folder_name='evenements',
-                 index=not_expired_index,
-                 operator=not_expired_operator)
+                 index='end',
+                 operator='plone.app.querystring.operation.date.afterToday')
 
     renameIndexhtml(portal)
     if portal.hasObject('Members'):
