@@ -46,6 +46,7 @@ setup(name='cpskin.policy',
           'cpskin.theme',
           'cpskin.workflow',
           'collective.directory',
+          'Products.PasswordStrength',
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(

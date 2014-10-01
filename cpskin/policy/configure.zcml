@@ -11,6 +11,7 @@
   <include package="cpskin.slider" />
   <include package="cpskin.workflow" />
   <include package="collective.directory" />
+  <include package="Products.PasswordStrength" />
 
   <include package=".browser" />
 
