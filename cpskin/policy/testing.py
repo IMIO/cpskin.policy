@@ -12,6 +12,7 @@ CPSKIN_POLICY_FIXTURE = PloneWithPackageLayer(
     name="CPSKIN_POLICY_FIXTURE",
     zcml_filename="testing.zcml",
     zcml_package=cpskin.policy,
+    additional_z2_products=('Products.PasswordStrength',),
     gs_profile_id="cpskin.policy:testing")
 
 CPSKIN_POLICY_INTEGRATION_TESTING = IntegrationTesting(
