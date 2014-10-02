@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-4.2 (unreleased)
-----------------
+4.1.1 (2014-10-02)
+------------------
 
 - Add Products.PasswordStrength.
 
