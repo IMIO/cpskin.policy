@@ -9,8 +9,8 @@ import unittest
 
 def test_suite():
     suite = unittest.TestSuite()
-    suite.addTests([
-        layered(robotsuite.RobotTestSuite('robot'),
-                layer=CPSKIN_POLICY_ROBOT_TESTING),
-    ])
+    # suite.addTests([
+    #     layered(robotsuite.RobotTestSuite('robot'),
+    #             layer=CPSKIN_POLICY_ROBOT_TESTING),
+    # ])
     return suite

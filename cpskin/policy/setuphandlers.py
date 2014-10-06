@@ -2,8 +2,6 @@
 from Products.ATContentTypes.lib import constraintypes
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
-from cpskin.core.viewlets.interfaces import (IViewletMenuToolsFaceted,
-                                             IViewletMenuToolsBox)
 from plone import api
 from plone.contentrules.engine.interfaces import IRuleStorage
 from zope.component import getUtility
@@ -64,8 +62,6 @@ def installPolicy(context):
     if portal.hasObject('Members'):
         renameIndexhtml(portal['Members'])
     portal.setLayout('folderview')
-
-    addMenuToolsViewlet(portal)
 
 
 def renameIndexhtml(portal):
@@ -223,37 +219,3 @@ def deleteContentRules(portal):
         del storage['citizen-move-event']
     if 'citizen-reject-event' in storage:
         del storage['citizen-reject-event']
-
-
-def addMenuToolsViewlet(portal):
-    menu_tools_faceted_i_am = {'id': 'je-suis',
-                               'title': u'Je suis',
-                               'interface': IViewletMenuToolsFaceted}
-    menu_tools_faceted_i_search = {'id': 'je-trouve',
-                                   'title': u'Je trouve',
-                                   'interface': IViewletMenuToolsFaceted}
-    menu_tools_box = {'id': 'boite-a-outils',
-                      'title': u'Boite à outils',
-                      'interface': IViewletMenuToolsBox}
-    tools = [menu_tools_box,
-             menu_tools_faceted_i_search,
-             menu_tools_faceted_i_am]
-
-    pc = getToolByName(portal, 'portal_catalog')
-
-    for tool in tools:
-        folder = portal.get(tool['id'])
-        brains = pc(object_provides=tool['interface'].__identifier__)
-        nbObjects = len([obj for obj in tools
-                         if obj['interface'] == tool['interface']])
-        if len(brains) < nbObjects and not folder:
-            folder = api.content.create(container=portal, type='Folder',
-                                        id=tool['id'],
-                                        title=tool['title'])
-
-            alsoProvides(folder, tool['interface'])
-            if api.content.get_state(obj=folder) != 'published_and_hidden':
-                api.content.transition(obj=folder, transition='publish_and_hide')
-            folder.setExcludeFromNav(True)
-            folder.setTitle(tool['title'])
-            folder.reindexObject()
