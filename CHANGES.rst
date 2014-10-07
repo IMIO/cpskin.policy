@@ -7,6 +7,9 @@ Changelog
 
 - Remove MenuTools viewlet (affinitic #6023)
 
+- Define allowed sizes for imaging properties
+  [bsuttor]
+
 
 4.1.1 (2014-10-02)
 ------------------
