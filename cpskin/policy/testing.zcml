@@ -4,6 +4,7 @@
   <include file="configure.zcml" />
   <include package="cpskin.core" file="testing.zcml" />
   <include package="cpskin.workflow" file="testing.zcml" />
+  <include package="jarn.jsi18n" />
 
   <genericsetup:registerProfile
       name="testing"
