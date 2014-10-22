@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.1.3 (unreleased)
+4.1.3 (2014-10-22)
 ------------------
 
 - Add cpskin.diazotheme.classic.
