@@ -5,7 +5,7 @@ Changelog
 4.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add cpskin.diazotheme.classic.
 
 
 4.1.2 (2014-10-07)
