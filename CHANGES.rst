@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.1.4 (unreleased)
+4.1.4 (2014-10-22)
 ------------------
 
 - Add zcml include for cpskin.diazotheme.classic
