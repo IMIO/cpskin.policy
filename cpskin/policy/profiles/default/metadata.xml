@@ -13,5 +13,6 @@
     <dependency>profile-cpskin.theme:default</dependency>
     <dependency>profile-collective.directory:default</dependency>
     <dependency>profile-Products.PasswordStrength:default</dependency>
+    <dependency>profile-collective.jekyll:default</dependency>
   </dependencies>
 </metadata>

@@ -49,6 +49,7 @@ setup(name='cpskin.policy',
           'cpskin.workflow',
           'collective.directory',
           'Products.PasswordStrength',
+          'collective.jekyll',
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(
