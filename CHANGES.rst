@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.1.5 (unreleased)
+4.1.5 (2014-10-30)
 ------------------
 
 - Add collective.jekyll dependency.
