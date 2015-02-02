@@ -5,7 +5,11 @@ Changelog
 4.1.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add auto installed products : Products.PloneFormGen, Products.PloneGazette, Solgema.fullcalendar.
+  [bsuttor]
+
+- Set cpskin.diazotheme.classic as default theme.
+  [bsuttor]
 
 
 4.1.5 (2014-10-30)
