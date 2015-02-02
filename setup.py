@@ -52,7 +52,7 @@ setup(name='cpskin.policy',
           'collective.jekyll',
           'Products.PloneFormGen',
           'Products.PloneGazette',
-
+          'Solgema.fullcalendar',
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(

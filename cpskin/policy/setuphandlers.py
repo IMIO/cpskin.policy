@@ -63,6 +63,8 @@ def installPolicy(context):
         renameIndexhtml(portal['Members'])
     portal.setLayout('folderview')
 
+    create_menu(portal)
+
 
 def renameIndexhtml(portal):
     if portal.get('index_html'):
@@ -219,3 +221,24 @@ def deleteContentRules(portal):
         del storage['citizen-move-event']
     if 'citizen-reject-event' in storage:
         del storage['citizen-reject-event']
+
+
+def create_menu(portal):
+    folders = [
+        {'ma-commune': 'Ma commue'},
+        {'loisirs': 'Loisirs'},
+        {'economie': 'Economie'},
+        {'je-suis': 'Je suis'},
+        {'je-trouve': 'Je trouve'},
+    ]
+    for f in folders:
+        folder_id, folder_name = f.items()[0]
+        if not hasattr(portal, folder_id):
+            folder = api.content.create(
+                container=portal,
+                type='Folder',
+                id=folder_id,
+            )
+            folder.setTitle(folder_name)
+            folder.reindexObject()
+            api.content.transition(folder, 'publish_and_show')
