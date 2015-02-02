@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.1.6 (unreleased)
+4.1.6 (2015-02-02)
 ------------------
 
 - Add auto installed products : Products.PloneFormGen, Products.PloneGazette, Solgema.fullcalendar.
