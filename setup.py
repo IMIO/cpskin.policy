@@ -50,6 +50,9 @@ setup(name='cpskin.policy',
           'collective.directory',
           'Products.PasswordStrength',
           'collective.jekyll',
+          'Products.PloneFormGen',
+          'Products.PloneGazette',
+
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(

@@ -14,5 +14,9 @@
     <dependency>profile-collective.directory:default</dependency>
     <dependency>profile-Products.PasswordStrength:default</dependency>
     <dependency>profile-collective.jekyll:default</dependency>
+    <dependency>profile-Products.PloneFormGen:default</dependency>
+    <dependency>profile-Products.PloneGazette:default</dependency>
+    <dependency>profile-Solgema.fullcalendar:default</dependency>
+    <dependency>profile-cpskin.diazotheme.classic:default</dependency>
   </dependencies>
 </metadata>

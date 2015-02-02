@@ -16,6 +16,11 @@
   <include package="Products.PasswordStrength" />
   <include package="collective.jekyll" />
 
+  <include package="Products.PloneFormGen" />
+  <include package="Products.PloneGazette" />
+  <include package="Solgema.fullcalendar" />
+
+
   <include package=".browser" />
 
   <include file="profiles.zcml" />
