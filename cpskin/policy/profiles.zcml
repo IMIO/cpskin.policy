@@ -30,4 +30,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:upgradeStep
+        title="Delete old plone.multilingualbehavior"
+        description=""
+        source="1"
+        destination="2"
+        handler="cpskin.policy.upgrades.delete_multilingualbehavior"
+        sortkey="1"
+        profile="cpskin.policy:default"
+        />
+
 </configure>
