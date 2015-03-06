@@ -5,7 +5,8 @@ Changelog
 4.1.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add upgrade steps for deleting old multilingualbehavior
+  [bsuttor]
 
 
 4.1.6 (2015-02-02)
