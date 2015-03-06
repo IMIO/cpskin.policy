@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.1.7 (unreleased)
+4.1.7 (2015-03-06)
 ------------------
 
 - Add upgrade steps for deleting old multilingualbehavior
