@@ -53,6 +53,7 @@ setup(name='cpskin.policy',
           'Products.PloneFormGen',
           'Products.PloneGazette',
           'Solgema.fullcalendar',
+          'collective.atomrss',
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(

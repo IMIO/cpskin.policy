@@ -15,6 +15,7 @@
   <include package="collective.directory" />
   <include package="Products.PasswordStrength" />
   <include package="collective.jekyll" />
+  <include package="collective.atomrss" />
 
   <include package="Products.PloneFormGen" />
   <include package="Products.PloneGazette" />

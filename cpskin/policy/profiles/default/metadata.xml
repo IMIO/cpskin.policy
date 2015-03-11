@@ -18,5 +18,6 @@
     <dependency>profile-Products.PloneGazette:default</dependency>
     <dependency>profile-Solgema.fullcalendar:default</dependency>
     <dependency>profile-cpskin.diazotheme.classic:default</dependency>
+    <dependency>profile-collective.atomrss:default</dependency>
   </dependencies>
 </metadata>
