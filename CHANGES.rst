@@ -5,7 +5,8 @@ Changelog
 4.1.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add upgrade step which install collective.atomrss.
+  [bsuttor]
 
 
 4.1.8 (2015-03-12)
