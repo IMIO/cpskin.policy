@@ -5,7 +5,8 @@ Changelog
 4.1.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add collective.atomrss plugin
+  [bsuttor]
 
 
 4.1.7 (2015-03-06)
