@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.1.8 (unreleased)
+4.1.8 (2015-03-12)
 ------------------
 
 - Add collective.atomrss plugin
