@@ -40,4 +40,12 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Add collective.atomrss"
+        description="Start install profile collective.atomrss"
+        source="2"
+        destination="3"
+        handler="cpskin.policy.upgrades.install_collective_atomrss"
+        profile="cpskin.policy:default"
+        />
 </configure>
