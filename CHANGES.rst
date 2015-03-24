@@ -8,6 +8,9 @@ Changelog
 - Add upgrade step which install collective.atomrss.
   [bsuttor]
 
+- Add upgrade step for removing cleanly multilingualbehavior and multilingual if needed.
+  [bsuttor]
+
 
 4.1.8 (2015-03-12)
 ------------------

@@ -48,4 +48,15 @@
         handler="cpskin.policy.upgrades.install_collective_atomrss"
         profile="cpskin.policy:default"
         />
+
+    <genericsetup:upgradeStep
+        title="Delete cleanly old plone.multilingualbehavior"
+        description="Also delete plone.multilingual if PAM is not installed"
+        source="3"
+        destination="4"
+        handler="cpskin.policy.upgrades.delete_multilingualbehavior"
+        profile="cpskin.policy:default"
+        />
+
+
 </configure>
