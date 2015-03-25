@@ -21,23 +21,21 @@ def delete_multilingualbehavior(context, logger=None):
     portal_quickinstaller.uninstallProducts(['plone.multilingualbehavior'])
     logger.info('plone.multilingualbehavior uninstalled')
 
-    installed_product_ids = [product['id'] for product in portal_quickinstaller.listInstalledProducts()]
-    if 'plone.app.multilingual' not in installed_product_ids:
-        portal_setup.runAllImportStepsFromProfile('profile-plone.multilingual:uninstall')
-        portal_quickinstaller.uninstallProducts(['plone.multilingual'])
-        logger.info('plone.multilingual uninstalled')
+    portal_setup.runAllImportStepsFromProfile('profile-plone.multilingual:uninstall')
+    portal_quickinstaller.uninstallProducts(['plone.multilingual'])
+    logger.info('plone.multilingual uninstalled')
 
-        subscribers = sm.adapters._subscribers
-        for i, sub in enumerate(subscribers):
-            for key in sub.keys():
-                if 'multilingual' in str(key):
-                    del subscribers[i][key]
-                    logger.info("Deleted {0} subscriber".format(key))
-        sm.adapters._subscribers = subscribers
+    subscribers = sm.adapters._subscribers
+    for i, sub in enumerate(subscribers):
+        for key in sub.keys():
+            if 'multilingual' in str(key):
+                del subscribers[i][key]
+                logger.info("Deleted {0} subscriber".format(key))
+    sm.adapters._subscribers = subscribers
 
-        transaction.commit()
-        app = portal.restrictedTraverse('/')
-        app._p_jar.sync()
+    transaction.commit()
+    app = portal.restrictedTraverse('/')
+    app._p_jar.sync()
 
 
 def install_collective_atomrss(context, logger=None):
