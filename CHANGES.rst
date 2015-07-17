@@ -5,6 +5,9 @@ Changelog
 4.1.9 (unreleased)
 ------------------
 
+- Add collective.monitor package
+  [bsuttor]
+
 - Add upgrade step which install collective.atomrss.
   [bsuttor]
 
