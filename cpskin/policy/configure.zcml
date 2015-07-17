@@ -34,4 +34,6 @@
 
   <includeOverrides file="overrides.zcml"/>
 
+  <include package="collective.monitor" />
+
 </configure>

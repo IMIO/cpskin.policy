@@ -54,7 +54,7 @@ setup(name='cpskin.policy',
           'Products.PloneGazette',
           'Solgema.fullcalendar',
           'collective.atomrss',
-          # -*- Extra requirements: -*-
+          'collective.monitor',
       ],
       extras_require=dict(
           test=['plone.app.robotframework'],
