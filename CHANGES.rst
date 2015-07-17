@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.1.9 (unreleased)
+4.2.0 (2015-07-17)
 ------------------
 
 - Add collective.monitor package
