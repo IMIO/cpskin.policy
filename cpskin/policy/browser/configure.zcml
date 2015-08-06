@@ -13,4 +13,11 @@
       layer="..interfaces.ICPSkinPolicyLayer"
       />
 
+  <browser:view
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="cpskin-cookies-setup"
+      class=".pages.CookiesPage"
+      permission="zope.Public"
+      />
+
 </configure>
