@@ -5,7 +5,8 @@ Changelog
 4.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Pin cpskin.minisite
+  [schminitz]
 
 
 4.2.0 (2015-07-17)
