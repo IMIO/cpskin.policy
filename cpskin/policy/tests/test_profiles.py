@@ -4,8 +4,6 @@ from cpskin.policy.interfaces import ICPSkinPolicyLayer
 from cpskin.policy.testing import CPSKIN_POLICY_INTEGRATION_TESTING
 from plone.app.testing import applyProfile
 from plone.browserlayer.utils import registered_layers
-from zope.event import notify
-from zope.traversing.interfaces import BeforeTraverseEvent
 
 
 class TestProfiles(unittest.TestCase):
