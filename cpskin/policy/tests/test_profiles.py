@@ -1,8 +1,11 @@
 import unittest2 as unittest
 
-from plone.app.testing import applyProfile
-
+from cpskin.policy.interfaces import ICPSkinPolicyLayer
 from cpskin.policy.testing import CPSKIN_POLICY_INTEGRATION_TESTING
+from plone.app.testing import applyProfile
+from plone.browserlayer.utils import registered_layers
+from zope.event import notify
+from zope.traversing.interfaces import BeforeTraverseEvent
 
 
 class TestProfiles(unittest.TestCase):
@@ -11,6 +14,10 @@ class TestProfiles(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
+
+    def test_package_installed(self):
+        self.assertIn(ICPSkinPolicyLayer, registered_layers(),
+                      'Browserlayers appears not loaded')
 
     def test_uninstall(self):
         applyProfile(self.portal, 'cpskin.policy:uninstall')
