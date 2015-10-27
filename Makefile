@@ -23,4 +23,4 @@ instance: buildout
 
 
 cleanall: 
-	rm -rf bin develop-eggs downloads include lib parts .installed.cfg .mr.developer.cfg bootstrap.py parts/omelette
+	rm -rf bin develop-eggs downloads include lib parts .installed.cfg .mr.developer.cfg bootstrap.py parts/omelette cpskin/__init__.pyo cpskin/diazotheme
