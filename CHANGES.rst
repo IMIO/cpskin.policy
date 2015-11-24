@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.2.1 (unreleased)
+4.2.1 (2015-11-24)
 ------------------
 
 - Add collective.cookiecuttr upgrade step
