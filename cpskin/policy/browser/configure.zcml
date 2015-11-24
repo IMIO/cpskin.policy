@@ -14,8 +14,8 @@
       />
 
   <browser:view
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      name="cpskin-cookies-setup"
+      for="*"
+      name="cookies-page"
       class=".pages.CookiesPage"
       permission="zope.Public"
       />

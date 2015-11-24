@@ -2,7 +2,8 @@
 from Products.CMFCore.utils import getToolByName
 import logging
 import transaction
-from zope.component.hooks import getSite
+from cpskin.policy.setuphandlers import add_cookiescuttr
+from plone import api
 
 
 def delete_multilingualbehavior(context, logger=None):
@@ -10,7 +11,7 @@ def delete_multilingualbehavior(context, logger=None):
         # Called as upgrade step: define our own logger.
         logger = logging.getLogger('cpskin.policy')
 
-    portal = getSite()
+    portal = api.portal.get()
     sm = portal.getSiteManager()
 
     portal_setup = getToolByName(context, 'portal_setup')
@@ -47,3 +48,10 @@ def install_collective_atomrss(context, logger=None):
     setup_tool.runAllImportStepsFromProfile(
         'profile-collective.atomrss:default')
     logger.info('collective.atomrss installed')
+
+
+def install_collective_cookiecuttr(context, logger=None):
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile('profile-collective.cookiecuttr:default')
+    portal = api.portal.get()
+    add_cookiescuttr(portal)

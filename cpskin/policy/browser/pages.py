@@ -9,6 +9,7 @@ class CookiesPage(BrowserView):
 
     def __init__(self, context, request):
         super(CookiesPage, self).__init__(context, request)
-        portal = api.portal.get()
-        self.site_id = portal.getId()
-        self.city_name = self.site_id.capitalize()
+        # self.city_name = api.portal.get_registry_record(
+        #     'cpskin.core.interfaces.ICPSkinSettings.city_name')
+        # portal = api.portal.get()
+        # self.site_id = portal.getId()

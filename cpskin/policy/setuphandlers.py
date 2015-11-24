@@ -5,9 +5,9 @@ from Products.CMFPlone.utils import _createObjectByType
 from plone import api
 from plone.contentrules.engine.interfaces import IRuleStorage
 from zope.component import getUtility
-from zope.interface import alsoProvides
 import logging
 
+from cpskin.locales import CPSkinMessageFactory as _
 
 logger = logging.getLogger('cpskin.policy')
 
@@ -64,6 +64,7 @@ def installPolicy(context):
     portal.setLayout('folderview')
 
     create_menu(portal)
+    add_cookiescuttr(portal)
 
 
 def renameIndexhtml(portal):
@@ -242,3 +243,28 @@ def create_menu(portal):
             folder.setTitle(folder_name)
             folder.reindexObject()
             api.content.transition(folder, 'publish_and_show')
+
+
+def add_cookiescuttr(portal):
+    api.portal.set_registry_record(
+        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.cookiecuttr_enabled',
+        True)
+
+    api.portal.set_registry_record(
+        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.implied_consent',
+        True)
+
+    api.portal.set_registry_record(
+        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.accept_button',
+        [{'text': u'Accept cookies', 'language': u'en'},
+         {'text': u'Accepter les cookies', 'language': u'fr'}])
+
+    api.portal.set_registry_record(
+        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.link',
+        [{'text': u'/cookies-page ', 'language': u'en'},
+         {'text': u'/cookies-page', 'language': u'fr'}])
+
+    api.portal.set_registry_record(
+        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.text',
+        [{'text': u"We use cookies. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Read everything </a>", 'language': u'en'},
+         {'text': u"Nous utilisons des cookies pour faciliter la navigation et le partage social. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Plus d'informations </a> ", 'language': u'fr'}])
