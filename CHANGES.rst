@@ -5,6 +5,12 @@ Changelog
 4.2.1 (unreleased)
 ------------------
 
+- Add collective.cookiecuttr upgrade step
+  [bsuttor]
+
+- Add collective.cookiecuttr
+  [bsuttor]
+
 - Pin cpskin.minisite
   [schminitz]
 
