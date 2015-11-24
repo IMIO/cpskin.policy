@@ -5,7 +5,8 @@ Changelog
 4.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add collective.cookiecuttr dependency into setup.py
+  [bsuttor]
 
 
 4.2.1 (2015-11-24)
