@@ -55,6 +55,7 @@ setup(name='cpskin.policy',
           'Solgema.fullcalendar',
           'collective.atomrss',
           'collective.monitor',
+          'collective.cookiecuttr',
       ],
       extras_require=dict(
           test=['plone.app.robotframework'],
