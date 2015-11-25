@@ -5,6 +5,9 @@ Changelog
 4.2.2 (unreleased)
 ------------------
 
+- Add include of plone.app.event in zcml for fixing tests
+  [bsuttor]
+
 - Add collective.cookiecuttr dependency into setup.py
   [bsuttor]
 
