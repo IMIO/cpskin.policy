@@ -30,6 +30,15 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="dx"
+        title="cpskin.policy: dexterity installation"
+        directory="profiles/dx"
+        description="Updates CPSkin policy to dexterity"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
     <genericsetup:upgradeStep
         title="Delete old plone.multilingualbehavior"
         description=""
