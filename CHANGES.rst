@@ -5,6 +5,9 @@ Changelog
 4.2.2 (unreleased)
 ------------------
 
+- Fix typo error 'Ma commue'
+  [bsuttor]
+
 - Add include of plone.app.event in zcml for fixing tests
   [bsuttor]
 
