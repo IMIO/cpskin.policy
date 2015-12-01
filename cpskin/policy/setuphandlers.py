@@ -226,7 +226,7 @@ def deleteContentRules(portal):
 
 def create_menu(portal):
     folders = [
-        {'ma-commune': 'Ma commue'},
+        {'ma-commune': 'Ma commune'},
         {'loisirs': 'Loisirs'},
         {'economie': 'Economie'},
         {'je-suis': 'Je suis'},
