@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.2.2 (unreleased)
+4.2.2 (2016-01-08)
 ------------------
 
 - Fix typo error 'Ma commue'
