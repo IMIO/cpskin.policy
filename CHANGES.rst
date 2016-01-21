@@ -5,7 +5,8 @@ Changelog
 4.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add a-la-une folder during installation
+  [bsuttor]
 
 
 4.2.2 (2016-01-08)
