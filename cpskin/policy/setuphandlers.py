@@ -6,7 +6,8 @@ from plone import api
 from plone.contentrules.engine.interfaces import IRuleStorage
 from zope.component import getUtility
 import logging
-
+from zope.interface import alsoProvides
+from cpskin.core.interfaces import IFolderViewSelectedContent
 from cpskin.locales import CPSkinMessageFactory as _
 
 logger = logging.getLogger('cpskin.policy')
@@ -63,6 +64,7 @@ def installPolicy(context):
         renameIndexhtml(portal['Members'])
     portal.setLayout('folderview')
 
+    add_alaune(portal)
     create_menu(portal)
     add_cookiescuttr(portal)
 
@@ -109,16 +111,22 @@ def createEventsAndNews(portal):
     if actu_folder:
         actu_folder.title = u'Actualités'
         actu_folder.description = 'Actualités du site'
-        _createObjectByType('Collection', portal.actualites, id='index',
-                   title=actu_folder.title, description=actu_folder.description)
+        _createObjectByType(
+            'Collection',
+            portal.actualites,
+            id='index',
+            title=actu_folder.title,
+            description=actu_folder.description)
 
         folder = portal.actualites
+        alsoProvides(folder, IFolderViewSelectedContent)
         folder.setConstrainTypesMode(constraintypes.ENABLED)
         folder.setLocallyAllowedTypes(['News Item'])
         folder.setImmediatelyAddableTypes(['News Item'])
         folder.setDefaultPage('index')
         folder.unmarkCreationFlag()
         folder.setLanguage(language)
+        alsoProvides(folder, IFolderViewSelectedContent)
         publishContent(wftool, folder)
 
         topic = portal.actualites.index
@@ -147,6 +155,7 @@ def createEventsAndNews(portal):
                             description=events_folder.description)
 
         folder = portal.evenements
+        alsoProvides(folder, IFolderViewSelectedContent)
         folder.setConstrainTypesMode(constraintypes.ENABLED)
         folder.setLocallyAllowedTypes(['Event'])
         folder.setImmediatelyAddableTypes(['Event'])
@@ -171,6 +180,43 @@ def createEventsAndNews(portal):
         topic.setQuery(query)
         topic.setSort_on('start')
         publishContent(wftool, topic)
+
+
+def add_alaune(portal):
+    news_folder = getattr(portal, 'actualites', None)
+    if news_folder:
+        # XXX check if folder is not already provided
+        alsoProvides(news_folder, IFolderViewSelectedContent)
+    event_folder = getattr(portal, 'evenements', None)
+    if event_folder:
+        # XXX check if folder is not already provided
+        alsoProvides(event_folder, IFolderViewSelectedContent)
+    alaune_folder = getattr(portal, 'a-la-une', None)
+
+    if not alaune_folder:
+        folder = api.content.create(container=portal,
+                                    type='Folder',
+                                    id='a-la-une')
+        folder.setTitle(_(u'À la une'))
+        folder.reindexObject()
+        portalPath = api.portal.get().getPhysicalPath()
+        contextPath = '/'.join(folder.getPhysicalPath()[len(portalPath):])
+        alsoProvides(folder, IFolderViewSelectedContent)
+        collection = api.content.create(container=folder,
+                                        type='Collection',
+                                        id='a-la-une',
+                                        title=_(u'À la une'))
+        query = [{'i': 'hiddenTags',
+                  'o': 'plone.app.querystring.operation.selection.is',
+                  'v': 'a-la-une'},
+                 {'i': 'path',
+                  'o': 'plone.app.querystring.operation.string.path',
+                  'v': '/%s' % contextPath}]
+        collection.setQuery(query)
+        collection.setSort_on('effective')
+        collection.setSort_reversed(True)
+        collection.setLayout('summary_view')
+        folder.setDefaultPage('a-la-une')
 
 
 def migrateTopicIds(portal):
