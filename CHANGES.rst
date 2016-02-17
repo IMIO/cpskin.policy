@@ -5,6 +5,12 @@ Changelog
 4.2.3 (unreleased)
 ------------------
 
+- Clean up registries with an upgrade steps.
+  [bsuttor]
+
+- Add dependency to imio.migrator
+  [bsuttor]
+
 - Add a-la-une folder during installation
   [bsuttor]
 
