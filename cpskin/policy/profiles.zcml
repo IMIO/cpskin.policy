@@ -76,6 +76,15 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Add collective.cookiecuttr"
+        description="Add collective.cookiecuttr and add explanation on a document"
+        source="5"
+        destination="6"
+        handler="cpskin.policy.upgrades.clean_registries"
+        profile="cpskin.policy:default"
+        />
+
 
 
 </configure>

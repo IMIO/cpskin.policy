@@ -4,6 +4,7 @@ import logging
 import transaction
 from cpskin.policy.setuphandlers import add_cookiescuttr
 from plone import api
+from imio.migrator.migrator import Migrator
 
 
 def delete_multilingualbehavior(context, logger=None):
@@ -55,3 +56,8 @@ def install_collective_cookiecuttr(context, logger=None):
     setup.runAllImportStepsFromProfile('profile-collective.cookiecuttr:default')
     portal = api.portal.get()
     add_cookiescuttr(portal)
+
+
+def clean_registries(context):
+    migrator = Migrator(api.portal.get())
+    migrator.cleanRegistries()
