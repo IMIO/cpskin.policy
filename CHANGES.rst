@@ -1,8 +1,8 @@
 Changelog
 =========
 
-4.2.4 (unrelease)
-----------------
+4.2.4 (2016-02-17)
+------------------
 
 - Fix registry for not deleted all css.
   [bsuttor]
