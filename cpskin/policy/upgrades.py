@@ -4,7 +4,7 @@ import logging
 import transaction
 from cpskin.policy.setuphandlers import add_cookiescuttr
 from plone import api
-from imio.migrator.migrator import Migrator
+
 
 
 def delete_multilingualbehavior(context, logger=None):
@@ -58,6 +58,28 @@ def install_collective_cookiecuttr(context, logger=None):
     add_cookiescuttr(portal)
 
 
-def clean_registries(context):
-    migrator = Migrator(api.portal.get())
-    migrator.cleanRegistries()
+def clean_registries(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy.upgrades')
+    portal = api.portal.get()
+    logger.info('Cleaning registries...')
+
+    jstool = portal.portal_javascripts
+    jstool.cookResources()
+    logger.info('portal_javascripts has been cleaned!')
+
+    csstool = portal.portal_css
+    csstool.cookResources()
+    logger.info('portal_css has been cleaned!')
+    ps = portal.portal_setup
+    # clean portal_setup
+    for stepId in ps.getSortedImportSteps():
+        stepMetadata = ps.getImportStepMetadata(stepId)
+        # remove invalid steps
+        if stepMetadata['invalid']:
+            logger.info('Removing %s step from portal_setup' % stepId)
+            ps._import_registry.unregisterStep(stepId)
+    logger.info('portal_setup has been cleaned!')
+
+    logger.info('Registries have been cleaned!')

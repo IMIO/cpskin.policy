@@ -77,8 +77,8 @@
         />
 
     <genericsetup:upgradeStep
-        title="Add collective.cookiecuttr"
-        description="Add collective.cookiecuttr and add explanation on a document"
+        title="Clean and rebuild registries"
+        description="This is needed after migration of of collective.ckeditor"
         source="5"
         destination="6"
         handler="cpskin.policy.upgrades.clean_registries"
