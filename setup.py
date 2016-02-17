@@ -56,6 +56,7 @@ setup(name='cpskin.policy',
           'collective.atomrss',
           'collective.monitor',
           'collective.cookiecuttr',
+          'imio.migrator',
       ],
       extras_require=dict(
           test=['plone.app.robotframework'],
