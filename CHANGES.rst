@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.2.3 (unreleased)
+4.2.3 (2016-02-17)
 ------------------
 
 - Clean up registries with an upgrade steps.
