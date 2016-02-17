@@ -32,9 +32,9 @@
 
     <genericsetup:registerProfile
         name="dx"
-        title="cpskin.policy: dexterity installation"
+        title="cpskin.policy: with dexterity content types"
         directory="profiles/dx"
-        description="Updates CPSkin policy to dexterity"
+        description="Install CPSkin policy with dexterity"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
@@ -75,6 +75,7 @@
         handler="cpskin.policy.upgrades.install_collective_cookiecuttr"
         profile="cpskin.policy:default"
         />
+
 
 
 </configure>
