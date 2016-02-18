@@ -4,7 +4,8 @@ Changelog
 4.2.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add default css order registry.
+  [bsuttor]
 
 
 4.2.4 (2016-02-17)
