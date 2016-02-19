@@ -4,6 +4,12 @@ Changelog
 4.2.5 (unreleased)
 ------------------
 
+- Order a-la-une folder to top.
+  [bsuttor]
+
+- Add default js order registry.
+  [bsuttor]
+
 - Add default css order registry.
   [bsuttor]
 
