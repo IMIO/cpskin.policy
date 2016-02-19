@@ -217,6 +217,7 @@ def add_alaune(portal):
         collection.setSort_reversed(True)
         collection.setLayout('summary_view')
         folder.setDefaultPage('a-la-une')
+        portal.moveObjectToPosition(folder.id, 1)
 
 
 def migrateTopicIds(portal):
