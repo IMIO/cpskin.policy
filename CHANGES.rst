@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.2.5 (unreleased)
+4.3.0 (2016-02-19)
 ------------------
 
 - Order a-la-une folder to top.
