@@ -4,6 +4,9 @@
     <property name="behaviors" purge="false">
         <element value="cpskin.core.behaviors.metadata.IHiddenTags" />
         <element value="cpskin.core.behaviors.metadata.IISearchTags" />
-        <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage"/>
+        <element value="cpskin.core.behaviors.metadata.IIAmTags" />
+        <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage" />
+        <element value="eea.facetednavigation.subtypes.interfaces.IPossibleFacetedNavigable" />
+        <element value="collective.plonetruegallery.interfaces.IGallery" />
     </property>
 </object>
