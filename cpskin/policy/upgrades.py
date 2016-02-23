@@ -6,7 +6,6 @@ from cpskin.policy.setuphandlers import add_cookiescuttr
 from plone import api
 
 
-
 def delete_multilingualbehavior(context, logger=None):
     if logger is None:
         # Called as upgrade step: define our own logger.
@@ -83,3 +82,14 @@ def clean_registries(context, logger=None):
     logger.info('portal_setup has been cleaned!')
 
     logger.info('Registries have been cleaned!')
+
+
+def install_image_cropping(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+
+    setup_tool = getToolByName(context, 'portal_setup')
+    setup_tool.runAllImportStepsFromProfile(
+        'profile-plone.app.imagecropping:default')
+    logger.info('plone.app.imagecropping installed')

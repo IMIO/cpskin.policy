@@ -85,6 +85,13 @@
         profile="cpskin.policy:default"
         />
 
-
+    <genericsetup:upgradeStep
+        title="Add plone.app.imagecropping"
+        description="Start install profile plone.app.imagecropping"
+        source="6"
+        destination="7"
+        handler="cpskin.policy.upgrades.install_image_cropping"
+        profile="cpskin.policy:default"
+        />
 
 </configure>

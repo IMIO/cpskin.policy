@@ -27,6 +27,7 @@
   <include package=".browser" />
 
   <include file="profiles.zcml" />
+  <include file="cropping.zcml" />
 
   <utility factory=".config.HiddenProfiles"
            name="cpskin.policy" />

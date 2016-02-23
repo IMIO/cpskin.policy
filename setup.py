@@ -56,6 +56,7 @@ setup(name='cpskin.policy',
           'collective.atomrss',
           'collective.monitor',
           'collective.cookiecuttr',
+          'plone.app.imagecropping',
           'imio.migrator',
       ],
       extras_require=dict(

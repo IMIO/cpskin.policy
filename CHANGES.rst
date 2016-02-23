@@ -4,7 +4,8 @@ Changelog
 4.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add plone.app.imagecropping and support image cropping for all content types
+  [laulaz]
 
 
 4.3.0 (2016-02-19)
