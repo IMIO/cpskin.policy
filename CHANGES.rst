@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.1 (unreleased)
+4.3.1 (2016-02-26)
 ------------------
 
 - Add plone.app.imagecropping and support image cropping for all content types
