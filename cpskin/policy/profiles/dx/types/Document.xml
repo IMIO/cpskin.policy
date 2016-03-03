@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<object name="Document" meta_type="Dexterity FTI" i18n:domain="plone"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<object name="Document">
     <property name="behaviors" purge="false">
+        <element value="cpskin.core.behaviors.metadata.IStandardTags" />
         <element value="cpskin.core.behaviors.metadata.IHiddenTags" />
         <element value="cpskin.core.behaviors.metadata.IISearchTags" />
         <element value="cpskin.core.behaviors.metadata.IIAmTags" />
