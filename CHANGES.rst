@@ -4,7 +4,8 @@ Changelog
 4.3.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add standard tags for dexterity contents.
+  [bsuttor]
 
 
 4.3.1 (2016-02-26)
