@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.2 (unreleased)
+4.3.2 (2016-03-22)
 ------------------
 
 - Add cpskin core overrides.
