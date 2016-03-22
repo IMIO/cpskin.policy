@@ -1,14 +1,23 @@
 # -*- coding: utf-8 -*-
 from plone.testing import z2
+from plone.app.testing import applyProfile
 from plone.app.testing import PloneWithPackageLayer
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
-
 import cpskin.policy
 
 
-CPSKIN_POLICY_FIXTURE = PloneWithPackageLayer(
+class CpskinPolicyPloneWithPackageLayer(PloneWithPackageLayer):
+    """
+    """
+
+    def setUpPloneSite(self, portal):
+        portal.portal_workflow.setDefaultChain("simple_publication_workflow")
+        applyProfile(portal, 'cpskin.policy:testing')
+
+
+CPSKIN_POLICY_FIXTURE = CpskinPolicyPloneWithPackageLayer(
     name='CPSKIN_POLICY_FIXTURE',
     zcml_filename='testing.zcml',
     zcml_package=cpskin.policy,
