@@ -4,6 +4,9 @@ Changelog
 4.3.2 (unreleased)
 ------------------
 
+- Add cpskin core overrides.
+  [bsuttor]
+
 - Add standard tags for dexterity contents.
   [bsuttor]
 
