@@ -4,7 +4,8 @@ Changelog
 4.3.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Set mailhost to frontend1.
+  [bsuttor]
 
 
 4.3.2 (2016-03-22)
