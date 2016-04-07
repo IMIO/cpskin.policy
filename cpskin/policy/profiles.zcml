@@ -94,4 +94,14 @@
         profile="cpskin.policy:default"
         />
 
+
+    <genericsetup:upgradeStep
+        title="Set allowed_sizes"
+        description="Update images allowed_sizes"
+        source="7"
+        destination="8"
+        handler="cpskin.policy.upgrades.set_allowed_sizes"
+        profile="cpskin.policy:default"
+        />
+
 </configure>

@@ -93,3 +93,15 @@ def install_image_cropping(context, logger=None):
     setup_tool.runAllImportStepsFromProfile(
         'profile-plone.app.imagecropping:default')
     logger.info('plone.app.imagecropping installed')
+
+
+def set_allowed_sizes(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+
+    setup_tool = getToolByName(context, 'portal_setup')
+    setup_tool.runImportStepFromProfile(
+        'profile-cpskin.policy:default', 'propertiestool')
+    logger.info('cpskin.policy updated')
+    clean_registries(context)
