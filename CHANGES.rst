@@ -4,6 +4,9 @@ Changelog
 4.3.3 (unreleased)
 ------------------
 
+- Set new images allowed scales.
+  [bsuttor]
+
 - Set mailhost to frontend1.
   [bsuttor]
 
