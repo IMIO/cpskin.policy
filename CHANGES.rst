@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.3 (unreleased)
+4.3.3 (2016-04-07)
 ------------------
 
 - Add allowed scales for image cropping.
