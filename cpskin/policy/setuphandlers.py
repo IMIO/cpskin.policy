@@ -67,6 +67,7 @@ def installPolicy(context):
     add_alaune(portal)
     create_menu(portal)
     add_cookiescuttr(portal)
+    set_scales_for_image_cropping()
 
 
 def renameIndexhtml(portal):
@@ -315,3 +316,13 @@ def add_cookiescuttr(portal):
         'collective.cookiecuttr.interfaces.ICookieCuttrSettings.text',
         [{'text': u"We use cookies. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Read everything </a>", 'language': u'en'},
          {'text': u"Nous utilisons des cookies pour faciliter la navigation et le partage social. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Plus d'informations </a> ", 'language': u'fr'}])
+
+
+def set_scales_for_image_cropping():
+    """This is made in setuphandler beacause propertiestool.xml must be
+    charged before adding scales for image cropping"""
+    crop_allowed = ['slider', 'collection', 'header', 'banner', 'visuel', 'multimedia']
+    api.portal.set_registry_record(
+        'plone.app.imagecropping.browser.settings.ISettings.cropping_for',
+        crop_allowed)
+

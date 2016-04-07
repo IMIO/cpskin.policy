@@ -19,4 +19,11 @@
         </value>
   </record>
 
+  <record interface="plone.app.imagecropping.browser.settings.ISettings" field="large_size">
+    <value>1000:1000</value>
+  </record>
+  <record interface="plone.app.imagecropping.browser.settings.ISettings" field="constrain_cropping">
+    <value>True</value>
+  </record>
+
 </registry>

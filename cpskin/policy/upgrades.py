@@ -3,6 +3,7 @@ from Products.CMFCore.utils import getToolByName
 import logging
 import transaction
 from cpskin.policy.setuphandlers import add_cookiescuttr
+from cpskin.policy.setuphandlers import set_scales_for_image_cropping
 from plone import api
 
 
@@ -103,5 +104,8 @@ def set_allowed_sizes(context, logger=None):
     setup_tool = getToolByName(context, 'portal_setup')
     setup_tool.runImportStepFromProfile(
         'profile-cpskin.policy:default', 'propertiestool')
-    logger.info('cpskin.policy updated')
+    setup_tool.runImportStepFromProfile(
+        'profile-cpskin.policy:default', 'plone.app.registry')
+    set_scales_for_image_cropping()
     clean_registries(context)
+    logger.info('cpskin.policy updated')
