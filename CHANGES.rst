@@ -4,6 +4,9 @@ Changelog
 4.3.3 (unreleased)
 ------------------
 
+- Add allowed scales for image cropping.
+  [bsuttor]
+
 - Set new images allowed scales.
   [bsuttor]
 
