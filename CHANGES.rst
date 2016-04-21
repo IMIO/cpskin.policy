@@ -4,7 +4,8 @@ Changelog
 4.3.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add carousel image size and reset other images scales.
+  [bsuttor]
 
 
 4.3.3 (2016-04-07)

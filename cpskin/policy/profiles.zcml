@@ -104,4 +104,13 @@
         profile="cpskin.policy:default"
         />
 
+
+    <genericsetup:upgradeStep
+        title="Set allowed_sizes for adding carousel size"
+        description="Update images allowed_sizes for adding carousel size"
+        source="8"
+        destination="9"
+        handler="cpskin.policy.upgrades.set_allowed_sizes"
+        profile="cpskin.policy:default"
+        />
 </configure>
