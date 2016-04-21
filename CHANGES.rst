@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.4 (unreleased)
+4.3.4 (2016-04-21)
 ------------------
 
 - Add carousel image size and reset other images scales.
