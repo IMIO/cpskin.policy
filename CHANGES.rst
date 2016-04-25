@@ -4,7 +4,8 @@ Changelog
 4.3.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add IUseKeywordHomepage behavior for folder.
+  [bsuttor]
 
 
 4.3.4 (2016-04-21)
