@@ -4,6 +4,9 @@ Changelog
 4.3.5 (unreleased)
 ------------------
 
+- Do not purge image scales.
+  [bsuttor]
+
 - Add IUseKeywordHomepage behavior for folder.
   [bsuttor]
 
