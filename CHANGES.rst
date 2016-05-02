@@ -4,6 +4,9 @@ Changelog
 4.3.5 (unreleased)
 ------------------
 
+- Add timezone for plone.app.event
+  [bsuttor]
+
 - Do not purge image scales.
   [bsuttor]
 

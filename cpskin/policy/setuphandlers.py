@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
+from cpskin.core.interfaces import IFolderViewSelectedContent
+from cpskin.locales import CPSkinMessageFactory as _
+from plone import api
+from plone.app.event.interfaces import IEventSettings
+from plone.contentrules.engine.interfaces import IRuleStorage
+from plone.registry.interfaces import IRegistry
 from Products.ATContentTypes.lib import constraintypes
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
-from plone import api
-from plone.contentrules.engine.interfaces import IRuleStorage
 from zope.component import getUtility
-import logging
 from zope.interface import alsoProvides
-from cpskin.core.interfaces import IFolderViewSelectedContent
-from cpskin.locales import CPSkinMessageFactory as _
+import logging
 
 logger = logging.getLogger('cpskin.policy')
+timezone = 'Europe/Brussels'
 
 
 def publishContent(wftool, content):
@@ -28,6 +31,16 @@ def installPolicy(context):
         return
 
     logger.info('Installing policy')
+
+    # set plone.app.event
+    reg = getUtility(IRegistry)
+    settings = reg.forInterface(IEventSettings, prefix="plone.app.event")
+    if not settings.portal_timezone:
+        logger.info('Set timezone to Europe/Brussels')
+        settings.portal_timezone = timezone
+        settings.first_weekday = 0
+        settings.available_timezones = ["Europe/Brussels"]
+
     portal = context.getSite()
 
     # review_state
