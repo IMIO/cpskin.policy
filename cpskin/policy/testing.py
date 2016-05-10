@@ -11,6 +11,13 @@ import cpskin.policy
 class CpskinPolicyPloneWithPackageLayer(PloneWithPackageLayer):
     """
     """
+    def setUpZope(self, app, configurationContext):
+        super(CpskinPolicyPloneWithPackageLayer, self).setUpZope(app, configurationContext)
+        z2.installProduct(app, 'Products.DateRecurringIndex')
+
+    def tearDownZope(self, app):
+        # Uninstall products installed above
+        z2.uninstallProduct(app, 'Products.DateRecurringIndex')
 
     def setUpPloneSite(self, portal):
         portal.portal_workflow.setDefaultChain("simple_publication_workflow")

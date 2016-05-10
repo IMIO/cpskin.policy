@@ -8,6 +8,7 @@ from plone.registry.interfaces import IRegistry
 from Products.ATContentTypes.lib import constraintypes
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
+from Products.CMFPlone.interfaces.syndication import IFeedSettings
 from zope.component import getUtility
 from zope.interface import alsoProvides
 import logging
@@ -31,6 +32,12 @@ def installPolicy(context):
         return
 
     logger.info('Installing policy')
+    default_language = 'fr'
+    portal_languages = api.portal.get_tool('portal_languages')
+    portal_languages.setDefaultLanguage(default_language)
+    supported = portal_languages.getSupportedLanguages()
+    portal_languages.removeSupportedLanguages(supported)
+    portal_languages.addSupportedLanguage(default_language)
 
     # set plone.app.event
     reg = getUtility(IRegistry)
@@ -39,9 +46,9 @@ def installPolicy(context):
         logger.info('Set timezone to Europe/Brussels')
         settings.portal_timezone = timezone
         settings.first_weekday = 0
-        settings.available_timezones = ["Europe/Brussels"]
+        settings.available_timezones = [timezone]
 
-    portal = context.getSite()
+    portal = api.portal.get()
 
     # review_state
     review_index = 'review_state'
@@ -123,8 +130,8 @@ def createEventsAndNews(portal):
     events_folder = getattr(portal, 'evenements')
     # News topic
     if actu_folder:
-        actu_folder.title = u'Actualités'
-        actu_folder.description = 'Actualités du site'
+        actu_folder.title = _(u'Actualités')
+        actu_folder.description = _(u'Actualités du site')
         _createObjectByType(
             'Collection',
             portal.actualites,
@@ -144,6 +151,7 @@ def createEventsAndNews(portal):
         publishContent(wftool, folder)
 
         topic = portal.actualites.index
+        IFeedSettings(topic).enabled = True
         topic.setLanguage(language)
 
         query = [{'i': 'portal_type',
@@ -156,14 +164,14 @@ def createEventsAndNews(portal):
 
         topic.setSort_on('effective')
         topic.setSort_reversed(True)
-        topic.setLayout('folder_summary_view')
+        topic.setLayout('summary_view')
         topic.unmarkCreationFlag()
         publishContent(wftool, topic)
 
     # Events topic
     if events_folder:
-        events_folder.title = 'Événements'
-        events_folder.description = 'Événements du site'
+        events_folder.title = _(u'Événements')
+        events_folder.description = _(u'Événements du site')
         _createObjectByType('Collection', portal.evenements, id='index',
                             title=events_folder.title,
                             description=events_folder.description)
@@ -179,6 +187,7 @@ def createEventsAndNews(portal):
         publishContent(wftool, folder)
 
         topic = folder.index
+        IFeedSettings(topic).enabled = True
         topic.unmarkCreationFlag()
         topic.setLanguage(language)
 
@@ -193,6 +202,7 @@ def createEventsAndNews(portal):
                   'v': ['published']}]
         topic.setQuery(query)
         topic.setSort_on('start')
+        topic.setLayout('summary_view')
         publishContent(wftool, topic)
 
 
@@ -338,4 +348,3 @@ def set_scales_for_image_cropping():
     api.portal.set_registry_record(
         'plone.app.imagecropping.browser.settings.ISettings.cropping_for',
         crop_allowed)
-

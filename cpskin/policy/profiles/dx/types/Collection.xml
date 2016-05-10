@@ -3,5 +3,6 @@
     <property name="behaviors" purge="False">
         <element value="eea.facetednavigation.subtypes.interfaces.IPossibleFacetedNavigable" />
         <element value="collective.plonetruegallery.interfaces.IGallery" />
+        <element value="cpskin.core.behaviors.metadata.IUseKeywordHomepage" />
     </property>
 </object>
