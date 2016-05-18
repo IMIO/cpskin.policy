@@ -4,6 +4,9 @@ Changelog
 4.3.5 (unreleased)
 ------------------
 
+- Add cpskin.caching
+  [jfroche]
+
 - Add timezone for plone.app.event
   [bsuttor]
 
