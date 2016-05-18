@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.5 (unreleased)
+4.3.5 (2016-05-18)
 ------------------
 
 - Add cpskin.caching
