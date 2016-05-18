@@ -12,6 +12,7 @@
   <include package="cpskin.theme" />
   <include package="cpskin.slider" />
   <include package="cpskin.workflow" />
+  <include package="cpskin.caching" />
   <include package="collective.directory" />
   <include package="Products.PasswordStrength" />
   <include package="collective.jekyll" />

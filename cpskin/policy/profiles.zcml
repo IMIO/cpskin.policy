@@ -113,4 +113,19 @@
         handler="cpskin.policy.upgrades.set_allowed_sizes"
         profile="cpskin.policy:default"
         />
+
+    <genericsetup:upgradeSteps
+        source="9"
+        destination="10"
+        profile="cpskin.policy:default"
+        >
+
+        <genericsetup:upgradeDepends
+          title="install cpskin.caching"
+          description="configure caching"
+          import_profile="cpskin.caching:default"
+          />
+
+    </genericsetup:upgradeSteps>
+
 </configure>

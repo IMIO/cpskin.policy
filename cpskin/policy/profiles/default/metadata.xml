@@ -11,6 +11,7 @@
     <dependency>profile-cpskin.menu:default</dependency>
     <dependency>profile-cpskin.minisite:default</dependency>
     <dependency>profile-cpskin.theme:default</dependency>
+    <dependency>profile-cpskin.caching:default</dependency>
     <dependency>profile-collective.directory:default</dependency>
     <dependency>profile-Products.PasswordStrength:default</dependency>
     <dependency>profile-collective.jekyll:default</dependency>
