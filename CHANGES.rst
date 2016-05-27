@@ -4,7 +4,8 @@ Changelog
 4.3.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add cpskin.agenda
+  [bsuttor]
 
 
 4.3.5 (2016-05-18)
