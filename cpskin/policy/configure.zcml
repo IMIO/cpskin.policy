@@ -6,6 +6,7 @@
   <include package="collective.geotransform" />
 
   <include package="cpskin.core" />
+  <include package="cpskin.agenda" />
   <include package="cpskin.diazotheme.classic" />
   <include package="cpskin.menu" />
   <include package="cpskin.minisite" />

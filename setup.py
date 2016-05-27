@@ -59,6 +59,7 @@ setup(name='cpskin.policy',
           'collective.cookiecuttr',
           'plone.app.imagecropping',
           'imio.migrator',
+          'cpskin.agenda',
       ],
       extras_require=dict(
           test=['plone.app.robotframework'],
