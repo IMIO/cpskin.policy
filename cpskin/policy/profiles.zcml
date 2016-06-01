@@ -128,4 +128,12 @@
 
     </genericsetup:upgradeSteps>
 
+    <genericsetup:upgradeStep
+        title="Enable sitemap and expose dublin code meta tags"
+        source="10"
+        destination="11"
+        handler="cpskin.policy.upgrades.enable_sitemap"
+        profile="cpskin.policy:default"
+        />
+
 </configure>
