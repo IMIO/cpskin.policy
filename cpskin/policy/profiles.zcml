@@ -132,7 +132,7 @@
         title="Enable sitemap and expose dublin code meta tags"
         source="10"
         destination="11"
-        handler="cpskin.policy.upgrades.enable_sitemap"
+        handler="cpskin.policy.setuphandlers.enable_sitemap"
         profile="cpskin.policy:default"
         />
 

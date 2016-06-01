@@ -109,10 +109,3 @@ def set_allowed_sizes(context, logger=None):
     set_scales_for_image_cropping()
     clean_registries(context)
     logger.info('cpskin.policy updated')
-
-
-def enable_sitemap(context, logger=None):
-    pprop = getToolByName(context, 'portal_properties')
-    site_properties = pprop.site_properties
-    site_properties.exposeDCMetaTags = True
-    site_properties.enable_sitemap = True

@@ -88,6 +88,8 @@ def installPolicy(context):
     create_menu(portal)
     add_cookiescuttr(portal)
     set_scales_for_image_cropping()
+    enable_sitemap(portal)
+
 
 
 def renameIndexhtml(portal):
@@ -348,3 +350,10 @@ def set_scales_for_image_cropping():
     api.portal.set_registry_record(
         'plone.app.imagecropping.browser.settings.ISettings.cropping_for',
         crop_allowed)
+
+
+def enable_sitemap(context, logger=None):
+    pprop = getToolByName(context, 'portal_properties')
+    site_properties = pprop.site_properties
+    site_properties.exposeDCMetaTags = True
+    site_properties.enable_sitemap = True
