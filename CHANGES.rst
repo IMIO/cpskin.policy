@@ -4,6 +4,9 @@ Changelog
 4.3.6 (unreleased)
 ------------------
 
+- Enable sitemap and DC metadata
+  [jfroche]
+
 - Add cpskin.agenda
   [bsuttor]
 
