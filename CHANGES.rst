@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.6 (unreleased)
+4.3.6 (2016-06-01)
 ------------------
 
 - Enable sitemap and DC metadata
