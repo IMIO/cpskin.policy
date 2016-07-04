@@ -4,7 +4,8 @@ Changelog
 4.3.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add collective.excelexport
+  [bsuttor]
 
 
 4.3.6 (2016-06-01)

@@ -60,6 +60,7 @@ setup(name='cpskin.policy',
           'plone.app.imagecropping',
           'imio.migrator',
           'cpskin.agenda',
+          'collective.excelexport',
       ],
       extras_require=dict(
           test=['plone.app.robotframework'],
