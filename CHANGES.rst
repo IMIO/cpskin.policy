@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.7 (unreleased)
+4.3.7 (2016-07-07)
 ------------------
 
 - Add collective.excelexport
