@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.8 (unreleased)
+4.3.8 (2016-07-26)
 ------------------
 
 - Add collective.autoscaling.
