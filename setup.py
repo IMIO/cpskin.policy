@@ -61,6 +61,7 @@ setup(name='cpskin.policy',
           'imio.migrator',
           'cpskin.agenda',
           'collective.excelexport',
+          'collective.autoscaling',
       ],
       extras_require=dict(
           test=['plone.app.robotframework'],

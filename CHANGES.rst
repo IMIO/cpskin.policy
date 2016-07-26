@@ -4,7 +4,8 @@ Changelog
 4.3.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add collective.autoscaling.
+  [bsuttor]
 
 
 4.3.7 (2016-07-07)
