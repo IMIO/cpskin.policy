@@ -23,5 +23,6 @@
     <dependency>profile-collective.atomrss:default</dependency>
     <dependency>profile-collective.cookiecuttr:default</dependency>
     <dependency>profile-plone.app.imagecropping:default</dependency>
+    <dependency>profile-collective.autoscaling:default</dependency>
   </dependencies>
 </metadata>

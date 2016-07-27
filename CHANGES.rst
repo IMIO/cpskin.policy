@@ -4,7 +4,8 @@ Changelog
 4.3.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Install collective.autoscaling on profile installation.
+  [bsuttor]
 
 
 4.3.8 (2016-07-26)
