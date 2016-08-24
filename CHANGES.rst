@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.9 (unreleased)
+4.3.9 (2016-08-24)
 ------------------
 
 - Install collective.autoscaling on profile installation.
