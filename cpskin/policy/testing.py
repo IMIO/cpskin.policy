@@ -22,6 +22,7 @@ class CpskinPolicyPloneWithPackageLayer(PloneWithPackageLayer):
     def setUpPloneSite(self, portal):
         portal.portal_workflow.setDefaultChain("simple_publication_workflow")
         applyProfile(portal, 'cpskin.policy:testing')
+        applyProfile(portal, 'cpskin.demo:default')
 
 
 CPSKIN_POLICY_FIXTURE = CpskinPolicyPloneWithPackageLayer(
