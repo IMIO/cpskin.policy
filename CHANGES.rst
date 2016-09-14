@@ -4,8 +4,10 @@ Changelog
 4.3.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Added first robot screenshot.
+  [sgeulette]
+- Use cpskin.demo in tests
+  [sgeulette]
 
 4.3.9 (2016-08-24)
 ------------------

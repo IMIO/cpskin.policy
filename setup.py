@@ -64,6 +64,6 @@ setup(name='cpskin.policy',
           'collective.autoscaling',
       ],
       extras_require=dict(
-          test=['plone.app.robotframework'],
+          test=['plone.app.robotframework', 'cpskin.demo']
       ),
       entry_points={})
