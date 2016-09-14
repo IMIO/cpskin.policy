@@ -5,6 +5,8 @@
   <include package="cpskin.core" file="testing.zcml" />
   <include package="cpskin.workflow" file="testing.zcml" />
   <include package="cpskin.demo" />
+  <include package="collective.plonetruegallery" />
+  <include package="collective.ptg.galleria" />
   <include package="jarn.jsi18n" />
   <include package="collective.autoscaling" />
 
