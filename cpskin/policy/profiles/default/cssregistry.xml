@@ -474,7 +474,8 @@
     media="screen" rel="stylesheet" rendering="import"/>
  <stylesheet title="" applyPrefix="False" authenticated="False"
     bundle="default" cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="on" expression="" id="ploneCustom.css"
+    cookable="True" enabled="on" expression=""
+    id="ploneCustom.css"
     insert-after="++resource++collective.cookiecuttr/cookiecuttr.css"
     media="all" rel="stylesheet" rendering="import"/>
 </object>
