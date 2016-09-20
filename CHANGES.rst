@@ -4,8 +4,12 @@ Changelog
 4.3.10 (unreleased)
 -------------------
 
+- Add collective.preventactions
+  [bsuttor]
+
 - Added first robot screenshot.
   [sgeulette]
+
 - Use cpskin.demo in tests
   [sgeulette]
 

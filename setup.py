@@ -62,6 +62,7 @@ setup(name='cpskin.policy',
           'imio.migrator',
           'collective.excelexport',
           'collective.autoscaling',
+          'collective.preventactions',
       ],
       extras_require=dict(
           test=['plone.app.robotframework', 'cpskin.demo']
