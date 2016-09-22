@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.10 (unreleased)
+4.3.10 (2016-09-22)
 -------------------
 
 - Add collective.preventactions
