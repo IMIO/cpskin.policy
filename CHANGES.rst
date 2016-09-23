@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.11 (unreleased)
+4.3.11 (2016-09-23)
 -------------------
 
 - Include collective.preventactions into zcml.
