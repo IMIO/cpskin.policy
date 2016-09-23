@@ -4,7 +4,8 @@ Changelog
 4.3.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Include collective.preventactions into zcml.
+  [bsuttor]
 
 
 4.3.10 (2016-09-22)
