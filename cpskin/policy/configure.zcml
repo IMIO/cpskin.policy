@@ -15,6 +15,7 @@
   <include package="cpskin.workflow" />
   <include package="cpskin.caching" />
   <include package="collective.directory" />
+  <include package="collective.preventactions" />
   <include package="Products.PasswordStrength" />
   <include package="collective.jekyll" />
   <include package="collective.atomrss" />
