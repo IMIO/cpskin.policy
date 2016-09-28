@@ -26,4 +26,9 @@
     <value>True</value>
   </record>
 
+  <records interface="collective.recaptcha.settings.IRecaptchaSettings">
+    <value key="public_key">6LfARwcUAAAAAJceobfvrZHn5gAGBeikqoWO3gwe</value>
+    <value key="private_key">6LfARwcUAAAAAEGflrW-NKo5x7E_qzah-G3aQiGU</value>
+  </records>
+
 </registry>
