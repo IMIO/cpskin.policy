@@ -63,6 +63,7 @@ setup(name='cpskin.policy',
           'collective.excelexport',
           'collective.autoscaling',
           'collective.preventactions',
+          'collective.recaptcha',
       ],
       extras_require=dict(
           test=['plone.app.robotframework', 'cpskin.demo']

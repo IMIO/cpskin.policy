@@ -21,6 +21,7 @@
   <include package="collective.atomrss" />
   <include package="collective.cookiecuttr" />
   <include package="plone.app.event" />
+  <include package="collective.recaptcha" />
 
   <include package="Products.PloneFormGen" />
   <include package="Products.PloneGazette" />
