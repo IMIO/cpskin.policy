@@ -80,8 +80,6 @@ def installPolicy(context):
                  operator='plone.app.querystring.operation.date.afterToday')
 
     renameIndexhtml(portal)
-    if portal.hasObject('Members'):
-        renameIndexhtml(portal['Members'])
     portal.setLayout('folderview')
 
     add_alaune(portal)
