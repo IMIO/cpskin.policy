@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.12 (unreleased)
+4.3.12 (2016-11-16)
 -------------------
 
 - Set default_enabled syndication settings to true.
