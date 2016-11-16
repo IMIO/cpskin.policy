@@ -411,17 +411,12 @@
     id="++resource++jquery.flexslider/css/sliderfix.css"
     insert-after="++resource++jquery.flexslider/css/flexslider.css"
     media="screen" rel="stylesheet" rendering="import"/>
- <stylesheet title="" applyPrefix="True" authenticated="False"
-    bundle="default" cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="on" expression=""
-    id="++resource++jquery.flexslider/css/slider-pro.css"
-    insert-after="++resource++jquery.flexslider/css/sliderfix.css"
-    media="screen" rel="stylesheet" rendering="import"/>
+
  <stylesheet title="" applyPrefix="False" authenticated="False"
     bundle="default" cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="on" expression=""
     id="++resource++cpskin.menu.resources/menu.css"
-    insert-after="++resource++jquery.flexslider/css/slider-pro.css"
+    insert-after="++resource++jquery.flexslider/css/sliderfix.css"
     media="screen" rel="stylesheet" rendering="import"/>
  <stylesheet title="" applyPrefix="False" authenticated="False"
     bundle="default" cacheable="True" compression="safe" conditionalcomment=""
@@ -430,11 +425,18 @@
     insert-after="++resource++cpskin.menu.resources/menu.css"
     media="screen and (max-width: 600px)" rel="stylesheet"
     rendering="import"/>
+<stylesheet title="" applyPrefix="True" authenticated="False"
+    bundle="default" cacheable="True" compression="safe" conditionalcomment=""
+    cookable="True" enabled="on" expression=""
+    id="++resource++jquery.flexslider/css/slider-pro.css"
+    insert-after="++resource++cpskin.menu.resources/menu_mobile.css"
+    media="screen" rel="stylesheet" rendering="import"/>
+
  <stylesheet title="" applyPrefix="False" authenticated="False"
     bundle="default" cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="on" expression=""
     id="++resource++jekyll/diagnosis.css"
-    insert-after="++resource++cpskin.menu.resources/menu_mobile.css"
+    insert-after="++resource++jquery.flexslider/css/slider-pro.css"
     media="screen" rel="stylesheet" rendering="import"/>
  <stylesheet title="" applyPrefix="False" authenticated="False"
     bundle="default" cacheable="True" compression="safe" conditionalcomment=""

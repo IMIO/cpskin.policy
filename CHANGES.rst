@@ -7,6 +7,9 @@ Changelog
 - Set default_enabled syndication settings to true.
   [bsuttor]
 
+- Resort css to prevent IE menu error.
+  [bsuttor]
+
 
 4.3.11 (2016-09-23)
 -------------------
