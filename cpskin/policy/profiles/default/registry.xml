@@ -31,4 +31,8 @@
     <value key="private_key">6LfARwcUAAAAAEGflrW-NKo5x7E_qzah-G3aQiGU</value>
   </records>
 
+  <record name="Products.CMFPlone.interfaces.syndication.ISiteSyndicationSettings.default_enabled">
+      <value>True</value>
+  </record>
+
 </registry>

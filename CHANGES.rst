@@ -4,7 +4,8 @@ Changelog
 4.3.12 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Set default_enabled syndication settings to true.
+  [bsuttor]
 
 
 4.3.11 (2016-09-23)
