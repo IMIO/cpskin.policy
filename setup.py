@@ -64,6 +64,7 @@ setup(name='cpskin.policy',
           'collective.autoscaling',
           'collective.preventactions',
           'collective.recaptcha',
+          'collective.sendinblue',
       ],
       extras_require=dict(
           test=['plone.app.robotframework', 'cpskin.demo']

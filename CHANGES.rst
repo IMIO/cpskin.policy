@@ -4,7 +4,8 @@ Changelog
 4.3.13 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add collective.sendinblue to dependency.
+  [bsuttor]
 
 
 4.3.12 (2016-11-16)
