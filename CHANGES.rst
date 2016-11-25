@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.13 (unreleased)
+4.3.13 (2016-11-25)
 -------------------
 
 - Add collective.sendinblue to dependency.
