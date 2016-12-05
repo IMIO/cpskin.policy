@@ -4,7 +4,8 @@ Changelog
 4.3.14 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Configure mail_host to use smtp_queue.
+  [bsuttor]
 
 
 4.3.13 (2016-11-25)

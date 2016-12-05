@@ -127,4 +127,11 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Set smtp_queue_directory for mailhost "
+        source="11"
+        destination="12"
+        handler="cpskin.policy.setuphandlers.add_mail_host"
+        profile="cpskin.policy:default"
+        />
 </configure>

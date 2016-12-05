@@ -12,6 +12,7 @@ from Products.CMFPlone.interfaces.syndication import IFeedSettings
 from zope.component import getUtility
 from zope.interface import alsoProvides
 import logging
+import os
 
 logger = logging.getLogger('cpskin.policy')
 timezone = 'Europe/Brussels'
@@ -87,7 +88,7 @@ def installPolicy(context):
     add_cookiescuttr(portal)
     set_scales_for_image_cropping()
     enable_sitemap(portal)
-
+    add_mail_host()
 
 
 def renameIndexhtml(portal):
@@ -135,7 +136,7 @@ def createEventsAndNews(portal):
         _createObjectByType(
             'Collection',
             portal.actualites,
-            id='index',
+            id='actualites',
             title=actu_folder.title,
             description=actu_folder.description)
 
@@ -144,13 +145,13 @@ def createEventsAndNews(portal):
         folder.setConstrainTypesMode(constraintypes.ENABLED)
         folder.setLocallyAllowedTypes(['News Item'])
         folder.setImmediatelyAddableTypes(['News Item'])
-        folder.setDefaultPage('index')
+        folder.setDefaultPage('actualites')
         folder.unmarkCreationFlag()
         folder.setLanguage(language)
         alsoProvides(folder, IFolderViewSelectedContent)
         publishContent(wftool, folder)
 
-        topic = portal.actualites.index
+        topic = portal.actualites.actualites
         IFeedSettings(topic).enabled = True
         topic.setLanguage(language)
 
@@ -172,7 +173,7 @@ def createEventsAndNews(portal):
     if events_folder:
         events_folder.title = _(u'Événements')
         events_folder.description = _(u'Événements du site')
-        _createObjectByType('Collection', portal.evenements, id='index',
+        _createObjectByType('Collection', portal.evenements, id='evenements',
                             title=events_folder.title,
                             description=events_folder.description)
 
@@ -181,12 +182,12 @@ def createEventsAndNews(portal):
         folder.setConstrainTypesMode(constraintypes.ENABLED)
         folder.setLocallyAllowedTypes(['Event'])
         folder.setImmediatelyAddableTypes(['Event'])
-        folder.setDefaultPage('index')
+        folder.setDefaultPage('evenements')
         folder.unmarkCreationFlag()
         folder.setLanguage(language)
         publishContent(wftool, folder)
 
-        topic = folder.index
+        topic = folder.evenements
         IFeedSettings(topic).enabled = True
         topic.unmarkCreationFlag()
         topic.setLanguage(language)
@@ -355,3 +356,16 @@ def enable_sitemap(context, logger=None):
     site_properties = pprop.site_properties
     site_properties.exposeDCMetaTags = True
     site_properties.enable_sitemap = True
+
+
+def add_mail_host(context=None):
+    mailhost = api.portal.get_tool('MailHost')
+    mailhost.smtp_queue = True
+    smtp_queue_directory = os.environ.get(
+        'SMTP_QUEUE_DIRECTORY',
+        '/home/imio/imio-website/var/mailhost/queue')
+    mailhost.smtp_queue_directory = smtp_queue_directory
+    # mailhost.smtp_host = 'mailrelay.imio.be'
+    mailhost.smtp_host = 'frontend1.imio.be'
+    mailhost.smtp_port = 25
+    mailhost.manage_restartQueueThread()
