@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.14 (unreleased)
+4.3.14 (2016-12-05)
 -------------------
 
 - Configure mail_host to use smtp_queue.
