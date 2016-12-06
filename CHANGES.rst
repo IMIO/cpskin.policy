@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.15 (unreleased)
+4.3.15 (2016-12-06)
 -------------------
 
 - Fix upgrade step which set mailhost.
