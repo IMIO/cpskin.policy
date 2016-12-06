@@ -368,4 +368,6 @@ def add_mail_host(context=None):
     # mailhost.smtp_host = 'mailrelay.imio.be'
     mailhost.smtp_host = 'frontend1.imio.be'
     mailhost.smtp_port = 25
+    mailhost._stopQueueProcessorThread()
+    mailhost._startQueueProcessorThread()
     mailhost.manage_restartQueueThread()

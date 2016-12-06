@@ -4,7 +4,8 @@ Changelog
 4.3.15 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix upgrade step which set mailhost.
+  [bsuttor]
 
 
 4.3.14 (2016-12-05)
