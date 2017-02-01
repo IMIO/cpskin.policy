@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.16 (unreleased)
+4.3.16 (2017-02-01)
 -------------------
 
 - Add upgrade step to add cpskin_collective_contact_workflow.
