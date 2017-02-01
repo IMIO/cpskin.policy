@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.17 (unreleased)
+4.3.17 (2017-02-01)
 -------------------
 
 - Set a cpskin workflow version.
