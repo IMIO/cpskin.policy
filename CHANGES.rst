@@ -4,7 +4,8 @@ Changelog
 4.3.17 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Set a cpskin workflow version.
+  [bsuttor]
 
 
 4.3.16 (2017-02-01)
