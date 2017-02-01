@@ -4,7 +4,8 @@ Changelog
 4.3.16 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add upgrade step to add cpskin_collective_contact_workflow.
+  [bsuttor]
 
 
 4.3.15 (2016-12-06)

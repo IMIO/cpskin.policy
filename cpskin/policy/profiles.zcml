@@ -134,4 +134,13 @@
         handler="cpskin.policy.setuphandlers.add_mail_host"
         profile="cpskin.policy:default"
         />
+
+    <genericsetup:upgradeStep
+        title="Add cpskin_collective_contact_workflow"
+        source="12"
+        destination="13"
+        handler=".upgrades.add_cpskin_collective_contact_workflow"
+        profile="cpskin.policy:default"
+        />
+
 </configure>

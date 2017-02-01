@@ -1,10 +1,29 @@
 # -*- coding: utf-8 -*-
-from Products.CMFCore.utils import getToolByName
-import logging
-import transaction
 from cpskin.policy.setuphandlers import add_cookiescuttr
 from cpskin.policy.setuphandlers import set_scales_for_image_cropping
 from plone import api
+from plone.app.workflow.remap import remap_workflow
+from Products.CMFCore.utils import getToolByName
+from zope.component import queryUtility
+from zope.ramcache.interfaces.ram import IRAMCache
+import logging
+import transaction
+
+
+def add_cpskin_collective_contact_workflow(context):
+    context.runImportStepFromProfile('profile-cpskin.workflow:to1', 'workflow')
+    chain = ('cpskin_collective_contact_workflow',)
+    types = ('held_position',
+             'organization',
+             'person',
+             'position')
+    state_map = {'active': 'active',
+                 'deactivated': 'deactivated'}
+    remap_workflow(context, type_ids=types, chain=chain,
+                   state_map=state_map)
+    util = queryUtility(IRAMCache)
+    if util is not None:
+        util.invalidateAll()
 
 
 def delete_multilingualbehavior(context, logger=None):
@@ -16,14 +35,16 @@ def delete_multilingualbehavior(context, logger=None):
     sm = portal.getSiteManager()
 
     portal_setup = getToolByName(context, 'portal_setup')
-    portal_setup.runAllImportStepsFromProfile('profile-plone.multilingualbehavior:uninstall')
+    portal_setup.runAllImportStepsFromProfile(
+            'profile-plone.multilingualbehavior:uninstall')
 
     # Check is PAM is installed, if not remore plone.multilingual
     portal_quickinstaller = getToolByName(context, 'portal_quickinstaller')
     portal_quickinstaller.uninstallProducts(['plone.multilingualbehavior'])
     logger.info('plone.multilingualbehavior uninstalled')
 
-    portal_setup.runAllImportStepsFromProfile('profile-plone.multilingual:uninstall')
+    portal_setup.runAllImportStepsFromProfile(
+            'profile-plone.multilingual:uninstall')
     portal_quickinstaller.uninstallProducts(['plone.multilingual'])
     logger.info('plone.multilingual uninstalled')
 
@@ -53,7 +74,8 @@ def install_collective_atomrss(context, logger=None):
 
 def install_collective_cookiecuttr(context, logger=None):
     setup = getToolByName(context, 'portal_setup')
-    setup.runAllImportStepsFromProfile('profile-collective.cookiecuttr:default')
+    setup.runAllImportStepsFromProfile(
+            'profile-collective.cookiecuttr:default')
     portal = api.portal.get()
     add_cookiescuttr(portal)
 
