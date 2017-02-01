@@ -26,7 +26,7 @@ def add_cpskin_collective_contact_workflow(context):
         util.invalidateAll()
 
     # set a workflow version
-    context.runImportStepFromProfile('profile-cpskin.workflow:default')
+    context.runAllImportStepsFromProfile('profile-cpskin.workflow:default')
 
 
 def delete_multilingualbehavior(context, logger=None):
