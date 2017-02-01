@@ -67,6 +67,10 @@ setup(name='cpskin.policy',
           'collective.sendinblue',
       ],
       extras_require=dict(
-          test=['plone.app.robotframework', 'cpskin.demo']
+          test=[
+              'plone.app.robotframework',
+              'cpskin.demo',
+              'plone.app.multilingual'
+          ]
       ),
       entry_points={})
