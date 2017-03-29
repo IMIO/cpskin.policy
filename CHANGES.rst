@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.18 (unreleased)
+4.3.18 (2017-03-29)
 -------------------
 
 - Set default image_max_width to 1920.
