@@ -32,7 +32,11 @@
   </records>
 
   <record name="Products.CMFPlone.interfaces.syndication.ISiteSyndicationSettings.default_enabled">
-      <value>True</value>
+    <value>True</value>
+  </record>
+
+  <record name="collective.autoscaling.interfaces.ICollectiveAutoscalingSettings.image_max_width">$
+    <value>1920</value>
   </record>
 
 </registry>

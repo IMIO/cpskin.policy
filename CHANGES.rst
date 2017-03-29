@@ -4,7 +4,8 @@ Changelog
 4.3.18 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Set default image_max_width to 1920.
+  [bsuttor]
 
 
 4.3.17 (2017-02-01)
