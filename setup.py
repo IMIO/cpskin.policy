@@ -70,7 +70,8 @@ setup(name='cpskin.policy',
           test=[
               'plone.app.robotframework',
               'cpskin.demo',
-              'plone.app.multilingual'
+              'plone.app.multilingual',
+              'Products.contentmigration',
           ]
       ),
       entry_points={})
