@@ -4,7 +4,14 @@ Changelog
 4.3.19 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Remove collective.directory auto install
+  [bsuttor]
+
+- Add auto install of collective.contact.core.
+  [bsuttor]
+
+- Allow organization type only to organization (no more position)
+  [bsuttor]
 
 
 4.3.18 (2017-03-29)
