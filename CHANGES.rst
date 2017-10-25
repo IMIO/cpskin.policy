@@ -4,6 +4,9 @@ Changelog
 4.3.19 (unreleased)
 -------------------
 
+- Update smtp mail url.
+  [bsuttor]
+
 - Remove collective.directory auto install
   [bsuttor]
 

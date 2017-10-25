@@ -366,7 +366,7 @@ def add_mail_host(context=None):
         '/home/imio/imio-website/var/mailhost/queue')
     mailhost.smtp_queue_directory = smtp_queue_directory
     # mailhost.smtp_host = 'mailrelay.imio.be'
-    mailhost.smtp_host = 'frontend1.imio.be'
+    mailhost.smtp_host = 'mailrelay.imio.be'
     mailhost.smtp_port = 25
     mailhost._stopQueueProcessorThread()
     mailhost._startQueueProcessorThread()
