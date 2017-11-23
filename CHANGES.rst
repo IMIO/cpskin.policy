@@ -4,6 +4,9 @@ Changelog
 4.3.19 (unreleased)
 -------------------
 
+- Set use_email_as_login to True on install.
+  [bsuttor]
+
 - Update smtp mail url.
   [bsuttor]
 
@@ -13,7 +16,7 @@ Changelog
 - Add auto install of collective.contact.core.
   [bsuttor]
 
-- Allow organization type only to organization (no more position)
+- Allow organization type only to organization (no more position).
   [bsuttor]
 
 

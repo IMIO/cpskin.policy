@@ -30,6 +30,7 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+<!-- upgrades -->
     <genericsetup:upgradeStep
         title="Delete old plone.multilingualbehavior"
         description=""
@@ -95,7 +96,6 @@
         profile="cpskin.policy:default"
         />
 
-
     <genericsetup:upgradeStep
         title="Set allowed_sizes for adding carousel size"
         description="Update images allowed_sizes for adding carousel size"
@@ -110,13 +110,11 @@
         destination="10"
         profile="cpskin.policy:default"
         >
-
         <genericsetup:upgradeDepends
           title="install cpskin.caching"
           description="configure caching"
           import_profile="cpskin.caching:default"
           />
-
     </genericsetup:upgradeSteps>
 
     <genericsetup:upgradeStep
@@ -142,5 +140,7 @@
         handler=".upgrades.add_cpskin_collective_contact_workflow"
         profile="cpskin.policy:default"
         />
+
+
 
 </configure>

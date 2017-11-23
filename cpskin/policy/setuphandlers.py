@@ -89,6 +89,7 @@ def installPolicy(context):
     set_scales_for_image_cropping()
     enable_sitemap(portal)
     add_mail_host()
+    use_email_as_login()
 
 
 def renameIndexhtml(portal):
@@ -371,3 +372,9 @@ def add_mail_host(context=None):
     mailhost._stopQueueProcessorThread()
     mailhost._startQueueProcessorThread()
     mailhost.manage_restartQueueThread()
+
+
+def use_email_as_login():
+    pprop = api.portal.get_tool('portal_properties')
+    site_properties = pprop.site_properties
+    site_properties.manage_changeProperties(use_email_as_login=True)

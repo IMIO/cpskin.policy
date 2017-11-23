@@ -6,6 +6,7 @@ from plone.app.workflow.remap import remap_workflow
 from Products.CMFCore.utils import getToolByName
 from zope.component import queryUtility
 from zope.ramcache.interfaces.ram import IRAMCache
+
 import logging
 import transaction
 
