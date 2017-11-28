@@ -4,6 +4,9 @@ Changelog
 4.3.20 (unreleased)
 -------------------
 
+- Install cpskin contact workflow.
+  [bsuttor]
+
 - Do not set use_email_as_login as default.
   [bsuttor]
 

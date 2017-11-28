@@ -3,16 +3,21 @@ from cpskin.core.interfaces import IFolderViewSelectedContent
 from cpskin.locales import CPSkinMessageFactory as _
 from plone import api
 from plone.app.event.interfaces import IEventSettings
+from plone.app.workflow.remap import remap_workflow
 from plone.contentrules.engine.interfaces import IRuleStorage
 from plone.registry.interfaces import IRegistry
 from Products.ATContentTypes.lib import constraintypes
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.interfaces.syndication import IFeedSettings
+from Products.CMFPlone.utils import _createObjectByType
 from zope.component import getUtility
+from zope.component import queryUtility
 from zope.interface import alsoProvides
+from zope.ramcache.interfaces.ram import IRAMCache
+
 import logging
 import os
+
 
 logger = logging.getLogger('cpskin.policy')
 timezone = 'Europe/Brussels'
@@ -90,6 +95,7 @@ def installPolicy(context):
     enable_sitemap(portal)
     add_mail_host()
     # use_email_as_login()
+    set_contact_worflow()
 
 
 def renameIndexhtml(portal):
@@ -378,3 +384,28 @@ def use_email_as_login():
     pprop = api.portal.get_tool('portal_properties')
     site_properties = pprop.site_properties
     site_properties.manage_changeProperties(use_email_as_login=True)
+
+
+def set_contact_worflow():
+    portal = api.portal.get()
+    portal_workflow = api.portal.get_tool('portal_workflow')
+    workflow = portal_workflow.getWorkflowsFor('organization')
+    if len(workflow) > 1:
+        logger.info(u'To much workflow for contacts.')
+        return
+    workflow_id = workflow[0].id
+    if workflow_id == 'cpskin_collective_contact_workflow':
+        logger.info(u'cpskin_collective_contact_workflow already set.')
+        return
+    chain = ('cpskin_collective_contact_workflow',)
+    types = ('held_position',
+             'organization',
+             'person',
+             'position')
+    state_map = {'active': 'active',
+                 'deactivated': 'deactivated'}
+    remap_workflow(portal, type_ids=types, chain=chain,
+                   state_map=state_map)
+    util = queryUtility(IRAMCache)
+    if util is not None:
+        util.invalidateAll()
