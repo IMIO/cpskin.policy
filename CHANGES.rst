@@ -4,7 +4,8 @@ Changelog
 4.3.20 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Do not set use_email_as_login as default.
+  [bsuttor]
 
 
 4.3.19 (2017-11-28)

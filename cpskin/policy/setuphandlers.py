@@ -89,7 +89,7 @@ def installPolicy(context):
     set_scales_for_image_cropping()
     enable_sitemap(portal)
     add_mail_host()
-    use_email_as_login()
+    # use_email_as_login()
 
 
 def renameIndexhtml(portal):
