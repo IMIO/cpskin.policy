@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.19 (unreleased)
+4.3.19 (2017-11-28)
 -------------------
 
 - Set use_email_as_login to True on install.
