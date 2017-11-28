@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.20 (unreleased)
+4.3.20 (2017-11-28)
 -------------------
 
 - Install cpskin contact workflow.
