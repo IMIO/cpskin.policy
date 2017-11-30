@@ -9,7 +9,7 @@ bin/python:
 	touch $@
 
 bin/buildout: bootstrap.py buildout.cfg bin/python
-	./bin/python bootstrap.py
+	./bin/python bootstrap.py --buildout-version 2.7.0 
 	touch $@
 
 buildout: bin/buildout
