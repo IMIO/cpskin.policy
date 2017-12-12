@@ -3,5 +3,6 @@
 
       <include package="cpskin.menu" file="overrides.zcml"/>
       <include package="cpskin.core" file="overrides.zcml"/>
+      <include package="cpskin.agenda" file="overrides.zcml" />
 
 </configure>

@@ -4,7 +4,8 @@ Changelog
 4.3.21 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add cpskin.agenda overrides.
+  [bsuttor]
 
 
 4.3.20 (2017-11-28)
