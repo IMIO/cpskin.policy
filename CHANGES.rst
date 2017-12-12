@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.21 (unreleased)
+4.3.21 (2017-12-12)
 -------------------
 
 - Add cpskin.agenda overrides.
