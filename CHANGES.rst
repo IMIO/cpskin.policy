@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.22 (unreleased)
+4.3.22 (2017-12-13)
 -------------------
 
 - Add and install collective.limitfilesizepanel.
