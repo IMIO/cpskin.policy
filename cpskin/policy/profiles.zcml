@@ -141,6 +141,13 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Install collective.limitfilesizepanel"
+        source="13"
+        destination="14"
+        handler=".upgrades.install_collective_limitfilesizepanel"
+        profile="cpskin.policy:default"
+        />
 
 
 </configure>

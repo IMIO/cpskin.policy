@@ -11,6 +11,17 @@ import logging
 import transaction
 
 
+def install_collective_limitfilesizepanel(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+
+    portal_setup = api.portal.get_tool('portal_setup')
+    portal_setup.runAllImportStepsFromProfile(
+        'profile-collective.limitfilesizepanel:default')
+    logger.info('collective.limitfilesizepanel installed')
+
+
 def add_cpskin_collective_contact_workflow(context):
     context.runImportStepFromProfile('profile-cpskin.workflow:to1', 'workflow')
     chain = ('cpskin_collective_contact_workflow',)

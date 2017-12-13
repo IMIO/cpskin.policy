@@ -4,7 +4,8 @@ Changelog
 4.3.22 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add and install collective.limitfilesizepanel.
+  [bsuttor]
 
 
 4.3.21 (2017-12-12)
