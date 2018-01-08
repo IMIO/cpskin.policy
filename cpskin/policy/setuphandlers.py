@@ -217,11 +217,11 @@ def createEventsAndNews(portal):
 def add_alaune(portal):
     news_folder = getattr(portal, 'actualites', None)
     if news_folder:
-        # XXX check if folder is not already provided
+        # check if folder is not already provided
         alsoProvides(news_folder, IFolderViewSelectedContent)
     event_folder = getattr(portal, 'evenements', None)
     if event_folder:
-        # XXX check if folder is not already provided
+        # check if folder is not already provided
         alsoProvides(event_folder, IFolderViewSelectedContent)
     alaune_folder = getattr(portal, 'a-la-une', None)
 
@@ -243,7 +243,7 @@ def add_alaune(portal):
                   'v': 'a-la-une'},
                  {'i': 'path',
                   'o': 'plone.app.querystring.operation.string.path',
-                  'v': '/%s' % contextPath}]
+                  'v': '/{0}'.format(contextPath)}]
         collection.setQuery(query)
         collection.setSort_on('effective')
         collection.setSort_reversed(True)
@@ -269,9 +269,9 @@ def setCriterion(portal, folder_name, index, operator, value=None):
     Change existing criterion to collection, or add a new one
     """
     folder = getattr(portal, folder_name, None)
-    if folder and hasattr(folder, 'index'):
+    if folder and getattr(folder, 'index', False):
         collection = folder.index
-        if not hasattr(collection, 'query'):
+        if not getattr(collection, 'query', False):
             migrateTopicIds(portal)
             createEventsAndNews(portal)
             folder = getattr(portal, folder_name, None)
@@ -313,7 +313,7 @@ def create_menu(portal):
     ]
     for f in folders:
         folder_id, folder_name = f.items()[0]
-        if not hasattr(portal, folder_id):
+        if not getattr(portal, folder_id, None):
             folder = api.content.create(
                 container=portal,
                 type='Folder',
@@ -346,7 +346,7 @@ def add_cookiescuttr(portal):
     api.portal.set_registry_record(
         'collective.cookiecuttr.interfaces.ICookieCuttrSettings.text',
         [{'text': u'We use cookies. <a href="{{cookiePolicyLink}}" title="read about our cookies"> Read everything </a>', 'language': u'en'},  # noqa
-         {'text': u"Nous utilisons des cookies pour faciliter la navigation et le partage social. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Plus d'informations </a> ", 'language': u'fr'}])  # noqa
+         {'text': u'Nous utilisons des cookies pour faciliter la navigation et le partage social. <a href="{{cookiePolicyLink}}" title="read about our cookies"> Plus d\'informations </a>', 'language': u'fr'}])  # noqa
 
 
 def set_scales_for_image_cropping():

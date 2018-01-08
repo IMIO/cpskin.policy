@@ -51,7 +51,7 @@ def delete_multilingualbehavior(context, logger=None):
 
     portal_setup = getToolByName(context, 'portal_setup')
     portal_setup.runAllImportStepsFromProfile(
-            'profile-plone.multilingualbehavior:uninstall')
+        'profile-plone.multilingualbehavior:uninstall')
 
     # Check is PAM is installed, if not remore plone.multilingual
     portal_quickinstaller = getToolByName(context, 'portal_quickinstaller')
@@ -59,7 +59,7 @@ def delete_multilingualbehavior(context, logger=None):
     logger.info('plone.multilingualbehavior uninstalled')
 
     portal_setup.runAllImportStepsFromProfile(
-            'profile-plone.multilingual:uninstall')
+        'profile-plone.multilingual:uninstall')
     portal_quickinstaller.uninstallProducts(['plone.multilingual'])
     logger.info('plone.multilingual uninstalled')
 
@@ -90,7 +90,7 @@ def install_collective_atomrss(context, logger=None):
 def install_collective_cookiecuttr(context, logger=None):
     setup = getToolByName(context, 'portal_setup')
     setup.runAllImportStepsFromProfile(
-            'profile-collective.cookiecuttr:default')
+        'profile-collective.cookiecuttr:default')
     portal = api.portal.get()
     add_cookiescuttr(portal)
 
@@ -115,7 +115,7 @@ def clean_registries(context, logger=None):
         stepMetadata = ps.getImportStepMetadata(stepId)
         # remove invalid steps
         if stepMetadata['invalid']:
-            logger.info('Removing %s step from portal_setup' % stepId)
+            logger.info('Removing {0} step from portal_setup'.format(stepId))
             ps._import_registry.unregisterStep(stepId)
     logger.info('portal_setup has been cleaned!')
 
