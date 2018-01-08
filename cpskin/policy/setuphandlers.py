@@ -394,6 +394,9 @@ def set_contact_worflow():
     if len(workflow) > 1:
         logger.info(u'To much workflow for contacts.')
         return
+    if len(workflow) == 0:
+        logger.info(u'No workflow for contacts.')
+        return
     workflow_id = workflow[0].id
     if workflow_id == 'cpskin_collective_contact_workflow':
         logger.info(u'cpskin_collective_contact_workflow already set.')
