@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-from plone.testing import z2
-from plone.app.testing import applyProfile
-from plone.app.testing import PloneWithPackageLayer
-from plone.app.testing import IntegrationTesting
-from plone.app.testing import FunctionalTesting
 from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import PloneWithPackageLayer
+from plone.testing import z2
+
 import cpskin.policy
 
 
@@ -12,7 +13,9 @@ class CpskinPolicyPloneWithPackageLayer(PloneWithPackageLayer):
     """
     """
     def setUpZope(self, app, configurationContext):
-        super(CpskinPolicyPloneWithPackageLayer, self).setUpZope(app, configurationContext)
+        super(CpskinPolicyPloneWithPackageLayer, self).setUpZope(
+            app,
+            configurationContext)
         z2.installProduct(app, 'Products.DateRecurringIndex')
 
     def tearDownZope(self, app):
@@ -20,7 +23,7 @@ class CpskinPolicyPloneWithPackageLayer(PloneWithPackageLayer):
         z2.uninstallProduct(app, 'Products.DateRecurringIndex')
 
     def setUpPloneSite(self, portal):
-        portal.portal_workflow.setDefaultChain("simple_publication_workflow")
+        portal.portal_workflow.setDefaultChain('simple_publication_workflow')
         applyProfile(portal, 'cpskin.policy:testing')
         applyProfile(portal, 'cpskin.demo:default')
 
@@ -34,10 +37,10 @@ CPSKIN_POLICY_FIXTURE = CpskinPolicyPloneWithPackageLayer(
 
 CPSKIN_POLICY_INTEGRATION_TESTING = IntegrationTesting(
     bases=(CPSKIN_POLICY_FIXTURE,),
-    name="CPSkinPolicy:Integration")
+    name='CPSkinPolicy:Integration')
 
 CPSKIN_POLICY_ROBOT_TESTING = FunctionalTesting(
     bases=(CPSKIN_POLICY_FIXTURE,
            REMOTE_LIBRARY_BUNDLE_FIXTURE,
            z2.ZSERVER_FIXTURE),
-    name="cpskin.policy:Robot")
+    name='cpskin.policy:Robot')

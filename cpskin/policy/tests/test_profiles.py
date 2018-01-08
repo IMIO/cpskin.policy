@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-import unittest2 as unittest
-
 from cpskin.policy.interfaces import ICPSkinPolicyLayer
 from cpskin.policy.testing import CPSKIN_POLICY_INTEGRATION_TESTING
 from plone.app.testing import applyProfile
 from plone.browserlayer.utils import registered_layers
+
+import unittest
 
 
 class TestProfiles(unittest.TestCase):

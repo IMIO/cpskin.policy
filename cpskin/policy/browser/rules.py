@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-
-from zope.component import queryUtility
 from plone import api
 from plone.app.redirector.interfaces import IRedirectionStorage
 from Products.Five import BrowserView
+from zope.component import queryUtility
 
 
 class RulesScriptView(BrowserView):

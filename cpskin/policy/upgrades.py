@@ -68,7 +68,7 @@ def delete_multilingualbehavior(context, logger=None):
         for key in sub.keys():
             if 'multilingual' in str(key):
                 del subscribers[i][key]
-                logger.info("Deleted {0} subscriber".format(key))
+                logger.info('Deleted {0} subscriber'.format(key))
     sm.adapters._subscribers = subscribers
 
     transaction.commit()

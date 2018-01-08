@@ -9,6 +9,7 @@
   <include package="collective.ptg.galleria" />
   <include package="jarn.jsi18n" />
   <include package="collective.autoscaling" />
+  <include package="collective.limitfilesizepanel" />
 
   <genericsetup:registerProfile
       name="testing"

@@ -47,7 +47,7 @@ def installPolicy(context):
 
     # set plone.app.event
     reg = getUtility(IRegistry)
-    settings = reg.forInterface(IEventSettings, prefix="plone.app.event")
+    settings = reg.forInterface(IEventSettings, prefix='plone.app.event')
     if not settings.portal_timezone:
         logger.info('Set timezone to Europe/Brussels')
         settings.portal_timezone = timezone
@@ -133,7 +133,7 @@ def createEventsAndNews(portal):
     Inspired by Products.CMFPlone.setuphandlers
     """
     language = portal.Language()
-    wftool = getToolByName(portal, "portal_workflow")
+    wftool = getToolByName(portal, 'portal_workflow')
     actu_folder = getattr(portal, 'actualites')
     events_folder = getattr(portal, 'evenements')
     # News topic
@@ -326,11 +326,11 @@ def create_menu(portal):
 
 def add_cookiescuttr(portal):
     api.portal.set_registry_record(
-        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.cookiecuttr_enabled',
+        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.cookiecuttr_enabled',  # noqa
         True)
 
     api.portal.set_registry_record(
-        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.implied_consent',
+        'collective.cookiecuttr.interfaces.ICookieCuttrSettings.implied_consent',  # noqa
         True)
 
     api.portal.set_registry_record(
@@ -345,14 +345,15 @@ def add_cookiescuttr(portal):
 
     api.portal.set_registry_record(
         'collective.cookiecuttr.interfaces.ICookieCuttrSettings.text',
-        [{'text': u"We use cookies. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Read everything </a>", 'language': u'en'},
-         {'text': u"Nous utilisons des cookies pour faciliter la navigation et le partage social. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Plus d'informations </a> ", 'language': u'fr'}])
+        [{'text': u'We use cookies. <a href="{{cookiePolicyLink}}" title="read about our cookies"> Read everything </a>', 'language': u'en'},  # noqa
+         {'text': u"Nous utilisons des cookies pour faciliter la navigation et le partage social. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Plus d'informations </a> ", 'language': u'fr'}])  # noqa
 
 
 def set_scales_for_image_cropping():
     """This is made in setuphandler beacause propertiestool.xml must be
     charged before adding scales for image cropping"""
-    crop_allowed = ['slider', 'collection', 'header', 'banner', 'visuel', 'multimedia']
+    crop_allowed = [
+        'slider', 'collection', 'header', 'banner', 'visuel', 'multimedia']
     api.portal.set_registry_record(
         'plone.app.imagecropping.browser.settings.ISettings.cropping_for',
         crop_allowed)

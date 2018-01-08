@@ -1,6 +1,6 @@
-from zope.publisher.browser import BrowserView
+# -*- coding: utf-8 -*-
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone import api
+from zope.publisher.browser import BrowserView
 
 
 class CookiesPage(BrowserView):

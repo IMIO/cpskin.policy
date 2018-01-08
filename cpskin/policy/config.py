@@ -1,11 +1,11 @@
+# -*- coding: utf-8 -*-
+from Products.CMFPlone import interfaces
+from Products.CMFQuickInstallerTool import interfaces as quiskinstallinterfaces
 from zope.interface import implements
-
-import Products.CMFPlone.interfaces
-import Products.CMFQuickInstallerTool.interfaces
 
 
 class HiddenProfiles(object):
-    implements(Products.CMFPlone.interfaces.INonInstallable)
+    implements(interfaces.INonInstallable)
 
     def getNonInstallableProfiles(self):
         """Hides profiles from 'Add Plone site' form"""
@@ -30,7 +30,7 @@ class HiddenProfiles(object):
 
 
 class HiddenProducts(object):
-    implements(Products.CMFQuickInstallerTool.interfaces.INonInstallable)
+    implements(quiskinstallinterfaces.INonInstallable)
 
     def getNonInstallableProducts(self):
         """Hides profiles from QuickInstaller"""
