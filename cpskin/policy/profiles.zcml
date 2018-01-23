@@ -149,5 +149,14 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Remove remove old contentleadimage"
+        source="14"
+        destination="15"
+        handler=".upgrades.remove_old_contentleadimage"
+        profile="cpskin.policy:default"
+        />
+
+
 
 </configure>

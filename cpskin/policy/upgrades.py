@@ -11,6 +11,32 @@ import logging
 import transaction
 
 
+def remove_old_contentleadimage(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy remove_old_contentleadimage')
+    portal = api.portal.get()
+    sm = portal.getSiteManager()
+
+    for ((provided, name), data) in sm._utility_registrations.iteritems():
+        if name == u'collective.contentleadimage':
+            old = sm._utility_registrations.get((provided, name))
+            component = old[0]
+            del sm._utility_registrations[(provided, name)]
+            sm.utilities.unregister((), provided, name)
+            sm.utilities.unsubscribe((), provided, name)
+            logger.info('collective.contentleadimage utility cleaned')
+            break
+    from zope.event import notify
+    from zope.component.interfaces import Unregistered
+    from zope.component.registry import UtilityRegistration
+    notify(Unregistered(
+        UtilityRegistration(sm, provided, name, component, *old[1:])
+    ))
+
+    clean_registries(context, logger)
+
+
 def install_collective_limitfilesizepanel(context, logger=None):
     if logger is None:
         # Called as upgrade step: define our own logger.
@@ -117,6 +143,7 @@ def clean_registries(context, logger=None):
         if stepMetadata['invalid']:
             logger.info('Removing {0} step from portal_setup'.format(stepId))
             ps._import_registry.unregisterStep(stepId)
+            ps._p_changed = True
     logger.info('portal_setup has been cleaned!')
 
     logger.info('Registries have been cleaned!')
