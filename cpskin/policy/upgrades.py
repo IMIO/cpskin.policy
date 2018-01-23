@@ -26,13 +26,13 @@ def remove_old_contentleadimage(context, logger=None):
             sm.utilities.unregister((), provided, name)
             sm.utilities.unsubscribe((), provided, name)
             logger.info('collective.contentleadimage utility cleaned')
+            from zope.event import notify
+            from zope.component.interfaces import Unregistered
+            from zope.component.registry import UtilityRegistration
+            notify(Unregistered(
+                UtilityRegistration(sm, provided, name, component, *old[1:])
+            ))
             break
-    from zope.event import notify
-    from zope.component.interfaces import Unregistered
-    from zope.component.registry import UtilityRegistration
-    notify(Unregistered(
-        UtilityRegistration(sm, provided, name, component, *old[1:])
-    ))
 
     clean_registries(context, logger)
 

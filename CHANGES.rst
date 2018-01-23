@@ -4,7 +4,8 @@ Changelog
 4.3.24 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix latest upgrade step.
+  [bsuttor]
 
 
 4.3.23 (2018-01-23)
