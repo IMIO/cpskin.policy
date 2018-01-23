@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.23 (unreleased)
+4.3.23 (2018-01-23)
 -------------------
 
 - Upgrade step to completely remove collective.contentleadimage.
