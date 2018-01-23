@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.25 (unreleased)
+4.3.25 (2018-01-23)
 -------------------
 
 - Sync SiteManager after changed it.
