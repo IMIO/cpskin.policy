@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.24 (unreleased)
+4.3.24 (2018-01-23)
 -------------------
 
 - Fix latest upgrade step.
