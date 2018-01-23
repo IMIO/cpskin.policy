@@ -32,6 +32,7 @@ def remove_old_contentleadimage(context, logger=None):
             notify(Unregistered(
                 UtilityRegistration(sm, provided, name, component, *old[1:])
             ))
+            sm._p_jar.sync()
             break
 
     clean_registries(context, logger)

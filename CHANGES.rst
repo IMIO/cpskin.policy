@@ -4,7 +4,8 @@ Changelog
 4.3.25 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Sync SiteManager after changed it.
+  [bsuttor]
 
 
 4.3.24 (2018-01-23)
