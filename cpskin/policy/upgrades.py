@@ -5,6 +5,7 @@ from plone import api
 from plone.app.workflow.remap import remap_workflow
 from Products.CMFCore.utils import getToolByName
 from zope.component import queryUtility
+from zope.dottedname.resolve import resolve
 from zope.ramcache.interfaces.ram import IRAMCache
 
 import logging
@@ -18,24 +19,34 @@ def remove_old_contentleadimage(context, logger=None):
     portal = api.portal.get()
     sm = portal.getSiteManager()
 
-    for ((provided, name), data) in sm._utility_registrations.iteritems():
-        if name == u'collective.contentleadimage':
-            old = sm._utility_registrations.get((provided, name))
-            component = old[0]
-            del sm._utility_registrations[(provided, name)]
-            sm.utilities.unregister((), provided, name)
-            sm.utilities.unsubscribe((), provided, name)
-            logger.info('collective.contentleadimage utility cleaned')
-            from zope.event import notify
-            from zope.component.interfaces import Unregistered
-            from zope.component.registry import UtilityRegistration
-            notify(Unregistered(
-                UtilityRegistration(sm, provided, name, component, *old[1:])
-            ))
-            sm._p_jar.sync()
-            break
+    utilities = {
+        'subscribers': sm.utilities._subscribers[0],
+        'adapters': sm.utilities._adapters[0],
+        # 'provided': sm.utilities._provided
+    }
+    util_klass = resolve('plone.browserlayer.interfaces.ILocalBrowserLayerType')
+    reg_klass = resolve('collective.contentleadimage.interfaces.ILeadImageSpecific')
+    reg_name = 'collective.contentleadimage'
+    for sm_type in utilities.keys():
+        utility_registrations = utilities[sm_type]
+        for x in utility_registrations.keys():
+            if x.__module__ == util_klass.__module__ and x == util_klass:
+                for name, klass in utility_registrations[x].items():
+                    found = find_object_or_class(klass, reg_klass)
+                    # if found:
+                    #     import pdb; pdb.set_trace()
+                    if found:
+                        if type(utility_registrations[x][name]) in \
+                                                        [list, tuple, set]:
+                            regs = list(utility_registrations[x][name])
+                            regs.remove(found)
+                            logger.info('{0} {1} removed'.format(sm_type, reg_klass))
+                            utility_registrations[x][name] = tuple(regs)
+                        else:
+                            logger.info('{0} removed'.format(name))
+                            del utility_registrations[x][name]
 
-    clean_registries(context, logger)
+        setattr(sm.utilities, '_' + sm_type, [utilities])
 
 
 def install_collective_limitfilesizepanel(context, logger=None):
@@ -174,3 +185,13 @@ def set_allowed_sizes(context, logger=None):
     set_scales_for_image_cropping()
     clean_registries(context)
     logger.info('cpskin.policy updated')
+
+
+def find_object_or_class(objs, klass):
+    if type(objs) not in [list, tuple, set]:
+        objs = [objs]
+    for obj in objs:
+        if klass == obj:
+            return obj
+
+    return None

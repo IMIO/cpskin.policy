@@ -4,7 +4,8 @@ Changelog
 4.3.26 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Upgrade step to completely remove collective.contentleadimage.
+  [bsuttor]
 
 
 4.3.25 (2018-01-23)

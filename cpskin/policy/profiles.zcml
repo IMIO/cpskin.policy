@@ -157,6 +157,12 @@
         profile="cpskin.policy:default"
         />
 
-
+    <genericsetup:upgradeStep
+        title="Remove remove old contentleadimage and IUseKeywordHomepage"
+        source="15"
+        destination="16"
+        handler=".upgrades.remove_old_contentleadimage"
+        profile="cpskin.policy:default"
+        />
 
 </configure>
