@@ -46,7 +46,7 @@ def remove_old_contentleadimage(context, logger=None):
                             logger.info('{0} removed'.format(name))
                             del utility_registrations[x][name]
 
-        setattr(sm.utilities, '_' + sm_type, [utilities])
+        setattr(sm.utilities, '_' + sm_type, [utility_registrations])
 
 
 def install_collective_limitfilesizepanel(context, logger=None):

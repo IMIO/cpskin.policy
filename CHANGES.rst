@@ -4,7 +4,8 @@ Changelog
 4.3.27 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix variable name.
+  [bsuttor]
 
 
 4.3.26 (2018-01-31)
