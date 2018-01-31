@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.27 (unreleased)
+4.3.27 (2018-01-31)
 -------------------
 
 - Fix variable name.
