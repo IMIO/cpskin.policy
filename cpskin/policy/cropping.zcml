@@ -13,6 +13,9 @@
     <class class="plone.dexterity.content.Item">
       <implements interface="plone.app.imagecropping.dx.IImageCroppingDX" />
     </class>
+    <class class="plone.dexterity.content.Container">
+      <implements interface="plone.app.imagecropping.dx.IImageCroppingDX" />
+    </class>
   </configure>
 
 </configure>

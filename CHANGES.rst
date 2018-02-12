@@ -4,7 +4,8 @@ Changelog
 4.3.28 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Support image cropping on containers : #19171
+  [laulaz]
 
 
 4.3.27 (2018-01-31)
