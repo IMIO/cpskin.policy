@@ -4,6 +4,9 @@ Changelog
 4.3.28 (unreleased)
 -------------------
 
+- Allow to add more content types in organizations : #19171
+  [laulaz]
+
 - Support image cropping on containers : #19171
   [laulaz]
 

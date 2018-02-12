@@ -3,6 +3,9 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="allowed_content_types" purge="True">
   <element value="organization"/>
+  <element value="Image"/>
+  <element value="media_link"/>
+  <element value="Document"/>
  </property>
 
 </object>

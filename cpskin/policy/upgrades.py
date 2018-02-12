@@ -11,6 +11,12 @@ from zope.ramcache.interfaces.ram import IRAMCache
 import logging
 import transaction
 
+PROFILE_ID = 'profile-cpskin.policy:default'
+
+
+def reload_types_info(context):
+    context.runImportStepFromProfile(PROFILE_ID, 'typeinfo')
+
 
 def remove_old_contentleadimage(context, logger=None):
     if logger is None:

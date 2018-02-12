@@ -165,4 +165,12 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Reload types infos to allow other content types in organizations"
+        source="16"
+        destination="17"
+        handler=".upgrades.reload_types_info"
+        profile="cpskin.policy:default"
+        />
+
 </configure>
