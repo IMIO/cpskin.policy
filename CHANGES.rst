@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.28 (unreleased)
+4.3.28 (2018-04-23)
 -------------------
 
 - Upgrade step to clean resolveuid links.
