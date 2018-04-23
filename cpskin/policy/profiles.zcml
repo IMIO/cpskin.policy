@@ -165,4 +165,13 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Update links with resolveuid and use https for fonts"
+        source="16"
+        destination="17"
+        handler=".upgrades.update_links"
+        profile="cpskin.policy:default"
+        />
+
+
 </configure>

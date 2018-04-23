@@ -4,7 +4,11 @@ Changelog
 4.3.28 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Upgrade step to clean resolveuid links.
+  [bsuttor]
+
+- Update fonts to https.
+  [bsuttor]
 
 
 4.3.27 (2018-01-31)

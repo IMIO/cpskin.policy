@@ -12,6 +12,40 @@ import logging
 import transaction
 
 
+def update_font_to_https(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+    portal_css = api.portal.get_tool('portal_css')
+    for sheet in portal_css.getResources():
+        sheet_id = sheet.getId()
+        if 'fonts.googleapis.com' in sheet_id:
+            if not sheet_id.startswith('https://'):
+                # portal_css.unregisterResource(sheetid)
+                new_id = sheet_id.replace('http://', 'https://')
+                portal_css.renameResource(sheet_id, new_id)
+                logger.info('{0} replaced by {1}'.format(sheet_id, new_id))
+    portal_css.cookResources()
+
+
+def update_links(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+    portal_catalog = api.portal.get_tool('portal_catalog')
+    brains = portal_catalog({'portal_type': 'Link'})
+    i = 0
+    for brain in brains:
+        obj = brain.getObject()
+        if obj.remoteUrl.startswith('resolveuid'):
+            new_url = '${{navigation_root_url}}/{0}'.format(obj.remoteUrl)
+            obj.remoteUrl = new_url
+            logger.info('{0} update'.format(obj.absolute_url()))
+            i += 1
+    logger.info('{0} links updated'.format(str(i)))
+    update_font_to_https(context, logger)
+
+
 def remove_old_contentleadimage(context, logger=None):
     if logger is None:
         # Called as upgrade step: define our own logger.

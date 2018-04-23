@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>16</version>
+  <version>17</version>
   <dependencies>
     <dependency>profile-plone.app.caching:default</dependency>
     <dependency>profile-plone.app.caching:with-caching-proxy</dependency>
@@ -13,7 +13,6 @@
     <dependency>profile-cpskin.minisite:default</dependency>
     <dependency>profile-cpskin.theme:default</dependency>
     <dependency>profile-cpskin.caching:default</dependency>
-    <!-- <dependency>profile-collective.directory:default</dependency> -->
     <dependency>profile-collective.contact.core:default</dependency>
     <dependency>profile-Products.PasswordStrength:default</dependency>
     <dependency>profile-collective.jekyll:default</dependency>
