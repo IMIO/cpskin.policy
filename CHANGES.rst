@@ -4,7 +4,8 @@ Changelog
 4.3.29 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update cookiecuttr message.
+  [bsuttor]
 
 
 4.3.28 (2018-04-23)

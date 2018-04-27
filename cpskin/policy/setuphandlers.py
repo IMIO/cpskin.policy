@@ -345,8 +345,8 @@ def add_cookiescuttr(portal):
 
     api.portal.set_registry_record(
         'collective.cookiecuttr.interfaces.ICookieCuttrSettings.text',
-        [{'text': u'We use cookies. <a href="{{cookiePolicyLink}}" title="read about our cookies"> Read everything </a>', 'language': u'en'},  # noqa
-         {'text': u'Nous utilisons des cookies pour faciliter la navigation et le partage social. <a href="{{cookiePolicyLink}}" title="read about our cookies"> Plus d\'informations </a>', 'language': u'fr'}])  # noqa
+        [{'text': u"We use cookies. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Read everything </a>", 'language': u'en'},  # noqa
+         {'text': u"Nous utilisons des cookies pour faciliter la navigation et le partage social. <a href='{{cookiePolicyLink}}' title='read about our cookies'> Plus d\'informations </a>", 'language': u'fr'}])  # noqa
 
 
 def set_scales_for_image_cropping():
