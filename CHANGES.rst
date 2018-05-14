@@ -4,6 +4,9 @@ Changelog
 4.3.29 (unreleased)
 -------------------
 
+- Unpin old plone.api
+  [laulaz]
+
 - Update cookiecuttr message.
   [bsuttor]
 
