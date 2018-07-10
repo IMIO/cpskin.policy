@@ -66,6 +66,7 @@ setup(name='cpskin.policy',
           'collective.recaptcha',
           'collective.sendinblue',
           'collective.limitfilesizepanel',
+          'plone.restapi',
       ],
       extras_require=dict(
           test=[

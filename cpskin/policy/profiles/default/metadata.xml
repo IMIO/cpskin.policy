@@ -25,5 +25,6 @@
     <dependency>profile-plone.app.imagecropping:default</dependency>
     <dependency>profile-collective.autoscaling:default</dependency>
     <dependency>profile-collective.limitfilesizepanel:default</dependency>
+    <dependency>profile-plone.restapi:default</dependency>
   </dependencies>
 </metadata>
