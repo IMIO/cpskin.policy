@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.29 (unreleased)
+4.3.29 (2018-07-10)
 -------------------
 
 - Add plone.restapi dependency.
