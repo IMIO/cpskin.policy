@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.30 (unreleased)
+4.3.30 (2018-07-11)
 -------------------
 
 - Add upgradestep to install plone.restapi.
