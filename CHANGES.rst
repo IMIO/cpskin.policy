@@ -4,7 +4,8 @@ Changelog
 4.3.30 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add upgradestep to install plone.restapi.
+  [bsuttor]
 
 
 4.3.29 (2018-07-10)

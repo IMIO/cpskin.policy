@@ -173,5 +173,12 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Install plone.restapi"
+        source="17"
+        destination="18"
+        handler=".upgrades.update_links"
+        profile="cpskin.policy:default"
+        />
 
 </configure>
