@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.31 (unreleased)
+4.3.31 (2018-07-13)
 -------------------
 
 - Fix: call good handler to upgrade step.
