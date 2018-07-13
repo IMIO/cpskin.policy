@@ -4,7 +4,8 @@ Changelog
 4.3.31 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix: call good handler to upgrade step.
+  [bsuttor]
 
 
 4.3.30 (2018-07-11)

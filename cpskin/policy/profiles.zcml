@@ -177,7 +177,7 @@
         title="Install plone.restapi"
         source="17"
         destination="18"
-        handler=".upgrades.update_links"
+        handler=".upgrades.install_restapi"
         profile="cpskin.policy:default"
         />
 
