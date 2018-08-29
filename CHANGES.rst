@@ -4,7 +4,8 @@ Changelog
 4.3.32 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Do not install and uninstall plone.restapi from now.
+  [bsuttor]
 
 
 4.3.31 (2018-07-13)

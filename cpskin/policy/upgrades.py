@@ -12,6 +12,16 @@ import logging
 import transaction
 
 
+def uninstall_restapi(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+    portal_setup = api.portal.get_tool('portal_setup')
+    portal_setup.runAllImportStepsFromProfile(
+        'profile-plone.restapi:uninstall')
+    logger.info('plone.restapi uninstalled')
+
+
 def install_restapi(context, logger=None):
     if logger is None:
         # Called as upgrade step: define our own logger.
