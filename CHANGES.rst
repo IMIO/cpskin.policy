@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.33 (unreleased)
+4.3.33 (2018-08-30)
 -------------------
 
 - Do not install uninstall plone.restapi.
