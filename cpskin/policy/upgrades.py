@@ -19,6 +19,8 @@ def uninstall_restapi(context, logger=None):
     portal_setup = api.portal.get_tool('portal_setup')
     portal_setup.runAllImportStepsFromProfile(
         'profile-plone.restapi:uninstall')
+    portal_quickinstaller = api.portal.get_tool('portal_quickinstaller')
+    portal_quickinstaller.uninstallProducts(['plone.restapi'])
     logger.info('plone.restapi uninstalled')
 
 

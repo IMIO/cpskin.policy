@@ -181,13 +181,12 @@
         profile="cpskin.policy:default"
         />
 
-
-    <genericsetup:upgradeStep
+    <!--genericsetup:upgradeStep
         title="Uninstall plone.restapi"
         source="18"
         destination="19"
         handler=".upgrades.uninstall_restapi"
         profile="cpskin.policy:default"
-        />
+        /-->
 
 </configure>
