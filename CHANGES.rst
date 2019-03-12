@@ -4,7 +4,8 @@ Changelog
 4.3.34 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add collective.behavior.targetblank dependency.
+  [bsuttor]
 
 
 4.3.33 (2018-08-30)

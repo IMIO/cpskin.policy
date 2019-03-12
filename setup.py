@@ -67,6 +67,7 @@ setup(name='cpskin.policy',
           'collective.sendinblue',
           'collective.limitfilesizepanel',
           'plone.restapi',
+          'collective.behavior.targetblank',
       ],
       extras_require=dict(
           test=[
