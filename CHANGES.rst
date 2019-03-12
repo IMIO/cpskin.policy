@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.34 (unreleased)
+4.3.34 (2019-03-12)
 -------------------
 
 - Add collective.behavior.targetblank dependency.
