@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.35 (unreleased)
+4.3.35 (2019-03-18)
 -------------------
 
 - Add cpskin.contenttypes package (not installed by default) : WEBOTT-10
