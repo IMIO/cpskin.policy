@@ -9,7 +9,8 @@ class HiddenProfiles(object):
 
     def getNonInstallableProfiles(self):
         """Hides profiles from 'Add Plone site' form"""
-        return [u'cpskin.core:default',
+        return [u'cpskin.contenttypes:default',
+                u'cpskin.core:default',
                 u'cpskin.core:members-configuration',
                 u'cpskin.core:uninstall',
                 u'cpskin.menu:default',
