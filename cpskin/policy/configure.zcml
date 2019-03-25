@@ -44,4 +44,9 @@
 
   <include package="collective.monitor" />
 
+  <include package="collective.autopublishing" />
+  <subscriber
+     for="collective.timedevents.interfaces.IIntervalTicksHourlyEvent"
+     handler="collective.autopublishing.eventhandler.autopublish_handler" />
+
 </configure>

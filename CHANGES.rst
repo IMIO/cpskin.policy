@@ -4,7 +4,8 @@ Changelog
 4.3.37 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add needed subscriber for collective.autopulishing
+  [laulaz]
 
 
 4.3.36 (2019-03-25)
