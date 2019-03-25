@@ -4,7 +4,8 @@ Changelog
 4.3.36 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add collective.autopulishing dependency.
+  [bsuttor]
 
 
 4.3.35 (2019-03-18)

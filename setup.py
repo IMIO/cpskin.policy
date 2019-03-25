@@ -69,6 +69,7 @@ setup(name='cpskin.policy',
           'collective.limitfilesizepanel',
           'plone.restapi',
           'collective.behavior.targetblank',
+          'collective.autopublishing',
       ],
       extras_require=dict(
           test=[
