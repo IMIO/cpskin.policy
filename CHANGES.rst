@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.37 (unreleased)
+4.3.37 (2019-03-25)
 -------------------
 
 - Add needed subscriber for collective.autopulishing
