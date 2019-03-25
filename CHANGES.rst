@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.36 (unreleased)
+4.3.36 (2019-03-25)
 -------------------
 
 - Add collective.autopulishing dependency.
