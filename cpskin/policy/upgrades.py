@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from cpskin.policy.setuphandlers import add_cookiescuttr
+from cpskin.policy.setuphandlers import configure_autopublish
 from cpskin.policy.setuphandlers import set_scales_for_image_cropping
 from plone import api
 from plone.app.workflow.remap import remap_workflow
@@ -12,13 +13,24 @@ import logging
 import transaction
 
 
+def install_auto_publishing(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+    portal_setup = api.portal.get_tool('portal_setup')
+    portal_setup.runAllImportStepsFromProfile(
+            'profile-collective.autopublishing:default')
+    logger.info('collective.autopublishing installed')
+    configure_autopublish()
+
+
 def uninstall_restapi(context, logger=None):
     if logger is None:
         # Called as upgrade step: define our own logger.
         logger = logging.getLogger('cpskin.policy')
     portal_setup = api.portal.get_tool('portal_setup')
     portal_setup.runAllImportStepsFromProfile(
-        'profile-plone.restapi:uninstall')
+            'profile-plone.restapi:uninstall')
     portal_quickinstaller = api.portal.get_tool('portal_quickinstaller')
     portal_quickinstaller.uninstallProducts(['plone.restapi'])
     logger.info('plone.restapi uninstalled')
@@ -30,7 +42,7 @@ def install_restapi(context, logger=None):
         logger = logging.getLogger('cpskin.policy')
     portal_setup = api.portal.get_tool('portal_setup')
     portal_setup.runAllImportStepsFromProfile(
-        'profile-plone.restapi:default')
+            'profile-plone.restapi:default')
     logger.info('plone.restapi installed')
 
 
@@ -76,13 +88,12 @@ def remove_old_contentleadimage(context, logger=None):
     sm = portal.getSiteManager()
 
     utilities = {
-        'subscribers': sm.utilities._subscribers[0],
-        'adapters': sm.utilities._adapters[0],
-        # 'provided': sm.utilities._provided
-    }
+            'subscribers': sm.utilities._subscribers[0],
+            'adapters': sm.utilities._adapters[0],
+            # 'provided': sm.utilities._provided
+            }
     util_klass = resolve('plone.browserlayer.interfaces.ILocalBrowserLayerType')
     reg_klass = resolve('collective.contentleadimage.interfaces.ILeadImageSpecific')
-    reg_name = 'collective.contentleadimage'
     for sm_type in utilities.keys():
         utility_registrations = utilities[sm_type]
         for x in utility_registrations.keys():
@@ -93,7 +104,7 @@ def remove_old_contentleadimage(context, logger=None):
                     #     import pdb; pdb.set_trace()
                     if found:
                         if type(utility_registrations[x][name]) in \
-                                                        [list, tuple, set]:
+                                [list, tuple, set]:
                             regs = list(utility_registrations[x][name])
                             regs.remove(found)
                             logger.info('{0} {1} removed'.format(sm_type, reg_klass))
@@ -112,7 +123,7 @@ def install_collective_limitfilesizepanel(context, logger=None):
 
     portal_setup = api.portal.get_tool('portal_setup')
     portal_setup.runAllImportStepsFromProfile(
-        'profile-collective.limitfilesizepanel:default')
+            'profile-collective.limitfilesizepanel:default')
     logger.info('collective.limitfilesizepanel installed')
 
 
@@ -120,13 +131,13 @@ def add_cpskin_collective_contact_workflow(context):
     context.runImportStepFromProfile('profile-cpskin.workflow:to1', 'workflow')
     chain = ('cpskin_collective_contact_workflow',)
     types = ('held_position',
-             'organization',
-             'person',
-             'position')
+            'organization',
+            'person',
+            'position')
     state_map = {'active': 'active',
-                 'deactivated': 'deactivated'}
+            'deactivated': 'deactivated'}
     remap_workflow(context, type_ids=types, chain=chain,
-                   state_map=state_map)
+            state_map=state_map)
     util = queryUtility(IRAMCache)
     if util is not None:
         util.invalidateAll()
@@ -145,7 +156,7 @@ def delete_multilingualbehavior(context, logger=None):
 
     portal_setup = getToolByName(context, 'portal_setup')
     portal_setup.runAllImportStepsFromProfile(
-        'profile-plone.multilingualbehavior:uninstall')
+            'profile-plone.multilingualbehavior:uninstall')
 
     # Check is PAM is installed, if not remore plone.multilingual
     portal_quickinstaller = getToolByName(context, 'portal_quickinstaller')
@@ -153,7 +164,7 @@ def delete_multilingualbehavior(context, logger=None):
     logger.info('plone.multilingualbehavior uninstalled')
 
     portal_setup.runAllImportStepsFromProfile(
-        'profile-plone.multilingual:uninstall')
+            'profile-plone.multilingual:uninstall')
     portal_quickinstaller.uninstallProducts(['plone.multilingual'])
     logger.info('plone.multilingual uninstalled')
 
@@ -177,14 +188,14 @@ def install_collective_atomrss(context, logger=None):
 
     setup_tool = getToolByName(context, 'portal_setup')
     setup_tool.runAllImportStepsFromProfile(
-        'profile-collective.atomrss:default')
+            'profile-collective.atomrss:default')
     logger.info('collective.atomrss installed')
 
 
 def install_collective_cookiecuttr(context, logger=None):
     setup = getToolByName(context, 'portal_setup')
     setup.runAllImportStepsFromProfile(
-        'profile-collective.cookiecuttr:default')
+            'profile-collective.cookiecuttr:default')
     portal = api.portal.get()
     add_cookiescuttr(portal)
 
@@ -224,7 +235,7 @@ def install_image_cropping(context, logger=None):
 
     setup_tool = getToolByName(context, 'portal_setup')
     setup_tool.runAllImportStepsFromProfile(
-        'profile-plone.app.imagecropping:default')
+            'profile-plone.app.imagecropping:default')
     logger.info('plone.app.imagecropping installed')
 
 
@@ -235,9 +246,9 @@ def set_allowed_sizes(context, logger=None):
 
     setup_tool = getToolByName(context, 'portal_setup')
     setup_tool.runImportStepFromProfile(
-        'profile-cpskin.policy:default', 'propertiestool')
+            'profile-cpskin.policy:default', 'propertiestool')
     setup_tool.runImportStepFromProfile(
-        'profile-cpskin.policy:default', 'plone.app.registry')
+            'profile-cpskin.policy:default', 'plone.app.registry')
     set_scales_for_image_cropping()
     clean_registries(context)
     logger.info('cpskin.policy updated')

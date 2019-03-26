@@ -181,4 +181,12 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Install collective.autopublishing"
+        source="18"
+        destination="19"
+        handler=".upgrades.install_auto_publishing"
+        profile="cpskin.policy:default"
+        />
+
 </configure>

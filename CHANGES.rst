@@ -4,7 +4,8 @@ Changelog
 4.3.38 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Set autopublishing on installation and add upgrade step to set it.
+  [bsuttor]
 
 
 4.3.37 (2019-03-25)

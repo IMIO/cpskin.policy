@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from collective.autopublishing.browser.autopublishsettings import AutopublishSpecification
+from collective.autopublishing.browser.autopublishsettings import IAutopublishSettingsSchema
+from collective.complexrecordsproxy import ComplexRecordsProxy
 from cpskin.core.interfaces import IFolderViewSelectedContent
 from cpskin.locales import CPSkinMessageFactory as _
 from plone import api
@@ -96,6 +99,34 @@ def installPolicy(context):
     add_mail_host()
     # use_email_as_login()
     set_contact_worflow()
+    configure_autopublish()
+
+
+def configure_autopublish():
+    settings = getUtility(IRegistry).forInterface(
+        IAutopublishSettingsSchema,
+        omit=('publish_actions', 'retract_actions'),
+        factory=ComplexRecordsProxy)
+
+    publish_action = AutopublishSpecification(
+        {
+            'portal_types': (u'News Item', 'Event'),
+            'initial_state': u'created',
+            'transition': u'publish_and_hide',
+        }
+    )
+    settings.publish_actions = (publish_action,)
+
+    retract_action = AutopublishSpecification(
+        {
+            'portal_types': (u'News Item', 'Event'),
+            'initial_state': u'published_and_hidden',
+            'transition': u'back_to_created',
+        }
+    )
+    retract_action.date_index = u'expires'
+    settings.retract_actions = (retract_action,)
+    settings.dry_run = False
 
 
 def renameIndexhtml(portal):
