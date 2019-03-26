@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.38 (unreleased)
+4.3.38 (2019-03-26)
 -------------------
 
 - Set autopublishing on installation and add upgrade step to set it.
