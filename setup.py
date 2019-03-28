@@ -70,6 +70,7 @@ setup(name='cpskin.policy',
           'plone.restapi',
           'collective.behavior.targetblank',
           'collective.autopublishing',
+          'collective.folderishtypes',
       ],
       extras_require=dict(
           test=[

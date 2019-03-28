@@ -20,4 +20,12 @@
       permission="zope.Public"
       />
 
+  <browser:view
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="migrate-folderishtypes"
+      class=".migration.FolderishTypesMigrationView"
+      permission="cmf.ManagePortal"
+      layer="..interfaces.ICPSkinPolicyLayer"
+      />
+
 </configure>

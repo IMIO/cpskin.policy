@@ -4,7 +4,9 @@ Changelog
 4.3.39 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add migration view to convert content types to folderish : WEB-2975
+  Migration can be called from @@migrate-folderishtypes
+  [laulaz]
 
 
 4.3.38 (2019-03-26)

@@ -27,5 +27,6 @@
     <dependency>profile-collective.limitfilesizepanel:default</dependency>
     <dependency>profile-plone.restapi:default</dependency>
     <dependency>profile-collective.autopublishing:default</dependency>
+    <dependency>profile-collective.folderishtypes.dx:default</dependency>
   </dependencies>
 </metadata>

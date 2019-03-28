@@ -23,11 +23,10 @@
   <include package="collective.cookiecuttr" />
   <include package="plone.app.event" />
   <include package="collective.recaptcha" />
-
   <include package="Products.PloneFormGen" />
   <include package="Products.PloneGazette" />
   <include package="Solgema.fullcalendar" />
-
+  <include package="collective.folderishtypes" />
 
   <include package=".browser" />
 
