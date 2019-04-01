@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.39 (unreleased)
+4.3.39 (2019-04-01)
 -------------------
 
 - Add migration view to convert content types to folderish : WEB-2975
