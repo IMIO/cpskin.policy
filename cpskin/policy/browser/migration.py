@@ -4,7 +4,9 @@ from Products.Five.browser import BrowserView
 from plone import api
 from plone.app.contenttypes.migration import dxmigration
 from plone.app.folder.utils import timer
+from plone.folder.interfaces import IOrdering
 from time import strftime
+from zope.interface import alsoProvides
 import logging
 
 logger = logging.getLogger("cpskin.policy")
@@ -56,6 +58,7 @@ class FolderishTypesMigrationView(BrowserView):
                 if dxmigration.migrate_base_class_to_new_class(
                     obj, migrate_to_folderish=True
                 ):
+                    alsoProvides(obj, IOrdering)
                     migrated.append(obj)
                 else:
                     not_migrated.append(obj)

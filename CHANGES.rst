@@ -4,7 +4,9 @@ Changelog
 4.3.40 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix missing interface on folderish contents. This has been fixed in latest
+  versions of plone.app.contenttypes : WEB-2993
+  [laulaz]
 
 
 4.3.39 (2019-04-01)
