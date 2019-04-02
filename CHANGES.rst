@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.40 (unreleased)
+4.3.40 (2019-04-02)
 -------------------
 
 - Fix missing interface on folderish contents. This has been fixed in latest
