@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.41 (unreleased)
+4.3.41 (2019-04-10)
 -------------------
 
 - Interface should be provided during the migration to avoid some bugs.
