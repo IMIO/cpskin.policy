@@ -4,7 +4,9 @@ Changelog
 4.3.41 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Interface should be provided during the migration to avoid some bugs.
+  plone.app.contenttypes has been modified in that perspective : WEB-2993
+  [laulaz]
 
 
 4.3.40 (2019-04-02)
