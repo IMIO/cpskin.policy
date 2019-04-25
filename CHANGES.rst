@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.42 (unreleased)
+4.3.42 (2019-04-25)
 -------------------
 
 - Add pas.plugins.imio dependency.
