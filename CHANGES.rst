@@ -4,7 +4,8 @@ Changelog
 4.3.42 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add pas.plugins.imio dependency.
+  [bsuttor]
 
 
 4.3.41 (2019-04-10)
