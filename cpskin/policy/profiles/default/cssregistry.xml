@@ -312,7 +312,7 @@
     expression="request/HTTP_X_THEME_ENABLED | nothing"
     id="++theme++cpskin.theme.base/css/mobilemedium.css"
     insert-after="++theme++cpskin.theme.base/css/mobile.css"
-    media="handheld, screen and (max-device-width: 768px), screen and (max-width: 768px)"
+    media="handheld, screen and (min-device-width: 481px) and (max-device-width: 768px), screen and(min-width: 481px) and (max-width: 768px)"
     rel="stylesheet" rendering="import"/>
  <stylesheet title="CPSkin mobile large styles" applyPrefix="True"
     authenticated="False" bundle="default" cacheable="True" compression="safe"
@@ -320,7 +320,7 @@
     expression="request/HTTP_X_THEME_ENABLED | nothing"
     id="++theme++cpskin.theme.base/css/mobilelarge.css"
     insert-after="++theme++cpskin.theme.base/css/mobilemedium.css"
-    media="handheld, screen and (max-device-width: 1024px), screen and (max-width: 1024px)"
+    media="handheld, screen and (min-device-width: 769px) and (max-device-width: 1024px), screen and(min-width: 769px) and (max-width: 1024px)"
     rel="stylesheet" rendering="import"/>
  <stylesheet title="CPSkin fonts" applyPrefix="True" authenticated="False"
     bundle="default" cacheable="False" compression="safe"

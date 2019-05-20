@@ -4,7 +4,8 @@ Changelog
 4.3.43 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Improve CSS media queries sizes
+  [laulaz]
 
 
 4.3.42 (2019-04-25)
