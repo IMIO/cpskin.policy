@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.43 (unreleased)
+4.3.43 (2019-07-09)
 -------------------
 
 - Improve CSS media queries sizes
