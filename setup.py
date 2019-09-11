@@ -72,6 +72,7 @@ setup(
         "collective.autopublishing",
         "collective.folderishtypes",
         "pas.plugins.imio",
+        "collective.captchacontactinfo",
     ],
     extras_require=dict(
         test=[

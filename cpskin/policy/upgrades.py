@@ -13,6 +13,18 @@ import logging
 import transaction
 
 
+def install_collective_captchacontactinfo(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+    portal_setup = api.portal.get_tool('portal_setup')
+    portal_setup.runAllImportStepsFromProfile(
+            'profile-collective.captchacontactinfo:default')
+    logger.info('collective.captchacontactinfo installed')
+    contactinfo_properties = api.portal.get_tool("portal_properties").contactinfo_properties
+    contactinfo_properties.policy_page = "gdpr-view"
+
+
 def install_auto_publishing(context, logger=None):
     if logger is None:
         # Called as upgrade step: define our own logger.

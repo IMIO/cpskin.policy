@@ -27,6 +27,7 @@
   <include package="Products.PloneGazette" />
   <include package="Solgema.fullcalendar" />
   <include package="collective.folderishtypes" />
+  <include package="collective.captchacontactinfo" />
 
   <include package=".browser" />
 

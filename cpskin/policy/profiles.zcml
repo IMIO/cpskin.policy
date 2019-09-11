@@ -189,4 +189,13 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Install collective.captchacontactinfo"
+        description="Install collective.captchacontactinfo"
+        source="19"
+        destination="20"
+        handler="cpskin.policy.upgrades.install_collective_captchacontactinfo"
+        profile="cpskin.policy:default"
+        />
+
 </configure>

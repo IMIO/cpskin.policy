@@ -6,6 +6,9 @@
             <element value="published_and_shown" />
         </property>
     </object>
+    <object name="contactinfo_properties">
+        <property name="policy_page" type="string">gdpr-view</property>
+    </object>
     <object name="imaging_properties" meta_type="Plone Property Sheet">
         <property name="allowed_sizes" type="lines" purge="False">
             <element value="banner 1200:300" />
