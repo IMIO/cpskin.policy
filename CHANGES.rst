@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.44 (unreleased)
+4.3.44 (2020-01-17)
 -------------------
 
 - Add view to fix partially migrated content types to folderish : WEB-3156
