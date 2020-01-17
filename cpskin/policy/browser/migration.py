@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from Products.BTreeFolder2.BTreeFolder2 import BTreeFolder2Base
 from Products.Five.browser import BrowserView
 from plone import api
 from plone.app.contenttypes.migration import dxmigration
 from plone.app.folder.utils import timer
+from plone.folder.interfaces import IOrdering
 from time import strftime
+from zope.interface import alsoProvides
 import logging
 
 logger = logging.getLogger("cpskin.policy")
@@ -32,6 +35,25 @@ class FolderishTypesMigrationView(BrowserView):
         portal_setup.runAllImportStepsFromProfile(
             "profile-collective.folderishtypes.dx:default"
         )
+
+    def fix_folderish_types(self):
+        log = self.mklog()
+        catalog = api.portal.get_tool("portal_catalog")
+        ordering_nb = btree_nb = 0
+        for brain in catalog():
+            obj = brain.getObject()
+            is_container = isinstance(obj, BTreeFolder2Base)
+            if not is_container:
+                continue
+            if not IOrdering.providedBy(obj):
+                alsoProvides(obj, IOrdering)
+                obj.reindexObject(["object_provides"])
+                ordering_nb += 1
+            if obj._tree is None:
+                BTreeFolder2Base._initBTrees(obj)
+                btree_nb += 1
+        log("{0} objects IOrdering interface have been fixed.".format(ordering_nb))
+        log("{0} objects tree have been fixed.".format(btree_nb))
 
     def __call__(self):
         log = self.mklog()

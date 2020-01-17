@@ -4,7 +4,9 @@ Changelog
 4.3.44 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add view to fix partially migrated content types to folderish : WEB-3156
+  Fix view can be called from @@fix-folderishtypes
+  [laulaz]
 
 
 4.3.43 (2019-07-09)

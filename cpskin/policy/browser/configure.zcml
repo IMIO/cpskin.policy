@@ -28,4 +28,13 @@
       layer="..interfaces.ICPSkinPolicyLayer"
       />
 
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="fix-folderishtypes"
+      class=".migration.FolderishTypesMigrationView"
+      attribute="fix_folderish_types"
+      permission="cmf.ManagePortal"
+      layer="..interfaces.ICPSkinPolicyLayer"
+      />
+
 </configure>
