@@ -8,6 +8,9 @@ Changelog
   Fix view can be called from @@fix-folderishtypes
   [laulaz]
 
+- Auto install collective.captchacontactinfo with gdpr link informations + upgrade steps
+  [boulch]
+
 
 4.3.43 (2019-07-09)
 -------------------
