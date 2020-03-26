@@ -8,6 +8,7 @@ Changelog
   Upgrade step :
    - uninstalls Solgema.fullcalendar and dependencies if possible
    - removes not found CSS / JS resources
+   - restrict specific CSS / JS resources to authenticated users
   [laulaz]
 
 

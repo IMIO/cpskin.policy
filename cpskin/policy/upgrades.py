@@ -2,6 +2,7 @@
 from cpskin.policy.setuphandlers import add_cookiescuttr
 from cpskin.policy.setuphandlers import configure_autopublish
 from cpskin.policy.setuphandlers import set_scales_for_image_cropping
+from cpskin.policy.upgrades_data import restricted_resources
 from plone import api
 from plone.app.workflow.remap import remap_workflow
 from Products.CMFCore.utils import getToolByName
@@ -318,6 +319,21 @@ def disable_notfound_resources(logger, tool_id):
             )
 
 
+def restrict_authenticated_resources(logger):
+    for tool_id, resources in restricted_resources.items():
+        tool = api.portal.get_tool(tool_id)
+        for res_id in resources:
+            resource = tool.getResource(res_id)
+            if resource is None:
+                continue
+            resource.setAuthenticated(True)
+            logger.info(
+                'Resource {0} has been restricted to authenticated users in {1}'.format(
+                    res_id, tool_id
+                )
+            )
+
+
 def optimize_performances(context, logger=None):
     if logger is None:
         # Called as upgrade step: define our own logger.
@@ -326,3 +342,4 @@ def optimize_performances(context, logger=None):
     uninstall_fullcalendar(logger)
     disable_notfound_resources(logger, 'portal_css')
     disable_notfound_resources(logger, 'portal_javascripts')
+    restrict_authenticated_resources(logger)
