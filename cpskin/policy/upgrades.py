@@ -304,9 +304,25 @@ def uninstall_fullcalendar(logger):
         logger.info('collective.js.fullcalendar has been uninstalled')
 
 
+def disable_notfound_resources(logger, tool_id):
+    portal = api.portal.get()
+    tool = api.portal.get_tool(tool_id)
+    resources = tool.getEvaluatedResources(portal)
+    site_resources = [r for r in resources if not r.isExternal]
+    resources_ids = [l.getId() for l in site_resources]
+    for res_id in resources_ids:
+        if not portal.restrictedTraverse(res_id, False):
+            tool.unregisterResource(res_id)
+            logger.info(
+                'Resource {0} has been removed from {1}'.format(res_id, tool_id)
+            )
+
+
 def optimize_performances(context, logger=None):
     if logger is None:
         # Called as upgrade step: define our own logger.
         logger = logging.getLogger('cpskin.policy')
 
     uninstall_fullcalendar(logger)
+    disable_notfound_resources(logger, 'portal_css')
+    disable_notfound_resources(logger, 'portal_javascripts')
