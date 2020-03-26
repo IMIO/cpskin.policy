@@ -4,7 +4,8 @@ Changelog
 4.3.45 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add upgrade step to improve performances : WEB-3286
+  [laulaz]
 
 
 4.3.44 (2020-01-17)

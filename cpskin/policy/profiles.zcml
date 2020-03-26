@@ -198,4 +198,13 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Optimize performances"
+        description="Optimize performances by uninstalling products / removing resources"
+        source="20"
+        destination="21"
+        handler="cpskin.policy.upgrades.optimize_performances"
+        profile="cpskin.policy:default"
+        />
+
 </configure>

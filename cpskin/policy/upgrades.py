@@ -5,6 +5,7 @@ from cpskin.policy.setuphandlers import set_scales_for_image_cropping
 from plone import api
 from plone.app.workflow.remap import remap_workflow
 from Products.CMFCore.utils import getToolByName
+from Solgema.fullcalendar.interfaces import ISolgemaFullcalendarMarker
 from zope.component import queryUtility
 from zope.dottedname.resolve import resolve
 from zope.ramcache.interfaces.ram import IRAMCache
@@ -274,3 +275,38 @@ def find_object_or_class(objs, klass):
             return obj
 
     return None
+
+
+def uninstall_fullcalendar(logger):
+    setup_tool = api.portal.get_tool('portal_setup')
+    brains = api.content.find(
+        portal_type=["Folder", "Collection", "Event"],
+        object_provides=ISolgemaFullcalendarMarker.__identifier__,
+    )
+    used = False
+    for brain in brains:
+        obj = brain.getObject()
+        if obj.layout == "solgemafullcalendar_view":
+            used = True
+            break
+    if used:
+        logger.info('Solgema.fullcalendar is used and WILL NOT be uninstalled !')
+    else:
+        setup_tool.runAllImportStepsFromProfile(
+            'profile-Solgema.fullcalendar:uninstall')
+        logger.info('Solgema.fullcalendar has been uninstalled')
+        setup_tool.runAllImportStepsFromProfile(
+            'profile-Solgema.ContextualContentMenu:uninstall')
+        logger.info('Solgema.ContextualContentMenu has been uninstalled')
+        # XXX waiting for collective.js.fullcalendar release !!!
+        setup_tool.runAllImportStepsFromProfile(
+            'profile-collective.js.fullcalendar:uninstall')
+        logger.info('collective.js.fullcalendar has been uninstalled')
+
+
+def optimize_performances(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+
+    uninstall_fullcalendar(logger)
