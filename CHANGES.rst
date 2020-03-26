@@ -5,6 +5,9 @@ Changelog
 -------------------
 
 - Add upgrade step to improve performances : WEB-3286
+  Upgrade step :
+   - uninstalls Solgema.fullcalendar and dependencies if possible
+   - removes not found CSS / JS resources
   [laulaz]
 
 
