@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.45 (unreleased)
+4.3.45 (2020-04-02)
 -------------------
 
 - Add imio.prometheus dependency.
