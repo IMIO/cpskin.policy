@@ -28,6 +28,7 @@
   <include package="Solgema.fullcalendar" />
   <include package="collective.folderishtypes" />
   <include package="collective.captchacontactinfo" />
+  <include package="imio.prometheus" />
 
   <include package=".browser" />
 

@@ -4,7 +4,8 @@ Changelog
 4.3.45 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add imio.prometheus dependency.
+  [bsuttor]
 
 
 4.3.44 (2020-01-17)
