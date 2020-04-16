@@ -4,7 +4,8 @@ Changelog
 4.3.46 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- WEB-3302: Add slick css resource
+  [mpeeters]
 
 
 4.3.45 (2020-04-02)
