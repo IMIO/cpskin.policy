@@ -198,4 +198,13 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Refresh css registry for slick from cpskin.slider"
+        description="Refresh css registry for slick from cpskin.slider"
+        source="20"
+        destination="21"
+        handler="cpskin.policy.upgrades.reload_css_registry"
+        profile="cpskin.policy:default"
+        />
+
 </configure>
