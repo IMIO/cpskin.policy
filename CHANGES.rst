@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.46 (unreleased)
+4.3.46 (2020-04-28)
 -------------------
 
 - WEB-3302: Add slick css resource
