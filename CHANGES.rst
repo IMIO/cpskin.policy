@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.47 (unreleased)
+4.3.47 (2020-05-25)
 -------------------
 
 - Add collective.anysurfer dependency : WEB-3243
