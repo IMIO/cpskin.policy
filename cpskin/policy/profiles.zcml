@@ -207,4 +207,13 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeSteps
+        source="21"
+        destination="22"
+        profile="cpskin.policy:default">
+        <genericsetup:upgradeDepends
+            title="Install Anysurfer"
+            import_profile="collective.anysurfer:default" />
+    </genericsetup:upgradeSteps>
+
 </configure>

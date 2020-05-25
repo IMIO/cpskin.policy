@@ -4,7 +4,8 @@ Changelog
 4.3.47 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add collective.anysurfer dependency : WEB-3243
+  [laulaz]
 
 
 4.3.46 (2020-04-28)

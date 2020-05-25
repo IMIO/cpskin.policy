@@ -29,6 +29,7 @@
   <include package="collective.folderishtypes" />
   <include package="collective.captchacontactinfo" />
   <include package="imio.prometheus" />
+  <include package="collective.anysurfer" />
 
   <include package=".browser" />
 

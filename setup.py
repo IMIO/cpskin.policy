@@ -74,6 +74,7 @@ setup(
         "pas.plugins.imio",
         "collective.captchacontactinfo",
         "imio.prometheus",
+        "collective.anysurfer",
     ],
     extras_require=dict(
         test=[
