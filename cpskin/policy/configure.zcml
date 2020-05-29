@@ -30,6 +30,10 @@
   <include package="collective.captchacontactinfo" />
   <include package="imio.prometheus" />
   <include package="collective.anysurfer" />
+  <include package="iaweb.privacy" />
+  <include package="iaweb.privacy.rules" file="analytics.zcml" />
+  <include package="iaweb.privacy.rules" file="media.zcml" />
+  <include package="iaweb.privacy.rules" file="social.zcml" />
 
   <include package=".browser" />
 

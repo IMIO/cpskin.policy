@@ -75,6 +75,7 @@ setup(
         "collective.captchacontactinfo",
         "imio.prometheus",
         "collective.anysurfer",
+        "iaweb.privacy",
     ],
     extras_require=dict(
         test=[
