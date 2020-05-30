@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.48 (unreleased)
+4.3.48 (2020-05-30)
 -------------------
 
 - Avoid any bug with incomplete requests and eea facetednavigation CSS / JS
