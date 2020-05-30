@@ -283,3 +283,24 @@ def reload_css_registry(context, logger=None):
 
     setup_tool = getToolByName(context, "portal_setup")
     setup_tool.runImportStepFromProfile("profile-cpskin.policy:default", "cssregistry")
+
+
+def improve_eea_expression(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger("cpskin.policy")
+
+    eea_expression = "python:'configure_faceted.html' in request.URL0"
+    eea_fixed_expression = "python:'URL0' in request and 'configure_faceted.html' in request.URL0"
+    portal = api.portal.get()
+    for tool_id in ["portal_javascripts", "portal_css"]:
+        tool = api.portal.get_tool(tool_id)
+        resources = tool.getResources()
+        for resource in resources:
+            if resource.getExpression() == eea_expression:
+                resource.setExpression(eea_fixed_expression)
+                logger.info(
+                    "Resource {0} expression has been fixed in {1}".format(
+                        resource.getId(), tool_id
+                    )
+                )

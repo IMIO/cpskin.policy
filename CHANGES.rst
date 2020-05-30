@@ -4,7 +4,9 @@ Changelog
 4.3.48 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Avoid any bug with incomplete requests and eea facetednavigation CSS / JS
+  conditions : WEB-2975
+  [laulaz]
 
 
 4.3.47 (2020-05-25)

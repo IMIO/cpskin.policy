@@ -216,4 +216,13 @@
             import_profile="collective.anysurfer:default" />
     </genericsetup:upgradeSteps>
 
+    <genericsetup:upgradeStep
+        title="Improve eea expression in CSS / JS registries"
+        description="Expression can cause traceback when request is incomplete"
+        source="22"
+        destination="23"
+        handler="cpskin.policy.upgrades.improve_eea_expression"
+        profile="cpskin.policy:default"
+        />
+
 </configure>
