@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.49 (unreleased)
+4.3.49 (2020-06-11)
 -------------------
 
 - Include permissions.zcml from plone.app.controlpanel to fix plone.restapi permissions.
