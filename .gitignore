@@ -23,3 +23,4 @@ src/
 share/
 pip-selfcheck.json
 htmlcov/
+.coverage
