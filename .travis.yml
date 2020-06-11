@@ -1,16 +1,21 @@
 language: python
+addons:
+  firefox: "62.0.3"
+sudo: true
+cache:
+  directories:
+    - eggs
+    - downloads
 python: 2.7
 install:
-  - mkdir -p buildout-cache/downloads
   - pip install -r requirements.txt
-  - buildout -c travis.cfg -N
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  - buildout -N buildout:download-cache=downloads annotate
+  - buildout -t 30 buildout:download-cache=downloads
 script:
+  - bin/code-analysis
   - bin/test
-  - bin/coverage run bin/test
 after_success:
+  - bin/createcoverage
   - pip install -q coveralls==0.5
   - coveralls
 notifications:
@@ -20,8 +25,3 @@ notifications:
       - devs@imio.be
     on_success: change
     on_failure: change
-  irc:
-    channels:
-      - "irc.freenode.org#imio"
-    on_success: change
-    on_failure: always
