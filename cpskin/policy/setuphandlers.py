@@ -100,6 +100,7 @@ def installPolicy(context):
     # use_email_as_login()
     set_contact_worflow()
     configure_autopublish()
+    ensure_folder_ordering()
 
 
 def configure_autopublish():
@@ -444,3 +445,18 @@ def set_contact_worflow():
     util = queryUtility(IRAMCache)
     if util is not None:
         util.invalidateAll()
+
+
+def ensure_folder_ordering():
+    logger = logging.getLogger("cpskin.policy")
+    portal_catalog = api.portal.get_tool("portal_catalog")
+    brains = portal_catalog({"portal_type": "Folder"})
+    for brain in brains:
+        obj = brain.getObject()
+        if obj._ordering == "unordered":
+            obj.setOrdering(u"")
+            order = obj.getOrdering()
+            for id in obj._tree:
+                if id not in order._order():
+                    order.notifyAdded(id)
+            logger.info("Fixed ordering for folder : {}".format(brain.getURL()))

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from cpskin.policy.setuphandlers import add_cookiescuttr
 from cpskin.policy.setuphandlers import configure_autopublish
+from cpskin.policy.setuphandlers import ensure_folder_ordering
 from cpskin.policy.setuphandlers import set_scales_for_image_cropping
 from plone import api
 from plone.app.workflow.remap import remap_workflow
@@ -304,3 +305,7 @@ def improve_eea_expression(context, logger=None):
                         resource.getId(), tool_id
                     )
                 )
+
+
+def upgrade_ensure_folder_ordering(context):
+    ensure_folder_ordering()

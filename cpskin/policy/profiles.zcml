@@ -225,4 +225,13 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Ensure folders can all be ordered"
+        description=""
+        source="23"
+        destination="24"
+        handler="cpskin.policy.upgrades.upgrade_ensure_folder_ordering"
+        profile="cpskin.policy:default"
+        />
+
 </configure>

@@ -4,7 +4,9 @@ Changelog
 4.3.50 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add upgrade / change setup to ensure that all folders are orderable
+  We had bugs with news / events folders and previous / next navigation
+  [laulaz]
 
 
 4.3.49 (2020-06-11)
