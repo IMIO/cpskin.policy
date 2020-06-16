@@ -8,6 +8,9 @@ Changelog
   We had bugs with news / events folders and previous / next navigation
   [laulaz]
 
+- Remove include of permissions.zcml from plone.app.controlpanel, it's fixed on plone.restapi 6.13.2.
+  [bsuttor]
+
 
 4.3.49 (2020-06-11)
 -------------------
