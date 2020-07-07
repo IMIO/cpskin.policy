@@ -8,11 +8,13 @@ from plone import api
 from plone.app.event.interfaces import IEventSettings
 from plone.app.workflow.remap import remap_workflow
 from plone.contentrules.engine.interfaces import IRuleStorage
+from plone.folder.default import DefaultOrdering
 from plone.registry.interfaces import IRegistry
 from Products.ATContentTypes.lib import constraintypes
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces.syndication import IFeedSettings
 from Products.CMFPlone.utils import _createObjectByType
+from zope.annotation.interfaces import IAnnotations
 from zope.component import getUtility
 from zope.component import queryUtility
 from zope.interface import alsoProvides
@@ -448,12 +450,18 @@ def set_contact_worflow():
 
 
 def ensure_folder_ordering():
+    old_order_key = DefaultOrdering.ORDER_KEY
     logger = logging.getLogger("cpskin.policy")
     portal_catalog = api.portal.get_tool("portal_catalog")
     brains = portal_catalog({"portal_type": "Folder"})
     for brain in brains:
         obj = brain.getObject()
         if obj._ordering == "unordered":
+            annotations = IAnnotations(obj)
+            if old_order_key in annotations:
+                # old order stuff remained in annotation and can breaks
+                # objectIds() with missing old stored objects ids
+                del annotations[old_order_key]
             obj.setOrdering(u"")
             order = obj.getOrdering()
             for id in obj._tree:
