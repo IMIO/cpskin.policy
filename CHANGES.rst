@@ -4,6 +4,9 @@ Changelog
 4.3.50 (unreleased)
 -------------------
 
+- WEB-3347: Keep object position in parent folder after folderish migration
+  [laulaz]
+
 - WEB-3304: Set cpskin.diazotheme.newDream as default theme instead of classic.
   [boulch]
 

@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from Acquisition import aq_inner
+from Acquisition import aq_parent
+from OFS.interfaces import IOrderedContainer
 from Products.BTreeFolder2.BTreeFolder2 import BTreeFolder2Base
 from Products.Five.browser import BrowserView
 from plone import api
@@ -75,10 +78,18 @@ class FolderishTypesMigrationView(BrowserView):
             obj = brain.getObject()
             old_class_name = dxmigration.get_old_class_name_string(obj)
             if old_class_name in changed_base_classes:
+                obj_id = obj.getId()
+                parent = aq_parent(aq_inner(obj))
+                position_in_parent = None
+                ordered = IOrderedContainer(parent, None)
+                if ordered is not None:
+                    position_in_parent = ordered.getObjectPosition(obj_id)
                 if dxmigration.migrate_base_class_to_new_class(
                     obj, migrate_to_folderish=True
                 ):
                     migrated.append(obj)
+                    if position_in_parent is not None:
+                        ordered.moveObject(obj_id, position_in_parent)
                 else:
                     not_migrated.append(obj)
 
