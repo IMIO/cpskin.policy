@@ -44,7 +44,7 @@ setup(
         "cpskin.caching",
         "cpskin.contenttypes",
         "cpskin.core",
-        "cpskin.diazotheme.classic",
+        "cpskin.diazotheme.newDream",
         "cpskin.menu",
         "cpskin.minisite",
         "cpskin.slider",

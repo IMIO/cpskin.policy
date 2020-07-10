@@ -355,18 +355,18 @@
     id="solgemafullcalendar.css"
     insert-after="solgema_contextualcontentmenu.css" media="all"
     rel="stylesheet" rendering="import"/>
- <stylesheet title="cpskin.diazotheme.classic styles" applyPrefix="True"
+ <stylesheet title="cpskin.diazotheme.newDream styles" applyPrefix="True"
     authenticated="False" bundle="default" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="on"
-    expression="python:here.restrictedTraverse('@@currentTheme')() == 'cpskin.diazotheme.classic'"
-    id="++theme++cpskin.diazotheme.classic/css/theme-styles.css"
+    expression="python:here.restrictedTraverse('@@currentTheme')() == 'cpskin.diazotheme.newDream'"
+    id="++theme++cpskin.diazotheme.newDream/css/styles.css"
     insert-after="solgemafullcalendar.css" media="screen" rel="stylesheet"
     rendering="import"/>
  <stylesheet title="" applyPrefix="True" authenticated="False"
     bundle="default" cacheable="True" compression="safe"
     conditionalcomment="lt ie 8" cookable="True" enabled="False" expression=""
     id="++resource++collective.js.leaflet/leaflet.ie.css"
-    insert-after="++theme++cpskin.diazotheme.classic/css/theme-styles.css"
+    insert-after="++theme++cpskin.diazotheme.newDream/css/styles.css"
     media="screen" rel="stylesheet" rendering="import"/>
  <stylesheet title="" applyPrefix="True" authenticated="False"
     bundle="leaflet.markercluster" cacheable="True" compression="safe"

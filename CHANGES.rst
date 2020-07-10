@@ -4,6 +4,9 @@ Changelog
 4.3.50 (unreleased)
 -------------------
 
+- WEB-3304: Set cpskin.diazotheme.newDream as default theme instead of classic.
+  [boulch]
+
 - Add upgrade / change setup to ensure that all folders are orderable
   We had bugs with news / events folders and previous / next navigation
   [laulaz]

@@ -9,7 +9,7 @@
 
   <include package="cpskin.core" />
   <include package="cpskin.agenda" />
-  <include package="cpskin.diazotheme.classic" />
+  <include package="cpskin.diazotheme.newDream" />
   <include package="cpskin.menu" />
   <include package="cpskin.minisite" />
   <include package="cpskin.theme" />
