@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.50 (unreleased)
+4.3.50 (2020-09-17)
 -------------------
 
 - WEB-3347: Keep object position in parent folder after folderish migration
