@@ -4,7 +4,8 @@ Changelog
 4.3.51 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- WEB-3449: Make folderish migration more robust
+  [laulaz]
 
 
 4.3.50 (2020-09-17)

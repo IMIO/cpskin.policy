@@ -65,13 +65,16 @@ class FolderishTypesMigrationView(BrowserView):
         self.install_folderish_types()
         log("collective.folderishtypes installed.")
 
+        catalog = api.portal.get_tool("portal_catalog")
+        catalog.clearFindAndRebuild()
+        log("Portal catalog has been rebuilt.")
+
         changed_base_classes = [
             "plone.app.contenttypes.content.Document",
             "plone.app.contenttypes.content.NewsItem",
             "plone.app.contenttypes.content.Event",
         ]
 
-        catalog = api.portal.get_tool("portal_catalog")
         migrated = []
         not_migrated = []
         for brain in catalog():
