@@ -2,6 +2,8 @@
 
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from collective.preventactions.interfaces import IPreventDelete
+from collective.preventactions.interfaces import IPreventMoveOrRename
 from OFS.interfaces import IOrderedContainer
 from Products.BTreeFolder2.BTreeFolder2 import BTreeFolder2Base
 from Products.Five.browser import BrowserView
@@ -11,6 +13,7 @@ from plone.app.folder.utils import timer
 from plone.folder.interfaces import IOrdering
 from time import strftime
 from zope.interface import alsoProvides
+from zope.interface import noLongerProvides
 import logging
 
 logger = logging.getLogger("cpskin.policy")
@@ -81,8 +84,15 @@ class FolderishTypesMigrationView(BrowserView):
             obj = brain.getObject()
             old_class_name = dxmigration.get_old_class_name_string(obj)
             if old_class_name in changed_base_classes:
+                prevented_delete = prevented_move = False
                 obj_id = obj.getId()
                 parent = aq_parent(aq_inner(obj))
+                if IPreventDelete.providedBy(obj):
+                    prevented_delete = True
+                    noLongerProvides(obj, IPreventDelete)
+                if IPreventMoveOrRename.providedBy(obj):
+                    prevented_move = True
+                    noLongerProvides(obj, IPreventMoveOrRename)
                 position_in_parent = None
                 ordered = IOrderedContainer(parent, None)
                 if ordered is not None:
@@ -93,6 +103,10 @@ class FolderishTypesMigrationView(BrowserView):
                     migrated.append(obj)
                     if position_in_parent is not None:
                         ordered.moveObject(obj_id, position_in_parent)
+                    if prevented_delete:
+                        alsoProvides(obj, IPreventDelete)
+                    if prevented_move:
+                        alsoProvides(obj, IPreventMoveOrRename)
                 else:
                     not_migrated.append(obj)
 

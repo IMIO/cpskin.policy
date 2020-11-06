@@ -4,6 +4,9 @@ Changelog
 4.3.51 (unreleased)
 -------------------
 
+- WEB-3449: Handle prevent actions in folderish migration
+  [laulaz]
+
 - WEB-3449: Make folderish migration more robust
   [laulaz]
 
