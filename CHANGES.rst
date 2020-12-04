@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.52 (unreleased)
+4.3.52 (2020-12-04)
 -------------------
 
 - Fix setup.py parsing.
