@@ -4,7 +4,8 @@ Changelog
 4.3.52 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix setup.py parsing.
+  [bsuttor]
 
 
 4.3.51 (2020-12-04)
