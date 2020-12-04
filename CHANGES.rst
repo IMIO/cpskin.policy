@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.51 (unreleased)
+4.3.51 (2020-12-04)
 -------------------
 
 - WEB-3480: Fix strange error during upgrade step on some of our instance.

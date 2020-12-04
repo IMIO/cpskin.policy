@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
 
-version = '4.3.51.dev0'
+version = "4.3.51"
 
 from setuptools import setup, find_packages
 
 long_description = (
-    open("README.rst").read() + "\n" + "Contributors\n"
-    "============\n"
-    + "\n"
-    + open("CONTRIBUTORS.rst").read()
-    + "\n"
-    + open("CHANGES.rst").read()
-    + "\n"
+    open("README.rst").read() + "\n" + "\n" + open("CHANGES.rst").read() + "\n"
 )
 
 setup(
