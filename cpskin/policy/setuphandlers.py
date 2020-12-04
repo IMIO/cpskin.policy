@@ -456,7 +456,7 @@ def ensure_folder_ordering():
     brains = portal_catalog({"portal_type": "Folder"})
     for brain in brains:
         obj = brain.getObject()
-        if obj._ordering == "unordered":
+        if obj and obj._ordering == "unordered":
             annotations = IAnnotations(obj)
             if old_order_key in annotations:
                 # old order stuff remained in annotation and can breaks
