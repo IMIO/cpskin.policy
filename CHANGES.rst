@@ -1,7 +1,13 @@
 Changelog
 =========
 
-4.3.53 (unreleased)
+4.3.54 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+4.3.53 (2021-01-13)
 -------------------
 
 - WEB-3487 : Install or update new collective.anysurfer accessibility text.
