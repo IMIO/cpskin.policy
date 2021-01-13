@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.54 (unreleased)
+4.3.54 (2021-01-13)
 -------------------
 
 - Previous release (4.3.53) failed on PYPI.
