@@ -4,7 +4,8 @@ Changelog
 4.3.55 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Small changes in accessibility text.
+  [boulch]
 
 
 4.3.54 (2021-01-13)
