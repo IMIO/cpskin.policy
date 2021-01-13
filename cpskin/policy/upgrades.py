@@ -3,6 +3,7 @@ from cpskin.policy.setuphandlers import add_cookiescuttr
 from cpskin.policy.setuphandlers import configure_autopublish
 from cpskin.policy.setuphandlers import ensure_folder_ordering
 from cpskin.policy.setuphandlers import set_scales_for_image_cropping
+from cpskin.policy.setuphandlers import update_accessibility_text_fr
 from plone import api
 from plone.app.workflow.remap import remap_workflow
 from Products.CMFCore.utils import getToolByName
@@ -309,3 +310,7 @@ def improve_eea_expression(context, logger=None):
 
 def upgrade_ensure_folder_ordering(context):
     ensure_folder_ordering()
+
+
+def upgrade_accessibility_text_fr(context):
+    update_accessibility_text_fr()

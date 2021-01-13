@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collective.anysurfer import utils
 from collective.autopublishing.browser.autopublishsettings import (
     AutopublishSpecification,
 )
@@ -10,6 +11,7 @@ from cpskin.core.interfaces import IFolderViewSelectedContent
 from cpskin.locales import CPSkinMessageFactory as _
 from plone import api
 from plone.app.event.interfaces import IEventSettings
+from plone.app.textfield.value import RichTextValue
 from plone.app.workflow.remap import remap_workflow
 from plone.contentrules.engine.interfaces import IRuleStorage
 from plone.folder.default import DefaultOrdering
@@ -514,3 +516,30 @@ def ensure_folder_ordering():
                 if id not in order._order():
                     order.notifyAdded(id)
             logger.info("Fixed ordering for folder : {}".format(brain.getURL()))
+
+
+def update_accessibility_text_fr():
+    registry_key = (
+        "collective.anysurfer.interfaces.IAnysurferSettings.accessibility_translations"
+    )
+
+    new_text = "<h1>Déclaration sur l’accessibilité</h1><p>L’administration communale s'engage à rendre ce site internet accessible, conformément au <a href=\"http://www.ejustice.just.fgov.be/cgi/article_body.pl?language=fr&amp;caller=summary&amp;pub_date=19-09-05&amp;numac=2019203962\">décret du 2 mai 2019 relatif à l'accessibilité des sites internet et des applications mobiles des organismes du secteur public</a> .</p><p>La présente déclaration sur l'accessibilité s'applique au site web:<p>[https://www.macommune.be]</p></p><h2>État de conformité</h2><p>Ce site internet est en conformité partielle en raison des non-conformités et des exemptions énumérées ci-dessous.</p><h2>Contenu non accessible</h2><p>Le contenu visé ci-après n'est pas accessible pour la/les raison(s) suivante(s):</p><h3>Texte sous forme d'image</h3><p>Ce site est susceptible de présenter des logotypes dont le texte n’est pas accessible.</p><p>Le logotype renvoyant vers la page d'accueil du site comprend le nom de la commune et sa devise sous forme d’image. Cette information est néanmoins reprise en texte alternatif de l’image.</p><h3>Charge disproportionnée</h3><p>Ce site comporte de nombreux fichiers dont l'accessibilité n'a pas été évaluée à ce jour pour cause de charge disproportionnée. Les agents des services concernés se tiennent néanmoins à la disposition de tout citoyen qui rencontrerait des difficultés dans l'exécution d’une démarche.</p><h2>Préparation de la présente déclaration sur l'accessibilité</h2><p>La présente déclaration a été préparée le 14/09/2020 à l’aide de l’<a href=\"https://apps.digital.belgium.be/forms/show_/bosa/accessibility-statement\">Assistant au remplissage de la déclaration sur l’accessibilité</a> du <a href=\"https://bosa.belgium.be/\">BOSA</a>.</p><p>Plusieurs actions ont été menées pour évaluer et améliorer l’accessibilité de ce site internet :</p><ul><li>une analyse technique du CMS Plone par l'intercommunale iMio ;</li><li>une évaluation des fonctionnalités du CMS Plone par Anysurfer ;</li><li>une optimisation du CMS Plone par l’intercommunale iMio.</li><li>Le dernier réexamen de cette déclaration a eu lieu le 22/09/2020.</li></ul><h2>Retour d'information et coordonnées de contact</h2><p>Pour signaler tout défaut dans l'accessibilité de ce site internet, nous vous invitons à adresser un courriel à [contact@macommune.be].</p><h2>Procédure permettant d'assurer le respect des dispositions</h2><p>Si la réponse apportée à votre requête ne vous donne pas entière satisfaction, il vous est alors possible de rapporter le manquement subi au Collège communal.</p>"
+
+    richtext_object = RichTextValue(new_text, 'text/html', 'text/html')
+
+    default_text = utils.get_default_text_translations()
+    registry = getUtility(IRegistry)
+    records = registry.records
+    if registry_key not in records:
+        api.portal.set_registry_record(
+            registry_key, [{"text": new_text, "language": "fr"}]
+        )
+    else:
+        for v in default_text:
+            if v.get("language") == "fr":
+                record = records[registry_key]
+                record_text = [v for v in record.value if v.get("language") == "fr"][0].get("text").output
+                if v.get("text").output == record_text:
+                    api.portal.set_registry_record(
+                        registry_key, [{"text": richtext_object, "language": u"fr"}]
+                    )

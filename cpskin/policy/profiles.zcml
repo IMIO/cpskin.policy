@@ -234,4 +234,12 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+      source="24"
+      destination="25"
+      title="Update accessibility text (fr)"
+      description="Update accessibility text (fr)"
+      handler="cpskin.policy.upgrades.upgrade_accessibility_text_fr"
+      profile="cpskin.policy:default"
+    />
 </configure>

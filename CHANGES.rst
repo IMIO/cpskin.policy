@@ -4,7 +4,8 @@ Changelog
 4.3.53 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- WEB-3487 : Install or update new collective.anysurfer accessibility text.
+  [boulch]
 
 
 4.3.52 (2020-12-04)
