@@ -4,7 +4,8 @@ Changelog
 4.3.54 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Previous release (4.3.53) failed on PYPI.
+  [boulch]
 
 
 4.3.53 (2021-01-13)
