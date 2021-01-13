@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.55 (unreleased)
+4.3.55 (2021-01-13)
 -------------------
 
 - Small changes in accessibility text.
