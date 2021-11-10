@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.56 (unreleased)
+4.3.56 (2021-11-10)
 -------------------
 
 - Add subscriber (and upgrade step) to remove (duplicated) contact behavior from organization
