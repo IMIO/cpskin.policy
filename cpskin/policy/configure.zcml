@@ -52,4 +52,8 @@
      for="collective.timedevents.interfaces.IIntervalTicksHourlyEvent"
      handler="collective.autopublishing.eventhandler.autopublish_handler" />
 
+  <subscriber
+     for="Products.GenericSetup.interfaces.IProfileImportedEvent"
+     handler=".subscribers.imported_profile" />
+
 </configure>

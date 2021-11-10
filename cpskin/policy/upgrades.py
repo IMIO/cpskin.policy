@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from cpskin.core.utils import remove_behavior
 from cpskin.policy.setuphandlers import add_cookiescuttr
 from cpskin.policy.setuphandlers import configure_autopublish
 from cpskin.policy.setuphandlers import ensure_folder_ordering
@@ -114,8 +115,6 @@ def remove_old_contentleadimage(context, logger=None):
             if x.__module__ == util_klass.__module__ and x == util_klass:
                 for name, klass in utility_registrations[x].items():
                     found = find_object_or_class(klass, reg_klass)
-                    # if found:
-                    #     import pdb; pdb.set_trace()
                     if found:
                         if type(utility_registrations[x][name]) in \
                                 [list, tuple, set]:
@@ -314,3 +313,7 @@ def upgrade_ensure_folder_ordering(context):
 
 def upgrade_accessibility_text_fr(context):
     update_accessibility_text_fr()
+
+
+def remove_contact_behavior(context):
+    remove_behavior("organization", "collective.contact.core.behaviors.IContactDetails")

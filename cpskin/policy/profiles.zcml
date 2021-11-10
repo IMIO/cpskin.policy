@@ -235,11 +235,20 @@
         />
 
     <genericsetup:upgradeStep
-      source="24"
-      destination="25"
-      title="Update accessibility text (fr)"
-      description="Update accessibility text (fr)"
-      handler="cpskin.policy.upgrades.upgrade_accessibility_text_fr"
-      profile="cpskin.policy:default"
-    />
+        source="24"
+        destination="25"
+        title="Update accessibility text (fr)"
+        description="Update accessibility text (fr)"
+        handler="cpskin.policy.upgrades.upgrade_accessibility_text_fr"
+        profile="cpskin.policy:default"
+      />
+
+    <genericsetup:upgradeStep
+        source="25"
+        destination="26"
+        title="Remove duplicate contact behavior"
+        description="Remove duplicate contact behavior"
+        handler="cpskin.policy.upgrades.remove_contact_behavior"
+        profile="cpskin.policy:default"
+      />
 </configure>

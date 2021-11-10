@@ -4,7 +4,9 @@ Changelog
 4.3.56 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add subscriber (and upgrade step) to remove (duplicated) contact behavior from organization
+  Behavior may come back with collective.contact.core TypeInfo
+  [boulch]
 
 
 4.3.55 (2021-01-13)
