@@ -21,7 +21,6 @@
     <dependency>profile-Solgema.fullcalendar:default</dependency>
     <dependency>profile-cpskin.diazotheme.newDream:default</dependency>
     <dependency>profile-collective.atomrss:default</dependency>
-    <dependency>profile-collective.cookiecuttr:default</dependency>
     <dependency>profile-plone.app.imagecropping:default</dependency>
     <dependency>profile-collective.autoscaling:default</dependency>
     <dependency>profile-collective.limitfilesizepanel:default</dependency>

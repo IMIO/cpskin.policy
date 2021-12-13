@@ -109,7 +109,6 @@ def installPolicy(context):
 
     add_alaune(portal)
     create_menu(portal)
-    add_cookiescuttr(portal)
     set_scales_for_image_cropping()
     enable_sitemap(portal)
     add_mail_host()

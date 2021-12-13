@@ -4,7 +4,9 @@ Changelog
 4.3.57 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- WEB-3260: Remove collective.cookiecuttr installation code
+  Product will be replaced by collective.privacy
+  [laulaz]
 
 
 4.3.56 (2021-11-10)
