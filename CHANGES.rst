@@ -4,6 +4,14 @@ Changelog
 4.3.57 (unreleased)
 -------------------
 
+- WEB-3286: Add upgrade step to improve performances:
+
+  - uninstalls Solgema.fullcalendar and dependencies if possible
+  - removes not found CSS / JS resources
+  - restrict specific CSS / JS resources to authenticated users
+
+  [laulaz]
+
 - WEB-3260: Remove collective.cookiecuttr installation code
   Product will be replaced by collective.privacy
   [laulaz]

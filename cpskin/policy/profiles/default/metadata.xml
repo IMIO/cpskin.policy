@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>26</version>
+  <version>27</version>
   <dependencies>
     <dependency>profile-plone.app.caching:default</dependency>
     <dependency>profile-plone.app.caching:with-caching-proxy</dependency>
@@ -18,7 +18,6 @@
     <dependency>profile-collective.jekyll:default</dependency>
     <dependency>profile-Products.PloneFormGen:default</dependency>
     <dependency>profile-Products.PloneGazette:default</dependency>
-    <dependency>profile-Solgema.fullcalendar:default</dependency>
     <dependency>profile-cpskin.diazotheme.newDream:default</dependency>
     <dependency>profile-collective.atomrss:default</dependency>
     <dependency>profile-plone.app.imagecropping:default</dependency>

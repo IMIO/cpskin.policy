@@ -5,9 +5,11 @@ from cpskin.policy.setuphandlers import configure_autopublish
 from cpskin.policy.setuphandlers import ensure_folder_ordering
 from cpskin.policy.setuphandlers import set_scales_for_image_cropping
 from cpskin.policy.setuphandlers import update_accessibility_text_fr
+from cpskin.policy.upgrades_data import restricted_resources
 from plone import api
 from plone.app.workflow.remap import remap_workflow
 from Products.CMFCore.utils import getToolByName
+from Solgema.fullcalendar.interfaces import ISolgemaFullcalendarMarker
 from zope.component import queryUtility
 from zope.dottedname.resolve import resolve
 from zope.ramcache.interfaces.ram import IRAMCache
@@ -317,3 +319,70 @@ def upgrade_accessibility_text_fr(context):
 
 def remove_contact_behavior(context):
     remove_behavior("organization", "collective.contact.core.behaviors.IContactDetails")
+
+
+def uninstall_fullcalendar(logger):
+    setup_tool = api.portal.get_tool('portal_setup')
+    brains = api.content.find(
+        portal_type=["Folder", "Collection", "Event"],
+        object_provides=ISolgemaFullcalendarMarker.__identifier__,
+    )
+    used = False
+    for brain in brains:
+        obj = brain.getObject()
+        if obj.layout == "solgemafullcalendar_view":
+            used = True
+            break
+    if used:
+        logger.info('Solgema.fullcalendar is used and WILL NOT be uninstalled !')
+    else:
+        setup_tool.runAllImportStepsFromProfile(
+            'profile-Solgema.fullcalendar:uninstall')
+        logger.info('Solgema.fullcalendar has been uninstalled')
+        setup_tool.runAllImportStepsFromProfile(
+            'profile-Solgema.ContextualContentMenu:uninstall')
+        logger.info('Solgema.ContextualContentMenu has been uninstalled')
+        # XXX waiting for collective.js.fullcalendar release !!!
+        setup_tool.runAllImportStepsFromProfile(
+            'profile-collective.js.fullcalendar:uninstall')
+        logger.info('collective.js.fullcalendar has been uninstalled')
+
+
+def disable_notfound_resources(logger, tool_id):
+    portal = api.portal.get()
+    tool = api.portal.get_tool(tool_id)
+    resources = tool.getEvaluatedResources(portal)
+    site_resources = [r for r in resources if not r.isExternal]
+    resources_ids = [l.getId() for l in site_resources]
+    for res_id in resources_ids:
+        if not portal.restrictedTraverse(res_id, False):
+            tool.unregisterResource(res_id)
+            logger.info(
+                'Resource {0} has been removed from {1}'.format(res_id, tool_id)
+            )
+
+
+def restrict_authenticated_resources(logger):
+    for tool_id, resources in restricted_resources.items():
+        tool = api.portal.get_tool(tool_id)
+        for res_id in resources:
+            resource = tool.getResource(res_id)
+            if resource is None:
+                continue
+            resource.setAuthenticated(True)
+            logger.info(
+                'Resource {0} has been restricted to authenticated users in {1}'.format(
+                    res_id, tool_id
+                )
+            )
+
+
+def optimize_performances(context, logger=None):
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('cpskin.policy')
+
+    uninstall_fullcalendar(logger)
+    disable_notfound_resources(logger, 'portal_css')
+    disable_notfound_resources(logger, 'portal_javascripts')
+    restrict_authenticated_resources(logger)

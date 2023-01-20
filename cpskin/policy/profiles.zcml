@@ -251,4 +251,14 @@
         handler="cpskin.policy.upgrades.remove_contact_behavior"
         profile="cpskin.policy:default"
       />
+
+    <genericsetup:upgradeStep
+        title="Optimize performances"
+        description="Optimize performances by uninstalling products / removing resources"
+        source="26"
+        destination="27"
+        handler="cpskin.policy.upgrades.optimize_performances"
+        profile="cpskin.policy:default"
+        />
+
 </configure>
