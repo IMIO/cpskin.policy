@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.57 (unreleased)
+4.3.57 (2023-02-03)
 -------------------
 
 - WEB-3286: Add upgrade step to improve performances:
