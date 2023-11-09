@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.58 (unreleased)
+4.3.58 (2023-11-09)
 -------------------
 
 - WEB-3611 : Security fix : Remove image_view_fullscreen from caching
