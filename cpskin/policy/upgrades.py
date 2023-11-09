@@ -386,3 +386,21 @@ def optimize_performances(context, logger=None):
     disable_notfound_resources(logger, 'portal_css')
     disable_notfound_resources(logger, 'portal_javascripts')
     restrict_authenticated_resources(logger)
+
+
+def remove_image_view_fullscreen_from_caching(context, logger=None):
+    # https://support.imio.be/browse/WEB-3611
+    # https://community.plone.org/t/security-fix-for-image-view-fullscreen-cache-poisoning/14757
+
+    dict = {
+        "accessibility-info": "plone.content.itemView",
+        "rss.xml": "plone.content.feed",
+        "image_view": "plone.content.itemView",
+        "atom.xml": "plone.content.feed",
+        "itunes.xml": "plone.content.feed",
+        "search_rss": "plone.content.feed",
+        "file_view": "plone.content.itemView",
+        "sitemap": "plone.content.itemView",
+        "RSS": "plone.content.feed"
+    }
+    api.portal.set_registry_record("plone.app.caching.interfaces.IPloneCacheSettings.templateRulesetMapping", dict)

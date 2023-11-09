@@ -261,4 +261,13 @@
         profile="cpskin.policy:default"
         />
 
+    <genericsetup:upgradeStep
+        title="Remove image_view_fullscreen from caching"
+        description="Remove image_view_fullscreen from caching / security fix"
+        source="27"
+        destination="28"
+        handler="cpskin.policy.upgrades.remove_image_view_fullscreen_from_caching"
+        profile="cpskin.policy:default"
+        />
+
 </configure>

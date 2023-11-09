@@ -4,7 +4,8 @@ Changelog
 4.3.58 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- WEB-3611 : Security fix : Remove image_view_fullscreen from caching
+  [boulch]
 
 
 4.3.57 (2023-02-03)
