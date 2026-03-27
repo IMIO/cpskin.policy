@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.59 (unreleased)
+4.3.59 (2026-03-27)
 -------------------
 
 - Do not load geotransform, cloudfare do that for us now.
