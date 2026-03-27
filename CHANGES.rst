@@ -4,7 +4,8 @@ Changelog
 4.3.59 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Do not load geotransform, cloudfare do that for us now.
+  [bsuttor]
 
 
 4.3.58 (2023-11-09)

@@ -3,7 +3,7 @@
   <!-- Dependencies -->
   <include package="plone.app.caching" />
   <include package="collective.contentrules.runscript" />
-  <include package="collective.geotransform" />
+  <!--include package="collective.geotransform" /-->
   <include package="plone.restapi" />
 
 
