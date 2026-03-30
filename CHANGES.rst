@@ -4,7 +4,9 @@ Changelog
 4.3.61 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix release: use setuptools < 69.3 to keep dots in sdist filename,
+  required for compatibility with old zc.buildout/pip in Docker image.
+  [bsuttor]
 
 
 4.3.60 (2026-03-30)
