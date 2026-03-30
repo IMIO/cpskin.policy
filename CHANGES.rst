@@ -4,7 +4,8 @@ Changelog
 4.3.60 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add cfg to release on py2 and py3
+  [bsuttor]
 
 
 4.3.59 (2026-03-27)
