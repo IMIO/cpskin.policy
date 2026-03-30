@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.60 (unreleased)
+4.3.60 (2026-03-30)
 -------------------
 
 - Add cfg to release on py2 and py3
