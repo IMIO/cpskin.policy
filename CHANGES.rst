@@ -4,7 +4,9 @@ Changelog
 4.3.62 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix release: pin setuptools < 69.3 in pyproject.toml to keep dots in
+  sdist/wheel filenames, compatible with old zc.buildout/pip.
+  [bsuttor]
 
 
 4.3.61 (2026-03-30)
