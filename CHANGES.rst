@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.61 (unreleased)
+4.3.61 (2026-03-30)
 -------------------
 
 - Fix release: use setuptools < 69.3 to keep dots in sdist filename,
