@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-version = '4.3.62.dev0'
+version = "4.3.62.dev0"
 
 from setuptools import setup, find_packages
 
@@ -33,7 +33,6 @@ setup(
         "setuptools",
         "Plone",
         "collective.contentrules.runscript",
-        "collective.geotransform",
         "cpskin.agenda",
         "cpskin.caching",
         "cpskin.contenttypes",
