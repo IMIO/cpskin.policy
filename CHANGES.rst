@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3.62 (unreleased)
+4.3.62 (2026-04-01)
 -------------------
 
 - Fix release: pin setuptools < 69.3 in pyproject.toml to keep dots in
